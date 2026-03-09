@@ -104,6 +104,7 @@ justify-content:center;
 align-items:center;
 text-align:center;
 gap:10px;
+position:relative;
 
 background:
 linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
@@ -116,8 +117,8 @@ background-repeat:no-repeat;
 
 .hero h1{
 font-family:'Montserrat', sans-serif;
-font-size:140px;
-letter-spacing:12px;
+font-size:120px;
+letter-spacing:10px;
 margin:0;
 font-weight:700;
 text-shadow:0 10px 30px rgba(0,0,0,0.8);
@@ -226,6 +227,38 @@ background-position:center top;
   
 }
 
+.scroll-indicator{
+position:absolute;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.scroll-indicator span{
+display:block;
+width:20px;
+height:20px;
+border-bottom:2px solid #ff2a2a;
+border-right:2px solid #ff2a2a;
+transform:rotate(45deg);
+animation:scrollBounce 2s infinite;
+}
+
+@keyframes scrollBounce{
+0%{
+transform:rotate(45deg) translateY(0);
+opacity:1;
+}
+50%{
+transform:rotate(45deg) translateY(10px);
+opacity:0.6;
+}
+100%{
+transform:rotate(45deg) translateY(0);
+opacity:1;
+}
+}
+
 </style>
 
 </head>
@@ -261,6 +294,10 @@ background-position:center top;
 
 <a href="about.html" class="button secondary">Meet The Photographer</a>
 
+</div>
+
+<div class="scroll-indicator">
+<span></span>
 </div>
   
 </section>

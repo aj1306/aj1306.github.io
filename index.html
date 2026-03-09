@@ -89,6 +89,7 @@ width:100%;
 color:#ff2a2a;
 }
 
+/* HERO SECTION */
 
 .hero{
 min-height:100vh;
@@ -108,8 +109,10 @@ background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
 
-animation:heroZoom 18s ease-in-out infinite alternate;
+animation:heroZoom 20s ease-in-out infinite alternate;
 }
+
+/* HERO TITLE */
 
 .hero h1{
 font-family:'Montserrat', sans-serif;
@@ -122,15 +125,18 @@ text-shadow:0 10px 30px rgba(0,0,0,0.8);
 animation:fadeUp 1s ease forwards;
 }
 
+/* TAGLINE */
+
 .hero p{
 font-size:22px;
 margin-top:20px;
 margin-bottom:40px;
 opacity:0.85;
 
-animation:fadeUp 1.3s ease forwards;
+animation:fadeUp 1.4s ease forwards;
 }
 
+/* BUTTON AREA */
 
 .hero-buttons{
 display:flex;
@@ -138,8 +144,10 @@ align-items:center;
 justify-content:center;
 gap:25px;
 
-animation:fadeUp 1.6s ease forwards;
+animation:fadeUp 1.8s ease forwards;
 }
+
+/* BUTTONS */
 
 .button{
 display:inline-flex;
@@ -170,7 +178,7 @@ border:2px solid #ff2a2a;
 background:#ff2a2a;
 }
 
-
+/* DIVIDER */
 
 .divider{
 width:2px;
@@ -179,7 +187,7 @@ background:#ff2a2a;
 box-shadow:0 0 10px rgba(255,42,42,0.7);
 }
 
-
+/* SCROLL INDICATOR */
 
 .scroll-indicator{
 position:absolute;
@@ -198,14 +206,41 @@ transform:rotate(45deg);
 animation:scrollBounce 2s infinite;
 }
 
+/* ANIMATIONS */
+
 @keyframes scrollBounce{
 0%{transform:rotate(45deg) translateY(0);}
 50%{transform:rotate(45deg) translateY(10px);}
 100%{transform:rotate(45deg) translateY(0);}
 }
 
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes heroZoom{
+0%{
+background-size:100%;
+}
+100%{
+background-size:110%;
+}
+}
+
+/* MOBILE RESPONSIVE */
 
 @media (max-width:768px){
+
+.hero{
+padding-top:140px;
+}
 
 .hero h1{
 font-size:56px;
@@ -233,17 +268,6 @@ font-size:14px;
 width:24px;
 }
 
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(25px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-  
 }
 
 </style>

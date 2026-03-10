@@ -124,6 +124,8 @@ background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
 
+background-attachment:fixed; 
+
 animation:heroZoom 20s ease-in-out infinite alternate;
 }
 
@@ -707,6 +709,18 @@ window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 
 </script>
+<script>
 
+window.addEventListener("scroll", function(){
+
+const hero = document.querySelector(".hero");
+
+let scrollPosition = window.scrollY;
+
+hero.style.backgroundPositionY = scrollPosition * 0.4 + "px";
+
+});
+
+</script>
 </body>
 </html>

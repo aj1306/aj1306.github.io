@@ -437,6 +437,15 @@ margin-top:5px;
 .about-section{
 background:#0a0a0a;
 padding:140px 40px;
+
+opacity:0;
+transform:translateY(40px);
+transition:all 1s ease;
+}
+
+.about-section.show{
+opacity:1;
+transform:translateY(0);
 }
 
 .signature{
@@ -591,7 +600,7 @@ My dad first gave me his Canon 60D when I was in 7th grade, and since then I've 
 
 <div class="stat">
 <h4>3+</h4>
-<p>Experience</p>
+<p>Years Experience</p>
 </div>
 
 <div class="stat">
@@ -633,6 +642,21 @@ navbar.classList.remove("scrolled");
 });
 
 </script>
+<script>
 
+const aboutSection = document.querySelector(".about-section");
+
+window.addEventListener("scroll", () => {
+
+const trigger = window.innerHeight * 0.85;
+const aboutTop = aboutSection.getBoundingClientRect().top;
+
+if(aboutTop < trigger){
+aboutSection.classList.add("show");
+}
+
+});
+
+</script>
 </body>
 </html>

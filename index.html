@@ -675,9 +675,9 @@ document.body.classList.add("page-loaded");
 
 function reveal(){
 
-const reveals = document.querySelectorAll(".reveal");
+const elements = document.querySelectorAll(".reveal");
 
-reveals.forEach(el => {
+elements.forEach(el => {
 
 const windowHeight = window.innerHeight;
 const elementTop = el.getBoundingClientRect().top;
@@ -686,6 +686,9 @@ const revealPoint = 120;
 
 if(elementTop < windowHeight - revealPoint){
 el.classList.add("active");
+}
+else{
+el.classList.remove("active");
 }
 
 });

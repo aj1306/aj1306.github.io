@@ -498,6 +498,26 @@ transition:all 1s ease;
 opacity:1;
 transform:translateY(0);
 }
+
+/* PAGE FADE */
+
+body{
+margin:0;
+font-family:'Poppins', sans-serif;
+background:#000;
+color:white;
+
+opacity:0;
+transition:opacity 0.6s ease;
+}
+
+body.page-loaded{
+opacity:1;
+}
+
+body.fade-out{
+opacity:0;
+}
   
 /* MOBILE */
 
@@ -558,13 +578,13 @@ AJ LENS
 
 <div class="particles"></div>
 
-<h1 class="hero-title">
+<h1 class="hero-title reveal">
 <span class="title-shine">AJ LENS</span>
 </h1>
 
-<p>Visual Stories Through My Lens</p>
+<p class="reveal">Visual Stories Through My Lens</p>
 
-<div class="hero-buttons">
+<div class="hero-buttons reveal">
 
 <a href="#about" class="button">Meet The Photographer</a>
 
@@ -574,7 +594,7 @@ AJ LENS
 
 </div>
 
-<a href="#about" class="scroll-indicator">
+<a href="#about" class="scroll-indicator reveal">
 <p class="scroll-text">Press the arrow</p>
 <span></span>
 </a>
@@ -691,6 +711,52 @@ reveals[i].classList.add("active");
 }
 
 window.addEventListener("scroll", revealOnScroll);
+
+</script>
+<script>
+
+window.addEventListener("load", () => {
+
+const heroElements = document.querySelectorAll(".hero .reveal");
+
+heroElements.forEach((el, index) => {
+
+setTimeout(() => {
+el.classList.add("active");
+}, index * 300);
+
+});
+
+});
+
+window.addEventListener("load", () => {
+document.body.classList.add("page-loaded");
+});
+  
+</script>
+<script>
+
+document.querySelectorAll("a").forEach(link => {
+
+link.addEventListener("click", function(e){
+
+const href = this.getAttribute("href");
+
+if(href && !href.startsWith("#")){
+
+e.preventDefault();
+
+document.body.classList.add("fade-out");
+
+setTimeout(() => {
+window.location = href;
+}, 500);
+
+}
+
+});
+
+});
 
 </script>
 </body>

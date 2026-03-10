@@ -518,6 +518,10 @@ opacity:1;
 body.fade-out{
 opacity:0;
 }
+
+.fade-section{
+transition:opacity 0.4s ease;
+}
   
 /* MOBILE */
 
@@ -574,7 +578,7 @@ AJ LENS
 
 <!-- HERO -->
 
-<section class="hero">
+<section class="hero fade-section">
 
 <div class="particles"></div>
 
@@ -605,7 +609,7 @@ AJ LENS
 
 <!-- ABOUT -->
 
-<section id="about" class="about-section">
+<section id="about" class="about-section fade-section">
 
 <div class="about-container">
 
@@ -755,6 +759,30 @@ window.location = href;
 }
 
 });
+
+});
+
+</script>
+<script>
+
+window.addEventListener("scroll", () => {
+
+const hero = document.querySelector(".hero");
+const about = document.querySelector(".about-section");
+
+let scrollPosition = window.scrollY;
+let heroHeight = hero.offsetHeight;
+
+let heroOpacity = 1 - (scrollPosition / heroHeight);
+hero.style.opacity = heroOpacity;
+
+let aboutTop = about.offsetTop;
+let aboutHeight = about.offsetHeight;
+
+let aboutOpacity = (scrollPosition - aboutTop + window.innerHeight/2) / aboutHeight;
+aboutOpacity = Math.min(Math.max(aboutOpacity,0),1);
+
+about.style.opacity = aboutOpacity;
 
 });
 

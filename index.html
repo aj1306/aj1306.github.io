@@ -92,6 +92,18 @@ width:100%;
 color:#ff2a2a;
 }
 
+/* SCROLLING GLOW */
+
+.navbar.scrolled .logo{
+text-shadow:
+0 0 8px rgba(255,42,42,0.9),
+0 0 16px rgba(255,42,42,0.6);
+}
+
+.navbar.scrolled .logo-img{
+filter:drop-shadow(0 0 6px #ff2a2a);
+}
+
 /* HERO */
 
 .hero{
@@ -134,11 +146,68 @@ margin:18px auto 0;
 box-shadow:0 0 10px rgba(255,42,42,0.6);
 }
 
+.hero-title{
+position:relative;
+z-index:5;
+}
+
+.title-shine{
+position:relative;
+display:inline-block;
+overflow:hidden;
+}
+
+.title-shine::after{
+content:'';
+position:absolute;
+top:0;
+left:-150%;
+width:80%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.9),
+transparent
+);
+
+transform:skewX(-25deg);
+
+animation:titleShine 6s infinite;
+}
+  
 .hero p{
 font-size:22px;
 margin-top:20px;
 margin-bottom:40px;
 opacity:0.85;
+}
+
+.hero h1,
+.hero p,
+.hero-buttons,
+.scroll-indicator{
+position:relative;
+z-index:5;
+}
+
+.hero::after{
+content:'';
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:120px;
+
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,0),
+rgba(0,0,0,0.8),
+#000
+);
+
+pointer-events:none;
 }
 
 /* BUTTONS */
@@ -224,12 +293,15 @@ width:100%;
 height:100%;
 pointer-events:none;
 overflow:hidden;
+z-index:1;
 }
 
 .particles::before,
 .particles::after{
 content:'';
 position:absolute;
+top:0;
+left:0;
 width:200%;
 height:200%;
 
@@ -344,6 +416,22 @@ margin-top:25px;
 100%{transform:translateY(-500px);}
 }
 
+@keyframes titleShine{
+
+0%{
+left:-150%;
+}
+
+50%{
+left:150%;
+}
+
+100%{
+left:150%;
+}
+
+}
+
 /* MOBILE */
 
 @media (max-width:768px){
@@ -403,7 +491,9 @@ AJ LENS
 
 <div class="particles"></div>
 
-<h1>AJ LENS</h1>
+<h1 class="hero-title">
+<span class="title-shine">AJ LENS</span>
+</h1>
 
 <p>Visual Stories Through My Lens</p>
 

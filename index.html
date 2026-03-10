@@ -492,6 +492,30 @@ text-shadow:
 0 0 16px rgba(255,42,42,0.7);
 }
 }  
+
+.about-next-arrow{
+display:flex;
+align-items:center;
+justify-content:center;
+margin-left:10px;
+cursor:pointer;
+}
+
+.about-next-arrow span{
+display:block;
+width:16px;
+height:16px;
+border-bottom:2px solid #ff2a2a;
+border-right:2px solid #ff2a2a;
+transform:rotate(45deg);
+transition:transform 0.3s ease;
+
+animation:scrollBounce 2s infinite;
+}
+
+.about-next-arrow:hover span{
+transform:rotate(45deg) translateY(4px);
+}
   
 /* ANIMATIONS */
 
@@ -688,6 +712,9 @@ My dad first gave me his Canon 60D when I was in 7th grade, and since then I've 
 <div class="about-buttons reveal delay-5">
 <a href="portfolio.html" class="button">View Gallery</a>
 <a href="contact.html" class="button secondary">Contact Asher</a>
+<a href="#portfolio" class="about-next-arrow">
+<span></span>
+</a>
 </div>
 
 </div>

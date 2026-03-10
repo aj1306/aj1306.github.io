@@ -437,17 +437,8 @@ margin-top:5px;
 .about-section{
 background:#0a0a0a;
 padding:140px 40px;
-
-opacity:0;
-transform:translateY(40px);
-transition:all 1s ease;
 }
-
-.about-section.show{
-opacity:1;
-transform:translateY(0);
-}
-
+  
 .signature{
 margin-top:20px;
 font-style:italic;
@@ -500,24 +491,6 @@ transform:translateY(0);
 }
 
 /* PAGE FADE */
-
-body{
-margin:0;
-font-family:'Poppins', sans-serif;
-background:#000;
-color:white;
-
-opacity:0;
-transition:opacity 0.6s ease;
-}
-
-body.page-loaded{
-opacity:1;
-}
-
-body.fade-out{
-opacity:0;
-}
 
 .fade-section{
 transition:opacity 0.4s ease;
@@ -679,46 +652,6 @@ navbar.classList.remove("scrolled");
 </script>
 <script>
 
-const aboutSection = document.querySelector(".about-section");
-
-window.addEventListener("scroll", () => {
-
-const trigger = window.innerHeight * 0.85;
-const aboutTop = aboutSection.getBoundingClientRect().top;
-
-if(aboutTop < trigger){
-aboutSection.classList.add("show");
-}
-
-});
-
-</script>
-<script>
-
-const reveals = document.querySelectorAll(".reveal");
-
-function revealOnScroll(){
-
-for(let i = 0; i < reveals.length; i++){
-
-const windowHeight = window.innerHeight;
-const elementTop = reveals[i].getBoundingClientRect().top;
-
-const revealPoint = 120;
-
-if(elementTop < windowHeight - revealPoint){
-reveals[i].classList.add("active");
-}
-
-}
-
-}
-
-window.addEventListener("scroll", revealOnScroll);
-
-</script>
-<script>
-
 window.addEventListener("load", () => {
 
 const heroElements = document.querySelectorAll(".hero .reveal");
@@ -740,36 +673,11 @@ document.body.classList.add("page-loaded");
 </script>
 <script>
 
-document.querySelectorAll("a").forEach(link => {
+function reveal(){
 
-link.addEventListener("click", function(e){
+const reveals = document.querySelectorAll(".reveal");
 
-const href = this.getAttribute("href");
-
-if(href && !href.startsWith("#")){
-
-e.preventDefault();
-
-document.body.classList.add("fade-out");
-
-setTimeout(() => {
-window.location = href;
-}, 500);
-
-}
-
-});
-
-});
-
-</script>
-<script>
-
-function revealElements(){
-
-const elements = document.querySelectorAll(".reveal");
-
-elements.forEach(el => {
+reveals.forEach(el => {
 
 const windowHeight = window.innerHeight;
 const elementTop = el.getBoundingClientRect().top;
@@ -784,9 +692,10 @@ el.classList.add("active");
 
 }
 
-window.addEventListener("scroll", revealElements);
-window.addEventListener("load", revealElements);
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
 
 </script>
+
 </body>
 </html>

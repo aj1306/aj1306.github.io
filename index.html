@@ -605,6 +605,7 @@ perspective:1000px;
 display:flex;
 align-items:center;
 justify-content:center;
+position:relative;
 }
 
 /* inner flip */
@@ -708,22 +709,23 @@ box-shadow:
 position:absolute;
 top:50%;
 left:50%;
-
-width:0;
-height:0;
-
 transform:translate(-50%, -50%);
+
+width:20px;
+height:20px;
 border-radius:50%;
 
-background:
-radial-gradient(circle,
-rgba(255,42,42,0.35) 0%,
-rgba(255,42,42,0.15) 40%,
-transparent 70%);
+background:radial-gradient(
+circle,
+rgba(255,42,42,0.45) 0%,
+rgba(255,42,42,0.25) 40%,
+transparent 70%
+);
 
 opacity:0;
-pointer-events:none;
-transition:all 0.5s ease;
+transition:all 0.45s ease;
+
+z-index:1;
 }
 
 .gear-card:hover .aperture{

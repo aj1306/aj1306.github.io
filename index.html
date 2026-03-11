@@ -1026,6 +1026,69 @@ animation:scrollBounce 2s infinite;
 .gear-next-arrow span:hover{
 box-shadow:0 0 10px #ff2a2a;
 }  
+
+/* PORTFOLIO */
+
+  .gallery-section{
+background:#070707;
+padding:140px 40px;
+}
+
+.gallery-header{
+text-align:center;
+max-width:900px;
+margin:auto;
+margin-bottom:100px;
+}
+
+.gallery-title{
+font-family:'Montserrat', sans-serif;
+font-size:40px;
+letter-spacing:2px;
+}
+
+.gallery-subtitle{
+opacity:0.7;
+margin-top:15px;
+}
+
+.gallery-category{
+max-width:1100px;
+margin:100px auto;
+}
+
+.gallery-category-title{
+font-size:26px;
+margin-bottom:40px;
+letter-spacing:2px;
+color:#ff2a2a;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+}
+
+.gallery-feature{
+grid-column:1/3;
+height:420px;
+object-fit:cover;
+}
+
+.gallery-grid img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:6px;
+transition:0.4s;
+cursor:pointer;
+}
+
+.gallery-grid img:hover{
+transform:scale(1.04);
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
   
 /* ANIMATIONS */
 
@@ -1242,6 +1305,8 @@ class="signature">— AJ</p>
 </div>
 
 </div>
+
+  <!-- GEAR -->
   
 <div class="about-buttons reveal delay-4">
 <a href="portfolio.html" class="button">View Gallery</a>
@@ -1452,6 +1517,72 @@ Hover over each gear to see a picture of it!
 </a>
 </div>
 </section>
+
+  <!-- PORTFOLIO -->
+
+<section id="portfolio" class="gallery-section">
+
+<div class="gallery-header">
+<h2 class="gallery-title reveal">Photography Portfolio</h2>
+<div class="section-divider reveal delay-1"></div>
+<p class="gallery-subtitle reveal delay-2">
+Moments captured through my lens
+</p>
+</div>
+
+<!-- EVENT PHOTOGRAPHY -->
+
+<div class="gallery-category">
+
+<h3 class="gallery-category-title reveal">Event Photography</h3>
+
+<div class="gallery-grid">
+
+<img src="Images/event1.jpg" class="gallery-feature reveal">
+<img src="Images/event2.jpg" class="reveal">
+<img src="Images/event3.jpg" class="reveal">
+<img src="Images/event4.jpg" class="reveal">
+<img src="Images/event5.jpg" class="reveal">
+
+</div>
+
+</div>
+
+<!-- PORTRAITS -->
+
+<div class="gallery-category">
+
+<h3 class="gallery-category-title reveal">Portraits</h3>
+
+<div class="gallery-grid">
+
+<img src="Images/portrait1.jpg" class="gallery-feature reveal">
+<img src="Images/portrait2.jpg" class="reveal">
+<img src="Images/portrait3.jpg" class="reveal">
+<img src="Images/portrait4.jpg" class="reveal">
+
+</div>
+
+</div>
+
+<!-- RANDOM SHOTS -->
+
+<div class="gallery-category">
+
+<h3 class="gallery-category-title reveal">Creative Shots</h3>
+
+<div class="gallery-grid">
+
+<img src="Images/random1.jpg" class="gallery-feature reveal">
+<img src="Images/random2.jpg" class="reveal">
+<img src="Images/random3.jpg" class="reveal">
+<img src="Images/random4.jpg" class="reveal">
+
+</div>
+
+</div>
+
+</section>  
   
 <script>
 

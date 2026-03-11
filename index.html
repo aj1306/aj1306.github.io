@@ -1532,35 +1532,41 @@ hero.style.backgroundPositionY = scrollPosition * 0.4 + "px";
 
 </script>
 <script>  
-  const counters = document.querySelectorAll('.counter');
+const counters = document.querySelectorAll('.counter');
 
-const startCounters = () => {
+function startCounters(){
 
 counters.forEach(counter => {
 
-const target = +counter.getAttribute('data-target');
-let count = 0;
+const target = +counter.dataset.target;
+const suffix = counter.dataset.suffix || "";
 
-const speed = target / 80;
+let start = 0;
+const duration = 2000; // 2 seconds animation
+const startTime = performance.now();
 
-const update = () => {
+function update(currentTime){
 
-count += speed;
+const elapsed = currentTime - startTime;
+const progress = Math.min(elapsed / duration, 1);
 
-if(count < target){
-counter.innerText = Math.floor(count);
+const value = Math.floor(progress * target);
+
+counter.innerText = value + suffix;
+
+if(progress < 1){
 requestAnimationFrame(update);
 }else{
-counter.innerText = target + "+";
+counter.innerText = target + suffix;
 }
 
-};
+}
 
-update();
+requestAnimationFrame(update);
 
 });
 
-};
+}
 
 const aboutSection = document.querySelector("#about");
 let counterStarted = false;

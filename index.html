@@ -721,6 +721,35 @@ margin:auto;
 text-align:center;
 margin-bottom:60px;
 }
+
+.gear-section{
+background:#050505;
+padding:120px 40px;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.gear-container{
+position:relative;
+z-index:2;
+}
+
+.gear-title,
+.gear-subtitle{
+position:relative;
+z-index:2;
+}
+
+#gear .particles::before{
+animation-duration:90s;
+opacity:0.15;
+}
+
+#gear .particles::after{
+animation-duration:120s;
+opacity:0.1;
+}
   
 /* ANIMATIONS */
 
@@ -931,7 +960,7 @@ My dad first gave me his Canon 60D when I was in 7th grade, and since then I've 
 <section id="gear" class="gear-section">
 
 <div class="gear-header">
-
+<div class="particles"></div>
 <h2 class="gear-title reveal">Gears I've Used 📷</h2>
 
 <p class="gear-subtitle reveal">

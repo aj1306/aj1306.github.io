@@ -1029,7 +1029,7 @@ box-shadow:0 0 10px #ff2a2a;
 
 /* PORTFOLIO */
 
-  .gallery-section{
+.gallery-section{
 background:#070707;
 padding:140px 40px;
 }
@@ -1053,40 +1053,34 @@ margin-top:15px;
 }
 
 .gallery-category{
-max-width:1100px;
-margin:100px auto;
-}
-
-.gallery-category-title{
-font-size:26px;
-margin-bottom:40px;
-letter-spacing:2px;
+max-width:1200px;
+margin:100px auto 40px auto;
 color:#ff2a2a;
+letter-spacing:2px;
+font-size:24px;
 }
 
-.gallery-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:20px;
+.masonry-gallery{
+column-count:3;
+column-gap:20px;
+max-width:1200px;
+margin:auto;
 }
 
-.gallery-feature{
-grid-column:1/3;
-height:420px;
-object-fit:cover;
-}
-
-.gallery-grid img{
+.masonry-gallery img{
 width:100%;
-height:250px;
-object-fit:cover;
+height:auto;
+margin-bottom:20px;
 border-radius:6px;
+
+break-inside:avoid;
+
 transition:0.4s;
 cursor:pointer;
 }
 
-.gallery-grid img:hover{
-transform:scale(1.04);
+.masonry-gallery img:hover{
+transform:scale(1.03);
 box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
   
@@ -1199,6 +1193,22 @@ align-items:center;
 }
 
 }
+
+@media (max-width:900px){
+
+.masonry-gallery{
+column-count:2;
+}
+
+}
+
+@media (max-width:600px){
+
+.masonry-gallery{
+column-count:1;
+}
+
+}  
 
 </style>
 
@@ -1524,65 +1534,54 @@ Hover over each gear to see a picture of it!
 
 <div class="gallery-header">
 <h2 class="gallery-title reveal">Photography Portfolio</h2>
-<div class="section-divider reveal delay-1"></div>
-<p class="gallery-subtitle reveal delay-2">
+<div class="section-divider reveal"></div>
+<p class="gallery-subtitle reveal">
 Moments captured through my lens
 </p>
 </div>
 
 <!-- EVENT PHOTOGRAPHY -->
 
-<div class="gallery-category">
+<h3 class="gallery-category reveal">Event Photography</h3>
 
-<h3 class="gallery-category-title reveal">Event Photography</h3>
+<div class="masonry-gallery">
 
-<div class="gallery-grid">
-
-<img src="Images/event1.jpg" class="gallery-feature reveal">
+<img src="Images/event1.jpg" class="reveal">
 <img src="Images/event2.jpg" class="reveal">
 <img src="Images/event3.jpg" class="reveal">
 <img src="Images/event4.jpg" class="reveal">
 <img src="Images/event5.jpg" class="reveal">
-
-</div>
+<img src="Images/event6.jpg" class="reveal">
 
 </div>
 
 <!-- PORTRAITS -->
 
-<div class="gallery-category">
+<h3 class="gallery-category reveal">Portraits</h3>
 
-<h3 class="gallery-category-title reveal">Portraits</h3>
+<div class="masonry-gallery">
 
-<div class="gallery-grid">
-
-<img src="Images/portrait1.jpg" class="gallery-feature reveal">
+<img src="Images/portrait1.jpg" class="reveal">
 <img src="Images/portrait2.jpg" class="reveal">
 <img src="Images/portrait3.jpg" class="reveal">
 <img src="Images/portrait4.jpg" class="reveal">
 
 </div>
 
-</div>
-
 <!-- RANDOM SHOTS -->
 
-<div class="gallery-category">
+<h3 class="gallery-category reveal">Creative Shots</h3>
 
-<h3 class="gallery-category-title reveal">Creative Shots</h3>
+<div class="masonry-gallery">
 
-<div class="gallery-grid">
-
-<img src="Images/random1.jpg" class="gallery-feature reveal">
+<img src="Images/random1.jpg" class="reveal">
 <img src="Images/random2.jpg" class="reveal">
 <img src="Images/random3.jpg" class="reveal">
 <img src="Images/random4.jpg" class="reveal">
 
 </div>
 
-</div>
-
-</section>  
+</section> 
   
 <script>
 

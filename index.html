@@ -1105,6 +1105,89 @@ box-shadow 0.4s ease;
 opacity:1;
 transform:scale(1);
 }  
+
+.photo-modal{
+
+position:fixed;
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:rgba(0,0,0,0.88);
+
+display:none;
+align-items:center;
+justify-content:center;
+
+z-index:2000;
+
+}
+
+.photo-modal-content{
+
+background:#0f0f0f;
+padding:30px;
+
+border-radius:10px;
+
+max-width:900px;
+width:90%;
+
+text-align:center;
+
+position:relative;
+
+border:1px solid rgba(255,42,42,0.25);
+
+}
+
+.photo-modal-content img{
+
+max-width:100%;
+height:auto;
+
+border-radius:6px;
+
+margin-bottom:20px;
+
+}
+
+.photo-close{
+
+position:absolute;
+top:15px;
+right:20px;
+
+font-size:28px;
+cursor:pointer;
+
+color:#ff2a2a;
+
+}
+
+.photo-info h3{
+
+color:#ff2a2a;
+font-size:22px;
+margin-bottom:6px;
+
+}
+
+.photo-meta{
+
+opacity:0.7;
+margin-bottom:14px;
+
+}
+
+.photo-info p{
+
+opacity:0.85;
+line-height:1.6;
+
+}
   
 /* ANIMATIONS */
 
@@ -1568,43 +1651,338 @@ Moments captured through my lens
 
 <div class="masonry-gallery">
 
-<img src="pimages/eimages/e001.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e002.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e003.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e004.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e005.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e006.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e007.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e008.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e009.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e010.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e011.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e012.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e013.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e014.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e015.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e016.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e017.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e018.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e019.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e020.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e021.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e022.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e023.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e024.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e025.JPG" class="reveal" loading="lazy"> 
-<img src="pimages/eimages/e026.jpg" class="reveal" loading="lazy"> 
-<img src="pimages/eimages/e027.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e028.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e029.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e030.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e031.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e032.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e033.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e034.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e035.jpg" class="reveal" loading="lazy">
-<img src="pimages/eimages/e036.JPG" class="reveal" loading="lazy">
-<img src="pimages/eimages/e037.jpg" class="reveal" loading="lazy">
+<img 
+src="pimages/eimages/e001.jpg"
+class="reveal"
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+>
+<img 
+src="pimages/eimages/e002.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e003.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+>
+<img 
+src="pimages/eimages/e004.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e005.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e006.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e007.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e008.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e009.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e010.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e011.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e012.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e013.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e014.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e015.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e016.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e017.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e018.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e019.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e020.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e021.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e022.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e023.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e024.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e025.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+> 
+<img 
+src="pimages/eimages/e026.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+> 
+<img 
+src="pimages/eimages/e027.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+>
+<img src="pimages/eimages/e028.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e029.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+>
+<img 
+src="pimages/eimages/e030.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e031.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e032.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e033.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e034.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e035.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+>
+<img 
+src="pimages/eimages/e036.JPG" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/eimages/e037.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
   
 </div>
 
@@ -1614,21 +1992,141 @@ Moments captured through my lens
 
 <div class="masonry-gallery">
 
-<img src="pimages/poimages/p001.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p002.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p003.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p004.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p005.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p006.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p007.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p008.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p009.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p010.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p011.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p012.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p013.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p015.jpg" class="reveal" loading="lazy">
-<img src="pimages/poimages/p016.jpg" class="reveal" loading="lazy">  
+<img 
+src="pimages/poimages/p001.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/poimages/p002.jpg" 
+class="reveal"
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/poimages/p003.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/poimages/p004.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+>
+<img 
+src="pimages/poimages/p005.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/poimages/p006.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/poimages/p007.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/poimages/p008.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/poimages/p009.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/poimages/p010.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+>
+<img 
+src="pimages/poimages/p011.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+>
+<img 
+src="pimages/poimages/p012.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+>
+<img 
+src="pimages/poimages/p013.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/poimages/p015.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/poimages/p016.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>  
 
 </div>
 
@@ -1638,36 +2136,276 @@ Moments captured through my lens
 
 <div class="masonry-gallery">
 
-<img src="pimages/rimages/r001.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r002.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r003.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r004.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r005.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r006.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r007.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r008.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r009.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r010.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r011.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r012.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r013.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r014.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r015.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r016.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r017.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r018.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r019.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r020.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r021.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r022.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r023.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r024.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r025.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r026.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r027.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r028.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r029.jpg" class="reveal" loading="lazy">
-<img src="pimages/rimages/r030.jpg" class="reveal" loading="lazy">  
+<img 
+src="pimages/rimages/r001.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r002.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r003.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r004.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r005.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r006.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."
+>
+<img 
+src="pimages/rimages/r007.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r008.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r009.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r010.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r011.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r012.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r013.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r014.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r015.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r016.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r017.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r018.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r019.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r020.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r021.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r022.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r023.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r024.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."'
+>
+<img 
+src="pimages/rimages/r025.jpg" 
+class="reveal"
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r026.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r027.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r028.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r029.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>
+<img 
+src="pimages/rimages/r030.jpg" 
+class="reveal" 
+loading="lazy"
+data-event="MarkFest 2K26 — Ganesh Vandhana"
+data-year="2026"
+data-venue="IMS Ghaziabad University Campus"
+data-comment="Captured the opening dance performance during the inauguration ceremony."  
+>  
 
 </div>
 
@@ -1826,8 +2564,90 @@ observer.unobserve(img);
 galleryImages.forEach(img=>{
 imageObserver.observe(img);
 });
+
+const modal = document.getElementById("photoModal");
+const modalImg = document.getElementById("modalImage");
+
+const modalEvent = document.getElementById("photoEvent");
+const modalYear = document.getElementById("photoYear");
+const modalVenue = document.getElementById("photoVenue");
+const modalComment = document.getElementById("photoComment");
+
+const closeBtn = document.querySelector(".photo-close");
+
+const galleryImages = document.querySelectorAll(".masonry-gallery img");
+
+galleryImages.forEach(img=>{
+
+let hoverTimer;
+
+img.addEventListener("mouseenter",()=>{
+
+hoverTimer = setTimeout(()=>{
+openModal(img);
+},3000);
+
+});
+
+img.addEventListener("mouseleave",()=>{
+clearTimeout(hoverTimer);
+});
+
+img.addEventListener("click",()=>{
+openModal(img);
+});
+
+});
+
+function openModal(img){
+
+modal.style.display="flex";
+
+modalImg.src = img.src;
+
+modalEvent.innerText = img.dataset.event;
+modalYear.innerText = img.dataset.year;
+modalVenue.innerText = img.dataset.venue;
+modalComment.innerText = img.dataset.comment;
+
+}
+
+closeBtn.onclick = ()=>{
+modal.style.display="none";
+}
+
+window.onclick = (e)=>{
+if(e.target === modal){
+modal.style.display="none";
+}
+}  
   
 });  
 </script>
+
+<div id="photoModal" class="photo-modal">
+
+<div class="photo-modal-content">
+
+<span class="photo-close">&times;</span>
+
+<img id="modalImage">
+
+<div class="photo-info">
+
+<h3 id="photoEvent"></h3>
+
+<p class="photo-meta">
+<span id="photoYear"></span> • <span id="photoVenue"></span>
+</p>
+
+<p id="photoComment"></p>
+
+</div>
+
+</div>
+
+</div>
+  
 </body>
 </html>

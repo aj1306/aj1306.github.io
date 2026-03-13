@@ -1188,6 +1188,16 @@ opacity:0.85;
 line-height:1.6;
 
 }
+
+.photo-modal{
+opacity:0;
+transition:opacity 0.3s ease;
+}
+
+.photo-modal.active{
+opacity:1;
+display:flex;
+}  
   
 /* ANIMATIONS */
 
@@ -2514,6 +2524,8 @@ hero.style.backgroundPositionY = scrollPosition * 0.4 + "px";
 
 </script>
 <script>  
+document.addEventListener("DOMContentLoaded", function(){
+
 const counters = document.querySelectorAll('.counter');
 
 function startCounters(){
@@ -2624,7 +2636,7 @@ openModal(img);
 
 function openModal(img){
 
-modal.style.display="flex";
+modal.classList.add("active");
 
 modalImg.src = img.src;
 
@@ -2641,7 +2653,7 @@ modal.style.display="none";
 
 window.onclick = (e)=>{
 if(e.target === modal){
-modal.style.display="none";
+modal.classList.remove("active");
 }
 }  
   

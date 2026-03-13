@@ -1209,6 +1209,66 @@ overflow:hidden;
 scrollbar-width:thin;
 scrollbar-color:#ff2a2a #111;
 }
+
+.photo-modal{
+overflow-y:auto;
+}
+
+/* SCROLLBAR STYLE */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+background:#ff2a2a;
+border-radius:6px;
+box-shadow:0 0 8px rgba(255,42,42,0.7);
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#ff4040;
+box-shadow:0 0 12px rgba(255,42,42,1);
+}
+
+/* Firefox */
+*{
+scrollbar-width:thin;
+scrollbar-color:#ff2a2a #050505;
+}
+
+/* SCROLLBAR STYLE */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#050505;
+}
+
+::-webkit-scrollbar-thumb{
+background:#ff2a2a;
+border-radius:6px;
+box-shadow:0 0 8px rgba(255,42,42,0.7);
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#ff4040;
+box-shadow:0 0 12px rgba(255,42,42,1);
+}
+
+/* Firefox */
+*{
+scrollbar-width:thin;
+scrollbar-color:#ff2a2a #050505;
+}
   
 /* ANIMATIONS */
 
@@ -2660,7 +2720,7 @@ modalComment.innerText = img.dataset.comment;
 }
 
 closeBtn.onclick = ()=>{
-modal.style.display="none";
+modal.classList.remove("active");
 document.body.classList.remove("modal-open");
 }
 

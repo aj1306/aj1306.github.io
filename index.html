@@ -1797,7 +1797,8 @@ Click or hover for 3 seconds on any image to enlarge and find more details about
 <div class="masonry-gallery">
 
 <img 
-src="pimages/eimages/e001.jpg"
+src="pimages/eimages/eimagesb/e001_small.jpg"
+data-full="pimages/eimages/e001.jpg"
 class="reveal"
 loading="lazy"
 data-event="MarkFest 2K26 — Ganesh Vandhana"
@@ -2728,8 +2729,17 @@ if(entry.isIntersecting){
 
 const img = entry.target;
 
-img.onload = () => {
+const full = img.dataset.full;
+
+const temp = new Image();
+
+temp.src = full;
+
+temp.onload = () => {
+
+img.src = full;
 img.classList.add("loaded");
+
 };
 
 observer.unobserve(img);
@@ -2739,6 +2749,7 @@ observer.unobserve(img);
 });
 
 },{threshold:0.1});
+
 
 galleryImages.forEach(img=>{
 imageObserver.observe(img);

@@ -2631,6 +2631,8 @@ hero.style.backgroundPositionY = scrollPosition * 0.4 + "px";
 <script>  
 document.addEventListener("DOMContentLoaded", function(){
 
+/* COUNTER ANIMATION */
+
 const counters = document.querySelectorAll('.counter');
 
 function startCounters(){
@@ -2640,8 +2642,7 @@ counters.forEach(counter => {
 const target = +counter.dataset.target;
 const suffix = counter.dataset.suffix || "";
 
-let start = 0;
-const duration = 2000; // 2 seconds animation
+const duration = 2000;
 const startTime = performance.now();
 
 function update(currentTime){
@@ -2679,7 +2680,11 @@ if(top < trigger && !counterStarted){
 startCounters();
 counterStarted = true;
 }
+
 });
+
+
+/* IMAGE LAZY LOAD */
 
 const galleryImages = document.querySelectorAll(".masonry-gallery img");
 
@@ -2707,6 +2712,9 @@ galleryImages.forEach(img=>{
 imageObserver.observe(img);
 });
 
+
+/* MODAL SYSTEM */
+
 const modal = document.getElementById("photoModal");
 const modalImg = document.getElementById("modalImage");
 
@@ -2717,10 +2725,13 @@ const modalComment = document.getElementById("photoComment");
 
 const closeBtn = document.querySelector(".photo-close");
 
-let currentIndex = 0;
-
 const prevBtn = document.querySelector(".modal-prev");
 const nextBtn = document.querySelector(".modal-next");
+
+let currentIndex = 0;
+
+
+/* HOVER + CLICK */
 
 galleryImages.forEach(img=>{
 
@@ -2744,6 +2755,9 @@ openModal(img);
 
 });
 
+
+/* OPEN MODAL */
+
 function openModal(img){
 
 modal.classList.add("active");
@@ -2754,6 +2768,9 @@ currentIndex = Array.from(galleryImages).indexOf(img);
 updateModal(img);
 
 }
+
+
+/* UPDATE MODAL */
 
 function updateModal(img){
 
@@ -2766,7 +2783,8 @@ modalComment.innerText = img.dataset.comment;
 
 }
 
-}
+
+/* NEXT IMAGE */
 
 nextBtn.onclick = ()=>{
 
@@ -2780,6 +2798,9 @@ updateModal(galleryImages[currentIndex]);
 
 };
 
+
+/* PREVIOUS IMAGE */
+
 prevBtn.onclick = ()=>{
 
 currentIndex--;
@@ -2792,19 +2813,31 @@ updateModal(galleryImages[currentIndex]);
 
 };
 
+
+/* CLOSE BUTTON */
+
 closeBtn.onclick = ()=>{
+
 modal.classList.remove("active");
 document.body.classList.remove("modal-open");
-}
+
+};
+
+
+/* CLICK OUTSIDE MODAL */
 
 window.onclick = (e)=>{
+
 if(e.target === modal){
+
 modal.classList.remove("active");
 document.body.classList.remove("modal-open");
+
 }
-}  
-  
-});  
+
+};
+
+});
 </script>
   
 </body>

@@ -1192,14 +1192,12 @@ position:relative;
 
 #modalImage{
 display:block;
-
 max-width:100%;
 height:auto;
-
 margin:0 auto 25px auto;
-
 border-radius:8px;
 transition:opacity 0.35s ease;
+will-change:opacity;
 }
 
 .photo-modal.active .photo-modal-content img{
@@ -1575,8 +1573,6 @@ column-count:1;
 .gallery-category::before,
 .gallery-category::after{
 display:none;
-}
-
 }
   
 }  
@@ -3083,7 +3079,7 @@ behavior: "smooth",
 inline: "center",
 block: "nearest"
 });  
-};
+
 
 }
 

@@ -1167,9 +1167,16 @@ visibility:visible;
 
 position:relative;
 
-background:rgba(18,18,18,0.45);
+background:linear-gradient(
+145deg,
+rgba(35,0,0,0.45),
+rgba(20,0,0,0.35)
+);
 
 backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,42,42,0.18);
 
 border-radius:16px;
 
@@ -1179,11 +1186,27 @@ width:90%;
 max-width:950px;
 
 box-shadow:
-0 0 40px rgba(0,0,0,0.9),
-0 0 30px rgba(255,42,42,0.12);
+0 0 45px rgba(0,0,0,0.9),
+0 0 40px rgba(255,42,42,0.12);
 
 }
 
+.photo-modal-content::before{
+
+content:'';
+
+position:absolute;
+inset:0;
+
+border-radius:16px;
+
+box-shadow:
+0 0 30px rgba(255,42,42,0.08),
+inset 0 0 20px rgba(255,42,42,0.05);
+
+pointer-events:none;
+
+}  
 
 #modalImage{
 display:block;
@@ -1289,7 +1312,7 @@ text-align:center;
 
 .photo-counter{
 
-margin-top:12px;
+margin-top:14px;
 
 color:#ff2a2a;
 
@@ -1298,7 +1321,10 @@ letter-spacing:1px;
 
 text-align:center;
 
-opacity:0.85;
+opacity:0.9;
+
+position:relative;
+z-index:20;
 
 }
 

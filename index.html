@@ -1207,30 +1207,30 @@ opacity:1;
 }
 
 .photo-close{
+position:fixed;
 
-position:absolute;
-top:12px;
-right:18px;
+top:25px;
+right:35px;
 
-font-size:30px;
-line-height:30px;
+font-size:34px;
+line-height:34px;
 
 cursor:pointer;
 
 color:#ff2a2a;
 
-z-index:1000;
+z-index:5000;
 
 background:rgba(0,0,0,0.35);
 padding:6px 12px;
 
-border-radius:6px;
-
+border-radius:8px;
+backdrop-filter:blur(6px);
 }
 
 .photo-close:hover{
 color:white;
-text-shadow:0 0 10px #ff2a2a;
+text-shadow:0 0 12px #ff2a2a;
 }
 
 
@@ -1287,39 +1287,53 @@ text-align:center;
 }
 
 .photo-counter{
-position:absolute;
-bottom:20px;
-right:30px;
 
-color:#ff2a2a;
+position:fixed;
+
+bottom:30px;
+right:40px;
+
 font-size:14px;
 letter-spacing:1px;
-opacity:0.8;
+
+color:#ff2a2a;
+
+background:rgba(0,0,0,0.4);
+padding:6px 12px;
+
+border-radius:6px;
+
+z-index:4500;
 }
   
 .modal-nav{
 position:fixed;
+
 top:50%;
 transform:translateY(-50%);
 
-font-size:40px;
+font-size:42px;
 color:#ff2a2a;
 
 cursor:pointer;
-user-select:none;
 
-z-index:3000;
+padding:10px 14px;
+
+z-index:4500;
 }
 
 .modal-prev{
-left:35px;
+left:30px;
 }
 
 .modal-next{
-right:35px;
+right:30px;
 }
 
-
+.modal-nav:hover{
+color:white;
+text-shadow:0 0 10px #ff2a2a;
+}
 
 /* SCROLLBAR STYLE */
 
@@ -2684,11 +2698,8 @@ data-comment="Captured the opening dance performance during the inauguration cer
 
 <div id="photoModal" class="photo-modal">
 
-<div class="photo-modal-content">
-
-
 <span class="photo-close">&times;</span>
-
+<div class="photo-modal-content">
 <div class="modal-nav modal-prev">&#10094;</div>
 <div class="modal-nav modal-next">&#10095;</div>
 

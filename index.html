@@ -1075,26 +1075,29 @@ border-radius:6px;
 
 break-inside:avoid;
 
-transition:0.4s;
-cursor:pointer;
+transition:
+transform 0.35s ease,
+opacity 0.35s ease,
+filter 0.35s ease,
+box-shadow 0.35s ease;
 }
 
-.masonry-gallery img:hover{
-transform:scale(1.03);
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
-}
-
+/* dim everything when hovering gallery */
 .masonry-gallery:hover img{
 opacity:0.35;
-filter:brightness(0.7);
+filter:brightness(0.65);
 }
 
+/* restore hovered image */
 .masonry-gallery img:hover{
 opacity:1;
 filter:brightness(1);
 transform:scale(1.04);
-z-index:2;
+
+box-shadow:0 12px 35px rgba(0,0,0,0.7);
+z-index:3;
 }
+
 
   
 .masonry-gallery img{

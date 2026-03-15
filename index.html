@@ -1210,18 +1210,17 @@ opacity:1;
 position:absolute;
 
 top:15px;
-left:15px;
+right:18px;
 
-font-size:28px;
+font-size:30px;
 
 cursor:pointer;
 
 color:#ff2a2a;
 
-z-index:50;
+z-index:30;
 
 background:rgba(0,0,0,0.45);
-
 padding:6px 12px;
 
 border-radius:6px;
@@ -1234,9 +1233,7 @@ backdrop-filter:blur(6px);
 color:white;
 text-shadow:0 0 10px #ff2a2a;
 }
-
-
-  
+ 
 .photo-info h3{
 
 color:#ff2a2a;
@@ -1337,23 +1334,23 @@ color:#ff2a2a;
 cursor:pointer;
 user-select:none;
 
-padding:12px 18px;
+z-index:20;
+
+padding:10px 18px;
 
 background:rgba(0,0,0,0.35);
 border-radius:8px;
 
 backdrop-filter:blur(6px);
 
-z-index:30;
-
 }
 
 .modal-prev{
-left:-70px;
+left:20px;
 }
 
 .modal-next{
-right:-70px;
+right:20px;
 }
 
 .modal-nav:hover{
@@ -2773,8 +2770,10 @@ data-comment="Captured the opening dance performance during the inauguration cer
 
 <div id="photoModal" class="photo-modal">
 
-<span class="photo-close">&times;</span>
 <div class="photo-modal-content">
+
+<span class="photo-close">&times;</span>
+
 <div class="modal-nav modal-prev">&#10094;</div>
 <div class="modal-nav modal-next">&#10095;</div>
 

@@ -1162,48 +1162,51 @@ visibility:visible;
 
 .photo-modal-content{
 
-background:rgba(15,15,15,0.6);
+background:rgba(20,20,20,0.35);
 
-backdrop-filter:blur(12px);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
 
-padding:30px 40px;
-max-height:90vh;
-overflow-y:auto;
+border:1px solid rgba(255,255,255,0.08);
 
-border-radius:12px;
+box-shadow:
+0 0 40px rgba(0,0,0,0.9),
+0 0 25px rgba(255,42,42,0.15);
+
+border-radius:16px;
+
+padding:40px 50px;
 
 max-width:900px;
 width:90%;
 
+max-height:90vh;
+overflow-y:auto;
+
 text-align:center;
 
 position:relative;
-
-border:1px solid rgba(255,42,42,0.35);
-
-box-shadow:
-0 0 30px rgba(0,0,0,0.8),
-0 0 20px rgba(255,42,42,0.2);
-
 }
+
 
 #modalImage{
 display:block;
 
-max-width:85vw;
-max-height:80vh;
+max-width:90%;
+max-height:75vh;
 
 width:auto;
 height:auto;
 
+margin:0 auto;
+
 object-fit:contain;
 
-margin:0 auto 30px auto;
 border-radius:8px;
 
-position:relative;
-z-index:1;
+transition:opacity 0.35s ease;
 }
+
 
 
 .photo-modal.active .photo-modal-content img{
@@ -1212,26 +1215,30 @@ opacity:1;
 }
 
 .photo-close{
-position:absolute;
-top:15px;
-right:20px;
+position:fixed;
 
-font-size:30px;
-cursor:pointer;
+top:25px;
+right:30px;
 
+font-size:32px;
 color:#ff2a2a;
 
-z-index:50;
+cursor:pointer;
 
-background:rgba(0,0,0,0.4);
-padding:4px 10px;
-border-radius:6px;
+z-index:4000;
+
+background:rgba(0,0,0,0.35);
+padding:6px 12px;
+border-radius:8px;
+
+backdrop-filter:blur(6px);
 }
 
 .photo-close:hover{
 color:white;
 text-shadow:0 0 10px #ff2a2a;
 }
+
   
 .photo-info h3{
 
@@ -1296,36 +1303,35 @@ opacity:0.8;
 }
   
 .modal-nav{
-position:absolute;
+position:fixed;
 top:50%;
-
 transform:translateY(-50%);
 
-font-size:40px;
+font-size:42px;
 color:#ff2a2a;
 
 cursor:pointer;
 user-select:none;
 
-padding:10px 15px;
+padding:12px 16px;
 
-z-index:5;
-transition:0.3s;
-
+z-index:3000;
+transition:0.25s;
 }
 
 .modal-prev{
-left:40px;
+left:30px;
 }
 
 .modal-next{
-right:40px;
+right:30px;
 }
 
 .modal-nav:hover{
-color:#fff;
-text-shadow:0 0 10px #ff2a2a;
+color:white;
+text-shadow:0 0 12px #ff2a2a;
 }
+
 
 /* SCROLLBAR STYLE */
 
@@ -2952,9 +2958,12 @@ function updateModal(img){
 
 modalImg.style.opacity = 0;
 
-setTimeout(()=>{
+const newImg = new Image();
+newImg.src = img.dataset.full;
 
-modalImg.src = img.dataset.full;
+newImg.onload = () => {
+
+modalImg.src = newImg.src;
 
 modalEvent.innerText = img.dataset.event;
 modalYear.innerText = img.dataset.year;
@@ -2965,7 +2974,7 @@ photoCounter.innerText = (currentIndex + 1) + " / " + galleryImages.length;
 
 modalImg.style.opacity = 1;
 
-},150);
+};
 
 }
 

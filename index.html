@@ -1307,27 +1307,29 @@ z-index:4500;
 }
   
 .modal-nav{
+
 position:fixed;
 
 top:50%;
 transform:translateY(-50%);
 
-font-size:42px;
+font-size:48px;
+
 color:#ff2a2a;
 
 cursor:pointer;
 
-padding:10px 14px;
+z-index:4000;
 
-z-index:4500;
+padding:12px 18px;
 }
 
 .modal-prev{
-left:30px;
+left:40px;
 }
 
 .modal-next{
-right:30px;
+right:40px;
 }
 
 .modal-nav:hover{
@@ -1335,6 +1337,53 @@ color:white;
 text-shadow:0 0 10px #ff2a2a;
 }
 
+/* FILMSTRIP */
+  
+.filmstrip{
+margin-top:30px;
+text-align:center;
+}
+
+.filmstrip-track{
+display:flex;
+gap:10px;
+
+overflow-x:auto;
+padding:10px 0;
+
+justify-content:center;
+}
+
+.filmstrip-track img{
+height:60px;
+border-radius:4px;
+
+opacity:0.5;
+cursor:pointer;
+
+transition:0.3s;
+}
+
+.filmstrip-track img:hover{
+opacity:1;
+transform:scale(1.08);
+}
+
+.filmstrip-track img.active{
+opacity:1;
+border:2px solid #ff2a2a;
+}
+
+.photo-counter{
+margin-top:8px;
+
+color:#ff2a2a;
+font-size:14px;
+letter-spacing:1px;
+
+text-align:center;
+}
+  
 /* SCROLLBAR STYLE */
 
 /* Chrome, Edge, Safari */
@@ -2706,7 +2755,7 @@ data-comment="Captured the opening dance performance during the inauguration cer
 <img id="modalImage">
 
 <div class="photo-info">
-<div class="photo-counter" id="photoCounter"></div>
+
 <h3 id="photoEvent"></h3>
 
 <p class="photo-meta">
@@ -2714,6 +2763,16 @@ data-comment="Captured the opening dance performance during the inauguration cer
 </p>
 
 <p id="photoComment"></p>
+
+</div>
+
+<div class="filmstrip">
+
+<div class="filmstrip-track" id="filmstripTrack"></div>
+
+<div class="photo-counter" id="photoCounter"></div>
+
+</div>
 
 </div>
 
@@ -2859,6 +2918,26 @@ counterStarted = true;
 
 const galleryImages = document.querySelectorAll(".masonry-gallery img");
 
+const filmstripTrack = document.getElementById("filmstripTrack");
+
+galleryImages.forEach((img, index)=>{
+
+const thumb = document.createElement("img");
+
+thumb.src = img.src;
+
+thumb.addEventListener("click",()=>{
+
+currentIndex = index;
+
+updateModal(galleryImages[currentIndex]);
+
+});
+
+filmstripTrack.appendChild(thumb);
+
+});
+  
 const imageObserver = new IntersectionObserver((entries, observer) => {
 
 entries.forEach(entry => {
@@ -2973,6 +3052,12 @@ photoCounter.innerText = (currentIndex + 1) + " / " + galleryImages.length;
 
 modalImg.style.opacity = 1;
 
+const thumbs = filmstripTrack.querySelectorAll("img");
+
+thumbs.forEach(t => t.classList.remove("active"));
+
+thumbs[currentIndex].classList.add("active");
+  
 };
 
 }

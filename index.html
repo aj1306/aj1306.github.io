@@ -1265,17 +1265,18 @@ overflow-y:auto;
 }
 
 #modalImage{
-transition:opacity 0.3s ease;
+max-height:60vh;
+object-fit:contain;
 }
 
 .photo-counter{
-position:absolute;
-bottom:15px;
-right:20px;
 font-size:14px;
 opacity:0.7;
 letter-spacing:1px;
+margin-top:10px;
+text-align:right;
 }
+
   
 .modal-nav{
 
@@ -1309,6 +1310,17 @@ right:10px;
 color:#fff;
 text-shadow:0 0 10px #ff2a2a;
 }
+
+.photo-info{
+text-align:left;
+}
+
+.photo-counter{
+text-align:right;
+color:#ff2a2a;
+font-weight:500;
+}
+
 
 /* SCROLLBAR STYLE */
 
@@ -2674,7 +2686,7 @@ data-comment="Captured the opening dance performance during the inauguration cer
 <div id="photoModal" class="photo-modal">
 
 <div class="photo-modal-content">
-<div class="photo-counter" id="photoCounter"></div>
+
 
 <span class="photo-close">&times;</span>
 
@@ -2684,7 +2696,7 @@ data-comment="Captured the opening dance performance during the inauguration cer
 <img id="modalImage">
 
 <div class="photo-info">
-
+<div class="photo-counter" id="photoCounter"></div>
 <h3 id="photoEvent"></h3>
 
 <p class="photo-meta">

@@ -1929,6 +1929,8 @@ margin-bottom:25px;
 display:flex;
 justify-content:space-between;
 align-items:center;
+flex-wrap:wrap;
+gap:10px;
 }
 
 .footer-bottom-content p{
@@ -1940,6 +1942,48 @@ margin:0;
 .footer-made{
 font-style:italic;
 }
+
+.footer-location{
+font-size:13px;
+opacity:0.5;
+margin:0;
+}
+
+.back-to-top{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+margin:30px auto 0 auto;
+width:fit-content;
+color:rgba(255,255,255,0.5);
+text-decoration:none;
+font-size:13px;
+letter-spacing:2px;
+border:1px solid rgba(255,42,42,0.3);
+padding:10px 24px;
+border-radius:6px;
+transition:all 0.3s ease;
+}
+
+.back-to-top span{
+font-size:16px;
+color:#ff2a2a;
+animation:scrollBounceUp 2s infinite;
+}
+
+.back-to-top:hover{
+color:white;
+border-color:#ff2a2a;
+box-shadow:0 0 12px rgba(255,42,42,0.3);
+}
+
+@keyframes scrollBounceUp{
+0%{transform:translateY(0);}
+50%{transform:translateY(-4px);}
+100%{transform:translateY(0);}
+}
+  
   
 /* SCROLLBAR STYLE */
 
@@ -3619,8 +3663,14 @@ AJ LENS
 <div class="footer-line"></div>
 <div class="footer-bottom-content">
 <p>© 2026 AJ LENS — Asher John Mathew. All Rights Reserved.</p>
+<p class="footer-location">📍 Currently based in Ghaziabad, India</p>
 <p class="footer-made">Made with 📷 & ❤️ by Asher</p>
 </div>
+
+<a href="#top" class="back-to-top">
+<span>↑</span>
+Back to Top
+</a>
 </div>
 
 </div>

@@ -3004,7 +3004,7 @@ data-comment="The structure behind the flowers are also made with flowers"
   
 </section>
 
-<div id="photoModal" class="photo-modal">
+<div id="photoModal" class="photo-modal" tabindex="0">
 
 <div class="photo-modal-content">
 
@@ -3235,6 +3235,7 @@ document.body.style.top = `-${scrollY}px`;
 document.body.style.position = "fixed";
 document.body.style.width = "100%";
 currentIndex = Array.from(galleryImages).indexOf(img);
+modal.focus();
 updateModal(img);
 }
 

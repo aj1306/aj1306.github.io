@@ -3252,7 +3252,7 @@ imageObserver.observe(img);
 
 const modal = document.getElementById("photoModal");
 const modalImg = document.getElementById("modalImage");
-
+let scrollY;
 const modalEvent = document.getElementById("photoEvent");
 const modalYear = document.getElementById("photoYear");
 const modalVenue = document.getElementById("photoVenue");
@@ -3292,18 +3292,38 @@ openModal(img);
 
 
 /* OPEN MODAL */
+  
+let scrollY;
 
 function openModal(img){
 
+scrollY = window.scrollY;
+
 modal.classList.add("active");
 document.body.classList.add("modal-open");
-document.querySelector(".photo-modal-content").scrollTop = 0;
-currentIndex = Array.from(galleryImages).indexOf(img);
 
+document.body.style.top = `-${scrollY}px`;
+document.body.style.position = "fixed";
+document.body.style.width = "100%";
+
+currentIndex = Array.from(galleryImages).indexOf(img);
 updateModal(img);
 
 }
 
+/* CLOSE MODAL */
+
+function closeModal(){
+
+modal.classList.remove("active");
+document.body.classList.remove("modal-open");
+
+document.body.style.position = "";
+document.body.style.top = "";
+
+window.scrollTo(0, scrollY);
+
+}
 
 /* UPDATE MODAL */
 
@@ -3363,7 +3383,8 @@ prevBtn.click();
 }
 
 if(e.key === "Escape"){
-closeBtn.click();
+e.preventDefault();
+closeModal();
 }
 
 });
@@ -3401,10 +3422,7 @@ updateModal(galleryImages[currentIndex]);
 
 /* CLOSE BUTTON */
 
-closeBtn.onclick = ()=>{
-
-modal.classList.remove("active");
-document.body.classList.remove("modal-open");
+closeBtn.onclick = closeModal;
 
 };
 
@@ -3414,12 +3432,8 @@ document.body.classList.remove("modal-open");
 window.onclick = (e)=>{
 
 if(e.target === modal){
-
-modal.classList.remove("active");
-document.body.classList.remove("modal-open");
-
+closeModal();
 }
-
 };
 
 });

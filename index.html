@@ -3298,7 +3298,10 @@ openModal(img);
   
 function openModal(img){
 
+const modal = document.getElementById("photoModal");
+
 modal.classList.remove("closing");
+modal.style.display = "flex";
 
 scrollY = window.scrollY;
 
@@ -3319,15 +3322,17 @@ updateModal(img);
 
 function closeModal(){
 
+const modal = document.getElementById("photoModal");
+
 modal.classList.add("closing");
 
 setTimeout(()=>{
 
 modal.classList.remove("active");
 modal.classList.remove("closing");
+modal.style.display = "none";
 
 document.body.classList.remove("modal-open");
-
 document.body.style.position = "";
 document.body.style.top = "";
 document.body.style.width = "";

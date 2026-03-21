@@ -3281,33 +3281,30 @@ imageObserver.observe(img);
 });
 
 /* OPEN MODAL */
-
 function openModal(img){
 
 const rect = img.getBoundingClientRect();
 const content = document.querySelector(".photo-modal-content");
 
-const thumbCenterX = rect.left + rect.width / 2;
-const thumbCenterY = rect.top + rect.height / 2;
-
-const modalWidth = window.innerWidth * 0.9;
-const modalHeight = window.innerHeight * 0.85;
-
-const modalCenterX = (window.innerWidth - modalWidth) / 2;
-const modalCenterY = 60;
-
-content.style.transformOrigin = 
-(thumbCenterX - modalCenterX) + "px " + 
-(thumbCenterY - modalCenterY) + "px";
-
 modal.classList.remove("closing");
 modal.style.display = "flex";
 
+requestAnimationFrame(()=>{
+
+const contentRect = content.getBoundingClientRect();
+
+const originX = rect.left + rect.width / 2 - contentRect.left;
+const originY = rect.top + rect.height / 2 - contentRect.top;
+
+content.style.transformOrigin = originX + "px " + originY + "px";
+
 scrollY = window.scrollY;
 
-setTimeout(()=>{
+requestAnimationFrame(()=>{
 modal.classList.add("active");
-},10);
+});
+
+});
 
 document.body.classList.add("modal-open");
 document.body.style.top = `-${scrollY}px`;
@@ -3324,19 +3321,19 @@ updateModal(img);
 function closeModal(){
 
 const content = document.querySelector(".photo-modal-content");
-const thumbs = document.querySelectorAll(".masonry-gallery img");
-const img = thumbs[currentIndex];
+const allThumbs = document.querySelectorAll(".masonry-gallery img");
+const img = allThumbs[currentIndex];
 
 if(img){
-const rect = img.getBoundingClientRect();
-const thumbCenterX = rect.left + rect.width / 2;
-const thumbCenterY = rect.top + rect.height / 2;
-const modalCenterX = (window.innerWidth * 0.05);
-const modalCenterY = 60;
 
-content.style.transformOrigin = 
-(thumbCenterX - modalCenterX) + "px " + 
-(thumbCenterY - modalCenterY) + "px";
+const rect = img.getBoundingClientRect();
+const contentRect = content.getBoundingClientRect();
+
+const originX = rect.left + rect.width / 2 - contentRect.left;
+const originY = rect.top + rect.height / 2 - contentRect.top;
+
+content.style.transformOrigin = originX + "px " + originY + "px";
+
 }
 
 modal.classList.add("closing");
@@ -3350,7 +3347,8 @@ document.body.style.position = "";
 document.body.style.top = "";
 document.body.style.width = "";
 window.scrollTo({ top: scrollY, behavior: "instant" });
-},350);
+}, 350);
+
 }
 
 /* UPDATE MODAL */

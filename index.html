@@ -1212,13 +1212,15 @@ padding-bottom:60px;
 
 opacity:0;
 visibility:hidden;
+transform:scale(0.96);
 
-transition:opacity 0.35s ease;
+transition:
+opacity 0.35s ease,
+transform 0.35s ease;
 
 z-index:2000;
 
 overflow:hidden;
-
 }
 
 .photo-modal.active{
@@ -1370,11 +1372,6 @@ line-height:1.6;
 
 }
 
-.photo-modal{
-opacity:0;
-transition:opacity 0.3s ease;
-}
-
 .photo-modal.active{
 opacity:1;
 display:flex;
@@ -1412,15 +1409,6 @@ text-align:center;
 
 opacity:0.9;
 
-}
-
-.photo-modal{
-transform:scale(0.95);
-opacity:0;
-
-transition:
-opacity 0.35s ease,
-transform 0.35s ease;
 }
 
 .photo-modal.active{
@@ -1481,6 +1469,7 @@ text-align:center;
 .photo-modal.closing{
 opacity:0;
 transform:scale(0.96);
+pointer-events:none;
 }
 
 .photo-modal.closing #modalImage{
@@ -3305,12 +3294,11 @@ openModal(img);
 
 /* OPEN MODAL */
   
-modal.classList.remove("closing");  
-let scrollY;
-
 function openModal(img){
 
+modal.classList.remove("closing"); 
 scrollY = window.scrollY;
+function openModal(img){
 
 modal.classList.add("active");
 document.body.classList.add("modal-open");
@@ -3330,7 +3318,6 @@ function closeModal(){
 
 modal.classList.add("closing");
 
-
 setTimeout(()=>{
 
 modal.classList.remove("active");
@@ -3343,7 +3330,7 @@ document.body.style.top = "";
 
 window.scrollTo(0, scrollY);
 
-}, 300); 
+}, 300);
 
 }
 

@@ -1545,20 +1545,8 @@ opacity:0;
 transform:scale(0.92);
 }
   
-
-#portfolio .particles{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-overflow:hidden;
-z-index:0;
-}
-
-#portfolio .particles::before,
-#portfolio .particles::after{
+.gallery-section::before,
+.gallery-section::after{
 content:'';
 position:absolute;
 width:200%;
@@ -1569,14 +1557,16 @@ background-image:
 radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px);
 background-size:40px 40px;
 animation:particlesMove 60s linear infinite;
+pointer-events:none;
+z-index:0;
 }
 
-#portfolio .particles::before{
+.gallery-section::before{
 animation-duration:80s;
 opacity:0.7;
 }
 
-#portfolio .particles::after{
+.gallery-section::after{
 animation-duration:120s;
 opacity:0.6;
 }
@@ -2137,7 +2127,7 @@ Hover over each gear to see a picture of it!
   <!-- PORTFOLIO -->
 
 <section id="portfolio" class="gallery-section">
-<div class="particles"></div>
+
 <div class="gallery-header">
 <h2 class="gallery-title reveal">Portfolio / Gallery</h2>
 <div class="section-divider reveal"></div>

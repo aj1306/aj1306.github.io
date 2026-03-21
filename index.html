@@ -1547,30 +1547,12 @@ opacity:0;
 transform:scale(0.92);
 }
   
-.gallery-section::before,
-.gallery-section::after{
-content:'';
-position:absolute;
-width:200%;
-height:200%;
-top:-50%;
-left:-50%;
+.gallery-section{
 background-image:
-radial-gradient(rgba(255,255,255,0.8) 1px, transparent 1px);
+radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
 background-size:40px 40px;
-animation:particlesMove 60s linear infinite;
-pointer-events:none;
-z-index:0;
-}
-
-.gallery-section::before{
-animation-duration:80s;
-opacity:0.7;
-}
-
-.gallery-section::after{
-animation-duration:120s;
-opacity:0.6;
+background-color:#070707;
+}:0.6;
 }
 
 /* FILMSTRIP */

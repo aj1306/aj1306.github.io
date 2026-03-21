@@ -3309,6 +3309,11 @@ const content = document.querySelector(".photo-modal-content");
 
 scrollY = window.scrollY;
 
+document.body.style.top = `-${scrollY}px`;
+document.body.style.position = "fixed";
+document.body.style.width = "100%";
+document.body.classList.add("modal-open");
+
 modal.classList.remove("closing");
 modal.style.display = "flex";
 
@@ -3326,11 +3331,6 @@ modal.classList.add("active");
 });
 
 });
-
-document.body.style.top = `-${scrollY}px`;
-document.body.style.position = "fixed";
-document.body.style.width = "100%";
-document.body.classList.add("modal-open");
 
 currentIndex = Array.from(galleryImages).indexOf(img);
 modal.focus();

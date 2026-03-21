@@ -1302,11 +1302,12 @@ max-width:100%;
 height:auto;
 margin:0 auto 25px auto;
 border-radius:8px;
-transition:opacity 0.35s ease;
-will-change:opacity;
+
 transition:
 opacity 0.35s ease,
-transform 0.35s ease;
+transform 0.4s ease;
+
+will-change:opacity, transform;
 }
 
 .photo-modal.active .photo-modal-content img{
@@ -1476,6 +1477,17 @@ margin-top:6px;
 letter-spacing:1px;
 text-align:center;
 }
+
+.photo-modal.closing{
+opacity:0;
+transform:scale(0.96);
+}
+
+.photo-modal.closing #modalImage{
+opacity:0;
+transform:scale(0.92);
+}
+  
 
 #portfolio .particles::before,
 #portfolio .particles::after{
@@ -3293,6 +3305,7 @@ openModal(img);
 
 /* OPEN MODAL */
   
+modal.classList.remove("closing");  
 let scrollY;
 
 function openModal(img){
@@ -3315,13 +3328,22 @@ updateModal(img);
 
 function closeModal(){
 
+modal.classList.add("closing");
+
+
+setTimeout(()=>{
+
 modal.classList.remove("active");
+modal.classList.remove("closing");
+
 document.body.classList.remove("modal-open");
 
 document.body.style.position = "";
 document.body.style.top = "";
 
 window.scrollTo(0, scrollY);
+
+}, 300); 
 
 }
 

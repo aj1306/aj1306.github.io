@@ -3384,23 +3384,20 @@ behavior: "smooth"
 /* KEYBOARD NAV */  
 
 document.addEventListener("keydown",(e)=>{
-
 if(!modal.classList.contains("active")) return;
-
 e.preventDefault();
+e.stopPropagation();
 
-if(e.key === "ArrowRight"){
-nextBtn.click();
-}
+if(e.key === "ArrowRight") nextBtn.click();
+if(e.key === "ArrowLeft") prevBtn.click();
+});
 
-if(e.key === "ArrowLeft"){
-prevBtn.click();
-}
+document.addEventListener("keyup",(e)=>{
+if(!modal.classList.contains("active")) return;
+e.preventDefault();
+e.stopPropagation();
 
-if(e.key === "Escape"){
-closeModal();
-}
-
+if(e.key === "Escape") closeModal();
 });
 
                                         

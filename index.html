@@ -927,7 +927,7 @@ height:100%;
 pointer-events:none;
 overflow:hidden;
 
-z-index:0;
+z-index:0; 
 }
 
 .particles::before,
@@ -1050,6 +1050,9 @@ box-shadow:0 0 10px #ff2a2a;
 .gallery-section{
 background:#070707;
 padding:140px 40px;
+
+position:relative;   
+overflow:hidden;    
 }
 
 .gallery-header{
@@ -1123,6 +1126,13 @@ margin-bottom:10px;
 font-size:14px;
 opacity:0.6;
 
+}
+
+.gallery-header,
+.gallery-category,
+.masonry-gallery{
+position:relative;
+z-index:2;
 }
 
 .masonry-gallery{
@@ -1457,7 +1467,25 @@ margin-top:6px;
 letter-spacing:1px;
 text-align:center;
 }
-  
+
+#portfolio .particles::before,
+#portfolio .particles::after{
+
+background-image:
+radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px);
+
+}
+
+#portfolio .particles::before{
+animation-duration:80s;
+opacity:0.18;
+}
+
+#portfolio .particles::after{
+animation-duration:120s;
+opacity:0.12;
+}
+
 }
 /* FILMSTRIP */
   
@@ -2009,7 +2037,7 @@ Hover over each gear to see a picture of it!
   <!-- PORTFOLIO -->
 
 <section id="portfolio" class="gallery-section">
-
+<div class="particles"></div>
 <div class="gallery-header">
 <h2 class="gallery-title reveal">Portfolio / Gallery</h2>
 <div class="section-divider reveal"></div>

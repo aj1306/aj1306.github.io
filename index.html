@@ -1219,7 +1219,7 @@ opacity 0.35s ease,
 transform 0.35s ease;
 
 z-index:2000;
-
+cursor:zoom-out;
 overflow:hidden;
 }
 
@@ -1457,6 +1457,7 @@ right:15px;
 .modal-nav:hover{
 color:white;
 text-shadow:0 0 10px #ff2a2a;
+}
 
 .modal-hint{
 font-size:12px;
@@ -3296,9 +3297,9 @@ openModal(img);
   
 function openModal(img){
 
-modal.classList.remove("closing"); 
+modal.classList.remove("closing");
+
 scrollY = window.scrollY;
-function openModal(img){
 
 modal.classList.add("active");
 document.body.classList.add("modal-open");
@@ -3308,6 +3309,7 @@ document.body.style.position = "fixed";
 document.body.style.width = "100%";
 
 currentIndex = Array.from(galleryImages).indexOf(img);
+
 updateModal(img);
 
 }

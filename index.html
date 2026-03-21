@@ -3383,23 +3383,25 @@ behavior: "smooth"
 
 /* KEYBOARD NAV */  
 
-document.addEventListener("keydown",(e)=>{
-if(!modal.classList.contains("active")) return;
-e.preventDefault();
-e.stopPropagation();
-
-if(e.key === "ArrowRight") nextBtn.click();
-if(e.key === "ArrowLeft") prevBtn.click();
-});
-
 document.addEventListener("keyup",(e)=>{
-if(!modal.classList.contains("active")) return;
-e.preventDefault();
-e.stopPropagation();
 
-if(e.key === "Escape") closeModal();
+const modal = document.getElementById("photoModal");
+
+if(e.key === "Escape" || e.key === "Esc"){
+if(modal.style.display !== "none" && modal.classList.contains("active")){
+closeModal();
+}
+}
+
+if(e.key === "ArrowRight"){
+if(modal.classList.contains("active")) nextBtn.click();
+}
+
+if(e.key === "ArrowLeft"){
+if(modal.classList.contains("active")) prevBtn.click();
+}
+
 });
-
                                         
 /* NEXT IMAGE */
 

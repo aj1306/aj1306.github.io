@@ -1193,6 +1193,7 @@ filter:brightness(1);
 transform:scale(1.04);
 box-shadow:0 12px 35px rgba(0,0,0,0.7);
 z-index:10;
+position:relative;
 }
 
 .photo-modal{
@@ -1548,7 +1549,7 @@ width:100%;
 height:100%;
 pointer-events:none;
 overflow:hidden;
-z-index:1;
+z-index:0;
 }
 
 #portfolio .particles::before,
@@ -1567,12 +1568,12 @@ animation:particlesMove 60s linear infinite;
 
 #portfolio .particles::before{
 animation-duration:80s;
-opacity:0.4;
+opacity:0.15;
 }
 
 #portfolio .particles::after{
 animation-duration:120s;
-opacity:0.3;
+opacity:0.1;
 }
 
 /* FILMSTRIP */

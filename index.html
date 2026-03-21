@@ -1136,11 +1136,17 @@ opacity:0.6;
 
 .gallery-header,
 .gallery-category,
-.masonry-gallery,
 .gallery-end{
 position:relative;
 z-index:2;
 }
+
+.masonry-gallery{
+position:relative;
+z-index:2;
+isolation:isolate;
+}
+  
 .masonry-gallery img{
 position:relative;
 z-index:3;

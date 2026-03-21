@@ -1218,6 +1218,53 @@ transform:scale(0.92);
 transition:opacity 0.4s ease, transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)
 }
 
+.photo-modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.88);
+display:none;
+justify-content:center;
+align-items:flex-start;
+padding-top:60px;
+padding-bottom:60px;
+z-index:2000;
+cursor:zoom-out;
+overflow-y:auto;
+opacity:0;
+transition:opacity 0.4s ease;
+}
+
+.photo-modal.active{
+display:flex;
+opacity:1;
+}
+
+.photo-modal.closing{
+opacity:0;
+pointer-events:none;
+}
+
+.photo-modal-content{
+transform-origin:top left;
+transition:transform 0.45s cubic-bezier(0.175,0.885,0.32,1.275), opacity 0.45s ease;
+opacity:0;
+transform:scale(0.1);
+}
+
+.photo-modal.active .photo-modal-content{
+opacity:1;
+transform:scale(1);
+}
+
+.photo-modal.closing .photo-modal-content{
+opacity:0;
+transform:scale(0.1);
+transition:transform 0.3s ease, opacity 0.3s ease;
+}
+
 .photo-modal.active{
 display:flex; 
 opacity:1;
@@ -3236,14 +3283,37 @@ imageObserver.observe(img);
 /* OPEN MODAL */
 
 function openModal(img){
+
+const rect = img.getBoundingClientRect();
+const content = document.querySelector(".photo-modal-content");
+
+const thumbCenterX = rect.left + rect.width / 2;
+const thumbCenterY = rect.top + rect.height / 2;
+
+const modalWidth = window.innerWidth * 0.9;
+const modalHeight = window.innerHeight * 0.85;
+
+const modalCenterX = (window.innerWidth - modalWidth) / 2;
+const modalCenterY = 60;
+
+content.style.transformOrigin = 
+(thumbCenterX - modalCenterX) + "px " + 
+(thumbCenterY - modalCenterY) + "px";
+
 modal.classList.remove("closing");
 modal.style.display = "flex";
+
 scrollY = window.scrollY;
+
+setTimeout(()=>{
 modal.classList.add("active");
+},10);
+
 document.body.classList.add("modal-open");
 document.body.style.top = `-${scrollY}px`;
 document.body.style.position = "fixed";
 document.body.style.width = "100%";
+
 currentIndex = Array.from(galleryImages).indexOf(img);
 modal.focus();
 updateModal(img);
@@ -3252,9 +3322,27 @@ updateModal(img);
 /* CLOSE MODAL */
 
 function closeModal(){
+
+const content = document.querySelector(".photo-modal-content");
+const thumbs = document.querySelectorAll(".masonry-gallery img");
+const img = thumbs[currentIndex];
+
+if(img){
+const rect = img.getBoundingClientRect();
+const thumbCenterX = rect.left + rect.width / 2;
+const thumbCenterY = rect.top + rect.height / 2;
+const modalCenterX = (window.innerWidth * 0.05);
+const modalCenterY = 60;
+
+content.style.transformOrigin = 
+(thumbCenterX - modalCenterX) + "px " + 
+(thumbCenterY - modalCenterY) + "px";
+}
+
 modal.classList.add("closing");
-setTimeout(()=>{
 modal.classList.remove("active");
+
+setTimeout(()=>{
 modal.classList.remove("closing");
 modal.style.display = "none";
 document.body.classList.remove("modal-open");
@@ -3262,7 +3350,7 @@ document.body.style.position = "";
 document.body.style.top = "";
 document.body.style.width = "";
 window.scrollTo({ top: scrollY, behavior: "instant" });
-}, 300);
+},350);
 }
 
 /* UPDATE MODAL */

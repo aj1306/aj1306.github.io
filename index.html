@@ -3307,6 +3307,8 @@ function openModal(img){
 const rect = img.getBoundingClientRect();
 const content = document.querySelector(".photo-modal-content");
 
+scrollY = window.scrollY;
+
 modal.classList.remove("closing");
 modal.style.display = "flex";
 
@@ -3319,18 +3321,16 @@ const originY = rect.top + rect.height / 2 - contentRect.top;
 
 content.style.transformOrigin = originX + "px " + originY + "px";
 
-scrollY = window.scrollY;
-
 requestAnimationFrame(()=>{
 modal.classList.add("active");
 });
 
 });
 
-document.body.classList.add("modal-open");
 document.body.style.top = `-${scrollY}px`;
 document.body.style.position = "fixed";
 document.body.style.width = "100%";
+document.body.classList.add("modal-open");
 
 currentIndex = Array.from(galleryImages).indexOf(img);
 modal.focus();

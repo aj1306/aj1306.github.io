@@ -3133,324 +3133,211 @@ hero.style.backgroundPositionY = scrollPosition * 0.4 + "px";
 });
 
 </script>
-<script>  
+<script>
 document.addEventListener("DOMContentLoaded", function(){
+
+const counters = document.querySelectorAll('.counter');
+const galleryImages = document.querySelectorAll(".masonry-gallery img");
+const filmstripTrack = document.getElementById("filmstripTrack");
+const modal = document.getElementById("photoModal");
+const modalImg = document.getElementById("modalImage");
+const modalEvent = document.getElementById("photoEvent");
+const modalYear = document.getElementById("photoYear");
+const modalVenue = document.getElementById("photoVenue");
+const modalComment = document.getElementById("photoComment");
+const closeBtn = document.querySelector(".photo-close");
+const prevBtn = document.querySelector(".modal-prev");
+const nextBtn = document.querySelector(".modal-next");
+const photoCounter = document.getElementById("photoCounter");
+
+let currentIndex = 0;
+let scrollY = 0;
 
 /* COUNTER ANIMATION */
 
-const counters = document.querySelectorAll('.counter');
-const photoCounter = document.getElementById("photoCounter");
-
 function startCounters(){
-
 counters.forEach(counter => {
-
 const target = +counter.dataset.target;
 const suffix = counter.dataset.suffix || "";
-
 const duration = 2000;
 const startTime = performance.now();
 
 function update(currentTime){
-
 const elapsed = currentTime - startTime;
 const progress = Math.min(elapsed / duration, 1);
-
 const value = Math.floor(progress * target);
-
 counter.innerText = value + suffix;
-
 if(progress < 1){
 requestAnimationFrame(update);
 }else{
 counter.innerText = target + suffix;
 }
-
 }
-
 requestAnimationFrame(update);
-
 });
-
 }
 
 const aboutSection = document.querySelector("#about");
 let counterStarted = false;
 
 window.addEventListener("scroll", () => {
-
 const trigger = window.innerHeight * 0.8;
 const top = aboutSection.getBoundingClientRect().top;
-
 if(top < trigger && !counterStarted){
 startCounters();
 counterStarted = true;
 }
-
 });
 
-
-/* IMAGE LAZY LOAD */
-
-const galleryImages = document.querySelectorAll(".masonry-gallery img");
-
-const filmstripTrack = document.getElementById("filmstripTrack");
+/* FILMSTRIP BUILD */
 
 galleryImages.forEach((img, index)=>{
-
 const thumb = document.createElement("img");
-
 thumb.src = img.src;
-
 thumb.addEventListener("click",()=>{
-
 currentIndex = index;
-
 updateModal(galleryImages[currentIndex]);
-
 document.querySelector(".photo-modal-content").scrollTop = 0;
-
 });
-
 filmstripTrack.appendChild(thumb);
-
 });
-  
+
+/* LAZY LOAD */
+
 const imageObserver = new IntersectionObserver((entries, observer) => {
-
 entries.forEach(entry => {
-
 if(entry.isIntersecting){
-
 const img = entry.target;
-
 const full = img.dataset.full;
-
 const temp = new Image();
-
 temp.src = full;
-
 temp.onload = () => {
-
 img.src = full;
 img.classList.add("loaded");
-
 };
-
 observer.unobserve(img);
-
 }
-
 });
-
 },{threshold:0.1});
-
 
 galleryImages.forEach(img=>{
 imageObserver.observe(img);
 });
 
-
-/* MODAL SYSTEM */
-
-const modal = document.getElementById("photoModal");
-const modalImg = document.getElementById("modalImage");
-let scrollY;
-const modalEvent = document.getElementById("photoEvent");
-const modalYear = document.getElementById("photoYear");
-const modalVenue = document.getElementById("photoVenue");
-const modalComment = document.getElementById("photoComment");
-
-const closeBtn = document.querySelector(".photo-close");
-
-const prevBtn = document.querySelector(".modal-prev");
-const nextBtn = document.querySelector(".modal-next");
-
-let currentIndex = 0;
-
-
-/* HOVER + CLICK */
-
-galleryImages.forEach(img=>{
-
-let hoverTimer;
-
-img.addEventListener("mouseenter",()=>{
-
-hoverTimer = setTimeout(()=>{
-openModal(img);
-},3000);
-
-});
-
-img.addEventListener("mouseleave",()=>{
-clearTimeout(hoverTimer);
-});
-
-img.addEventListener("click",()=>{
-openModal(img);
-});
-
-});
-
-
 /* OPEN MODAL */
-  
+
 function openModal(img){
-
-const modal = document.getElementById("photoModal");
-
 modal.classList.remove("closing");
 modal.style.display = "flex";
-
 scrollY = window.scrollY;
-
 modal.classList.add("active");
 document.body.classList.add("modal-open");
-
 document.body.style.top = `-${scrollY}px`;
 document.body.style.position = "fixed";
 document.body.style.width = "100%";
-
 currentIndex = Array.from(galleryImages).indexOf(img);
-
 updateModal(img);
-
 }
 
 /* CLOSE MODAL */
 
 function closeModal(){
-
-const modal = document.getElementById("photoModal");
-
 modal.classList.add("closing");
-
 setTimeout(()=>{
-
 modal.classList.remove("active");
 modal.classList.remove("closing");
 modal.style.display = "none";
-
 document.body.classList.remove("modal-open");
 document.body.style.position = "";
 document.body.style.top = "";
 document.body.style.width = "";
-
 window.scrollTo({ top: scrollY, behavior: "instant" });
-
 }, 300);
-
 }
 
 /* UPDATE MODAL */
 
 function updateModal(img){
-
 const container = document.querySelector(".photo-modal-content");
 container.scrollTop = 0;
-
 modalImg.style.opacity = 0;
-
 const newImg = new Image();
 newImg.src = img.dataset.full;
-
 newImg.onload = ()=>{
-
 modalImg.src = newImg.src;
-
 modalEvent.innerText = img.dataset.event;
 modalYear.innerText = img.dataset.year;
 modalVenue.innerText = img.dataset.venue;
 modalComment.innerText = img.dataset.comment;
-
-photoCounter.innerText =
-(currentIndex + 1) + " / " + galleryImages.length;
-
+photoCounter.innerText = (currentIndex + 1) + " / " + galleryImages.length;
 requestAnimationFrame(()=>{
 modalImg.style.opacity = 1;
 });
-
 };
-
 const thumbs = filmstripTrack.querySelectorAll("img");
-
 thumbs.forEach(t => t.classList.remove("active"));
-
 thumbs[currentIndex].classList.add("active");
-
 filmstripTrack.scrollTo({
 left: thumbs[currentIndex].offsetLeft - filmstripTrack.offsetWidth/2,
 behavior: "smooth"
 });
-
 }
 
-/* KEYBOARD NAV */  
+/* HOVER + CLICK */
 
-document.addEventListener("keyup",(e)=>{
-
-const modal = document.getElementById("photoModal");
-
-if(e.key === "Escape" || e.key === "Esc"){
-if(modal.style.display !== "none" && modal.classList.contains("active")){
-closeModal();
-}
-}
-
-if(e.key === "ArrowRight"){
-if(modal.classList.contains("active")) nextBtn.click();
-}
-
-if(e.key === "ArrowLeft"){
-if(modal.classList.contains("active")) prevBtn.click();
-}
-
+galleryImages.forEach(img=>{
+let hoverTimer;
+img.addEventListener("mouseenter",()=>{
+hoverTimer = setTimeout(()=>{
+openModal(img);
+},3000);
 });
-                                        
-/* NEXT IMAGE */
+img.addEventListener("mouseleave",()=>{
+clearTimeout(hoverTimer);
+});
+img.addEventListener("click",()=>{
+openModal(img);
+});
+});
+
+/* NAVIGATION */
 
 nextBtn.onclick = ()=>{
-
 currentIndex++;
-
-if(currentIndex >= galleryImages.length){
-currentIndex = 0;
-}
-
+if(currentIndex >= galleryImages.length) currentIndex = 0;
 updateModal(galleryImages[currentIndex]);
-
 };
-
-
-/* PREVIOUS IMAGE */
 
 prevBtn.onclick = ()=>{
-
 currentIndex--;
-
-if(currentIndex < 0){
-currentIndex = galleryImages.length - 1;
-}
-
+if(currentIndex < 0) currentIndex = galleryImages.length - 1;
 updateModal(galleryImages[currentIndex]);
-
 };
-
 
 /* CLOSE BUTTON */
 
 closeBtn.onclick = closeModal;
 
-
-/* CLICK OUTSIDE MODAL */
+/* CLICK OUTSIDE */
 
 window.onclick = (e)=>{
 if(e.target === modal){
 closeModal();
 }
 };
+
+/* KEYBOARD */
+
+document.addEventListener("keydown",(e)=>{
+if(!modal.classList.contains("active")) return;
+e.preventDefault();
+e.stopPropagation();
+if(e.key === "ArrowRight") nextBtn.click();
+if(e.key === "ArrowLeft") prevBtn.click();
+if(e.key === "Escape" || e.key === "Esc") closeModal();
 });
+
+}); // closes DOMContentLoaded
 </script>
   
 </body>

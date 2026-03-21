@@ -3387,6 +3387,8 @@ document.addEventListener("keydown",(e)=>{
 
 if(!modal.classList.contains("active")) return;
 
+e.preventDefault();
+
 if(e.key === "ArrowRight"){
 nextBtn.click();
 }
@@ -3396,7 +3398,6 @@ prevBtn.click();
 }
 
 if(e.key === "Escape"){
-e.preventDefault();
 closeModal();
 }
 

@@ -1174,16 +1174,6 @@ filter:blur(0);
 transform:scale(1);
 }
 
-.masonry-gallery img.reveal{
-opacity:0;
-transform:scale(1.05);
-}
-
-.masonry-gallery img.reveal.active{
-opacity:0;
-transform:scale(1.05);
-}
-
 /* dim all images when hovering gallery */
 .masonry-gallery:hover img{
 opacity:0.6;
@@ -3729,25 +3719,18 @@ document.body.classList.add("page-loaded");
 <script>
 
 function reveal(){
-
-const elements = document.querySelectorAll(".reveal");
-
+const elements = document.querySelectorAll(".reveal:not(.masonry-gallery img)");
 elements.forEach(el => {
-
 const windowHeight = window.innerHeight;
 const elementTop = el.getBoundingClientRect().top;
-
 const revealPoint = 120;
-
 if(elementTop < windowHeight - revealPoint){
 el.classList.add("active");
 }
 else{
 el.classList.remove("active");
 }
-
 });
-
 }
 
 window.addEventListener("scroll", reveal);

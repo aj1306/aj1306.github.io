@@ -1169,9 +1169,9 @@ will-change: transform, opacity;
 }
 
 .masonry-gallery img.loaded{
-opacity:1;
-filter:blur(0);
-transform:scale(1);
+opacity:1 !important;
+filter:blur(0) !important;
+transform:scale(1) !important;
 }
 
 /* dim all images when hovering gallery */
@@ -3719,7 +3719,7 @@ document.body.classList.add("page-loaded");
 <script>
 
 function reveal(){
-const elements = document.querySelectorAll(".reveal:not(.masonry-gallery img)");
+const elements = document.querySelectorAll(".reveal");
 elements.forEach(el => {
 const windowHeight = window.innerHeight;
 const elementTop = el.getBoundingClientRect().top;

@@ -25,6 +25,73 @@ html{
 scroll-behavior:smooth;
 }
 
+/* NAV HAMBURGER */  
+
+.hamburger{
+display:none;
+flex-direction:column;
+gap:5px;
+cursor:pointer;
+padding:4px;
+z-index:1100;
+}
+
+.hamburger span{
+display:block;
+width:24px;
+height:2px;
+background:#ff2a2a;
+border-radius:2px;
+transition:all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1){
+transform:rotate(45deg) translate(5px,5px);
+}
+
+.hamburger.active span:nth-child(2){
+opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+transform:rotate(-45deg) translate(5px,-5px);
+}
+
+@media(max-width:768px){
+
+.hamburger{
+display:flex;
+}
+
+.menu{
+display:none;
+position:fixed;
+top:0;
+right:0;
+width:70%;
+height:100vh;
+background:rgba(0,0,0,0.97);
+backdrop-filter:blur(20px);
+border-left:1px solid rgba(255,42,42,0.3);
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:30px;
+z-index:1050;
+}
+
+.menu.open{
+display:flex;
+}
+
+.menu a{
+font-size:22px;
+margin:0;
+}
+
+}
+  
+
 /* CURSOR */
   
 *{ cursor:none; }
@@ -2113,6 +2180,115 @@ opacity:1;
 transition:opacity 0.5s ease;
 }
 
+/* CONTACT BOX */  
+
+.contact-form-wrapper{
+margin-top:60px;
+max-width:700px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.contact-form-title{
+font-family:'Montserrat',sans-serif;
+font-size:28px;
+text-align:center;
+margin-bottom:8px;
+}
+
+.contact-form-divider{
+width:60px;
+height:2px;
+background:#ff2a2a;
+margin:10px auto 30px auto;
+border-radius:2px;
+box-shadow:0 0 8px rgba(255,42,42,0.6);
+}
+
+.contact-form{
+background:#0a0a0a;
+border:1px solid rgba(255,42,42,0.15);
+border-radius:12px;
+padding:30px;
+}
+
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+
+.form-group{
+display:flex;
+flex-direction:column;
+gap:6px;
+margin-bottom:16px;
+}
+
+.form-group label{
+font-size:12px;
+letter-spacing:1px;
+color:rgba(255,255,255,0.5);
+text-transform:uppercase;
+}
+
+.form-group input,
+.form-group textarea{
+background:#111;
+border:1px solid rgba(255,42,42,0.2);
+border-radius:6px;
+padding:12px 14px;
+color:white;
+font-family:'Poppins',sans-serif;
+font-size:14px;
+outline:none;
+transition:border-color 0.3s ease;
+resize:none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+border-color:rgba(255,42,42,0.6);
+box-shadow:0 0 10px rgba(255,42,42,0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+color:rgba(255,255,255,0.2);
+}
+
+.form-submit{
+width:100%;
+padding:14px;
+background:#ff2a2a;
+color:white;
+border:none;
+border-radius:6px;
+font-family:'Poppins',sans-serif;
+font-size:15px;
+font-weight:700;
+cursor:pointer;
+transition:all 0.3s ease;
+}
+
+.form-submit:hover{
+box-shadow:0 0 15px #ff2a2a, 0 0 30px rgba(255,42,42,0.4);
+transform:translateY(-2px);
+}
+
+.form-status{
+text-align:center;
+margin-top:12px;
+font-size:13px;
+opacity:0.8;
+}
+
+@media(max-width:600px){
+.form-row{
+grid-template-columns:1fr;
+}
+}  
+
 /* SCROLLBAR STYLE */
 
 /* Chrome, Edge, Safari */
@@ -2253,10 +2429,12 @@ transition:opacity 0.4s ease;
 /* MOBILE */
 
 @media (max-width:768px){
-
 .hero h1{
 font-size:56px;
 letter-spacing:5px;
+}
+.hero{
+background-attachment:scroll;
 }
 
 .hero-buttons{
@@ -2333,12 +2511,18 @@ font-size:34px;
 AJ LENS
 </a>
 
-<div class="menu">
-<a href="#top">Home</a>
-<a href="#about">About</a>
-<a href="#gear">Gears</a>  
-<a href="#portfolio">Portfolio</a>
-<a href="#contact">Contact</a>
+<div class="menu" id="navMenu">
+<a href="#top" onclick="closeMenu()">Home</a>
+<a href="#about" onclick="closeMenu()">About</a>
+<a href="#gear" onclick="closeMenu()">Gears</a>
+<a href="#portfolio" onclick="closeMenu()">Portfolio</a>
+<a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<div class="hamburger" id="hamburger" onclick="toggleMenu()">
+<span></span>
+<span></span>
+<span></span>
 </div>
 
 </div>
@@ -4230,6 +4414,35 @@ Follow @aj_1306._
 </div>
 
 </div>
+<div class="contact-form-wrapper reveal delay-2">
+<h3 class="contact-form-title">Send a <span style="color:#ff2a2a">Message</span></h3>
+<div class="contact-form-divider"></div>
+<div class="contact-form">
+<div class="form-row">
+<div class="form-group">
+<label>Your Name</label>
+<input type="text" id="formName" placeholder="John Doe">
+</div>
+<div class="form-group">
+<label>Your Email</label>
+<input type="email" id="formEmail" placeholder="john@example.com">
+</div>
+</div>
+<div class="form-group">
+<label>Subject</label>
+<input type="text" id="formSubject" placeholder="Photography inquiry...">
+</div>
+<div class="form-group">
+<label>Message</label>
+<textarea id="formMessage" rows="5" placeholder="Tell me about your project..."></textarea>
+</div>
+<button class="form-submit" onclick="submitForm()">
+Send Message →
+</button>
+<p class="form-status" id="formStatus"></p>
+</div>
+</div>
+
 </section>
 
 <footer class="footer">
@@ -4700,6 +4913,42 @@ instaObserver.unobserve(instagramWidget);
 },{threshold:0.1});
 
 instaObserver.observe(instagramWidget);
+</script>
+<script>
+function toggleMenu(){
+const menu = document.getElementById("navMenu");
+const hamburger = document.getElementById("hamburger");
+menu.classList.toggle("open");
+hamburger.classList.toggle("active");
+}
+
+function closeMenu(){
+const menu = document.getElementById("navMenu");
+const hamburger = document.getElementById("hamburger");
+menu.classList.remove("open");
+hamburger.classList.remove("active");
+}
+</script>
+<script>
+function submitForm(){
+const name = document.getElementById("formName").value.trim();
+const email = document.getElementById("formEmail").value.trim();
+const subject = document.getElementById("formSubject").value.trim();
+const message = document.getElementById("formMessage").value.trim();
+const status = document.getElementById("formStatus");
+
+if(!name || !email || !message){
+status.style.color = "#ff2a2a";
+status.innerText = "Please fill in all required fields.";
+return;
+}
+
+const mailtoLink = `mailto:ashujohnmathew13@gmail.com?subject=${encodeURIComponent(subject || "Portfolio Inquiry from " + name)}&body=${encodeURIComponent("Name: " + name + "\nEmail: " + email + "\n\n" + message)}`;
+window.location.href = mailtoLink;
+
+status.style.color = "#4CAF50";
+status.innerText = "Opening your mail app...";
+}
 </script>
   
 </body>

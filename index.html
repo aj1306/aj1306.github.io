@@ -4230,9 +4230,11 @@ Latest shots from
 <a href="https://www.instagram.com/aj_lens._" target="_blank" class="insta-handle">@aj.lens._</a>
 </p>
 </div>
-
-<div class="instagram-widget reveal delay-1">
-YOUR_LIGHTWIDGET_EMBED_CODE_HERE
+  
+<!-- LightWidget -->
+<div class="instagram-widget reveal delay-1" id="instagramWidget">
+<script src="https://cdn.lightwidget.com/widgets/lightwidget.js"></script>
+<iframe src="//lightwidget.com/widgets/2ffbeeb99e705c19a66a610675cf95b2.html" scrolling="no" allowtransparency="true" class="lightwidget-widget" style="width:100%;border:0;overflow:hidden;"></iframe>
 </div>
 
 <div class="instagram-cta reveal delay-2">
@@ -4847,6 +4849,31 @@ cat.appendChild(badge);
 });
 
 </script>  
+<script>
+const instagramWidget = document.getElementById("instagramWidget");
+
+const instaObserver = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+
+const script = document.createElement("script");
+script.src = "https://cdn.lightwidget.com/widgets/lightwidget.js";
+document.head.appendChild(script);
+
+const iframe = document.createElement("iframe");
+iframe.src = "//lightwidget.com/widgets/YOUR-WIDGET-ID.html";
+iframe.scrolling = "no";
+iframe.allowTransparency = "true";
+iframe.style.cssText = "width:100%;border:0;overflow:hidden;border-radius:8px;";
+instagramWidget.appendChild(iframe);
+
+instaObserver.unobserve(instagramWidget);
+}
+});
+},{threshold:0.1});
+
+instaObserver.observe(instagramWidget);
+</script>
   
 </body>
 </html>

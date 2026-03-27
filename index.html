@@ -1206,19 +1206,19 @@ will-change: transform, opacity;
 }
 
 .masonry-gallery img.loaded{
-opacity:1 !important;
-filter:blur(0) !important;
-transform:scale(1) !important;
-}
-
-/* dim all images when hovering gallery */
-.masonry-gallery:hover img{
-opacity:0.6;
-}
-
-/* highlight hovered image */
-.masonry-gallery img:hover{
 opacity:1;
+filter:blur(0);
+transform:scale(1);
+}
+
+.masonry-gallery:hover img.loaded{
+opacity:0.4;
+filter:brightness(0.6);
+}
+
+.masonry-gallery img.loaded:hover{
+opacity:1 !important;
+filter:brightness(1) !important;
 box-shadow:
 0 0 0 3px #ff2a2a,
 0 12px 35px rgba(0,0,0,0.7);
@@ -1571,6 +1571,33 @@ transform:scale(0.92);
 .gallery-section{
 background:#070707;
 }
+
+.gallery-next-arrow{
+display:flex;
+justify-content:center;
+margin-top:60px;
+margin-bottom:20px;
+}
+
+.gallery-next-arrow a{
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+}
+
+.gallery-next-arrow span{
+width:20px;
+height:20px;
+border-bottom:2px solid #ff2a2a;
+border-right:2px solid #ff2a2a;
+transform:rotate(45deg);
+animation:scrollBounce 2s infinite;
+}
+
+.gallery-next-arrow span:hover{
+box-shadow:0 0 10px #ff2a2a;
+}  
 
 .portfolio-particles{
 position:absolute;
@@ -2339,7 +2366,7 @@ AJ LENS
 
 </div>
 
-<a href="#about" class="scroll-indicator reveal delay-4">
+<a href="#about" class="scroll-indicator reveal delay-3">
 <p class="scroll-text">Press the arrow</p>
 <span></span>
 </a>
@@ -2397,10 +2424,10 @@ class="signature">— AJ</p>
 
 </div>
   
-<div class="about-buttons reveal delay-4">
+<div class="about-buttons reveal">
 <a href="#portfolio" class="button">View Gallery</a>
 <a href="#contact" class="button secondary">Contact Asher</a>
-<a href="#gear" class="about-next-arrow reveal delay-4">
+<a href="#gear" class="about-next-arrow reveal">
 <span></span>
 </a>
 </div>
@@ -4048,15 +4075,17 @@ data-comment="The structure behind the flowers are also made with flowers"
 </div>
 
 <div class="gallery-end">
-
 <p>End of Gallery</p>
-
 <span>More moments coming soon</span>
-
 <div class="signature">— AJ</div>
-
 </div>
-  
+
+<div class="gallery-next-arrow reveal">
+<a href="#contact">
+<span></span>
+</a>
+</div>
+
 </section>
   
 <div id="photoModal" class="photo-modal" tabindex="0">
@@ -4142,7 +4171,7 @@ data-comment="The structure behind the flowers are also made with flowers"
 </div>
 <div class="contact-card-info">
 <span class="contact-card-platform">Instagram</span>
-<span class="contact-card-handle">@aj.lens._</span>
+<span class="contact-card-handle">@aj_lens._</span>
 <span class="contact-card-tag">Photography</span>
 </div>
 <div class="contact-card-arrow">→</div>
@@ -4178,7 +4207,7 @@ data-comment="The structure behind the flowers are also made with flowers"
 </div>
 <div class="contact-card-info">
 <span class="contact-card-platform">GitHub</span>
-<span class="contact-card-handle">@aj1306</span>
+<span class="contact-card-handle">aj1306</span>
 <span class="contact-card-tag">Find the code to this website, but don't copy anything, its under copyright ☺️</span>
 </div>
 <div class="contact-card-arrow">→</div>
@@ -4191,7 +4220,7 @@ data-comment="The structure behind the flowers are also made with flowers"
 <div class="follow-buttons">
 <a href="https://www.instagram.com/aj_lens._?igsh=M3RpMWprcHRpenZ4" target="_blank" class="follow-btn">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-Follow @aj.lens._
+Follow @aj_lens._
 </a>
 <a href="https://www.instagram.com/aj_1306._?igsh=M296YzNxbW8yN3Iz" target="_blank" class="follow-btn secondary">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -4237,7 +4266,7 @@ AJ LENS
 </div>
 
 <div class="footer-credits">
-<h4>Photo Pose Credits</h4>
+<h4>Model Credits</h4>
 <ul>
 <li><a href="https://www.instagram.com/dobhal.saumya" target="_blank">Saumya Dobhal - @dobhal.saumya</a></li>
 <li><a href="https://www.instagram.com/garv._thekid" target="_blank">Garv Bhatia - @garv._thekid</a></li>

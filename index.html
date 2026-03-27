@@ -2086,10 +2086,6 @@ opacity:1;
 transition:opacity 0.5s ease;
 }
 
-.fade-section.dimmed{
-opacity:0.75;
-} 
-
  /* SECTION ARROWS */
 .section-arrow-down{
 background:#000;
@@ -4836,19 +4832,6 @@ hoverables.forEach(el => {
 el.addEventListener("mouseenter",()=> document.body.classList.add("cursor-hover"));
 el.addEventListener("mouseleave",()=> document.body.classList.remove("cursor-hover"));
 });
-
-/* SECTION FADE ON SCROLL */
-const fadeSections = document.querySelectorAll(".fade-section");
-const sectionObserver = new IntersectionObserver((entries)=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.remove("dimmed");
-}else{
-entry.target.classList.add("dimmed");
-}
-});
-},{threshold:0.15});
-fadeSections.forEach(s=> sectionObserver.observe(s));
 
 /* IMAGE COUNT BADGES */
 const categories = document.querySelectorAll(".gallery-category");

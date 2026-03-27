@@ -24,8 +24,45 @@ color:white;
 html{
 scroll-behavior:smooth;
 }
+
+/* CURSOR */
+  
+*{ cursor:none; }
+
+#customCursor{
+position:fixed;
+width:36px;
+height:36px;
+border:2px solid #ff2a2a;
+border-radius:50%;
+pointer-events:none;
+z-index:99999;
+transform:translate(-50%,-50%);
+transition:width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+opacity:0.7;
+}
+
+#customCursorDot{
+position:fixed;
+width:6px;
+height:6px;
+background:#ff2a2a;
+border-radius:50%;
+pointer-events:none;
+z-index:99999;
+transform:translate(-50%,-50%);
+box-shadow:0 0 6px #ff2a2a;
+}
+
+body.cursor-hover #customCursor{
+width:56px;
+height:56px;
+opacity:0.4;
+box-shadow:0 0 15px rgba(255,42,42,0.4);
+}
   
 /* SCROLLBAR */
+  
 #scrollBar{
 
 position:fixed;
@@ -1808,9 +1845,47 @@ background:#ff2a2a;
 /* FOOTER */
 
 .footer{
-background:#000;
-border-top:1px solid rgba(255,42,42,0.3);
+background:linear-gradient(
+135deg,
+rgba(20,0,0,0.95),
+rgba(8,0,0,0.98)
+);
+backdrop-filter:blur(20px);
+-webkit-backdrop-filter:blur(20px);
+border-top:1px solid rgba(255,42,42,0.25);
 padding:60px 40px 30px 40px;
+position:relative;
+overflow:hidden;
+}
+
+.footer::before{
+content:'';
+position:absolute;
+top:-60%;
+left:-20%;
+width:60%;
+height:200%;
+background:radial-gradient(
+ellipse,
+rgba(255,42,42,0.06) 0%,
+transparent 70%
+);
+pointer-events:none;
+}
+
+.footer::after{
+content:'';
+position:absolute;
+top:-40%;
+right:-10%;
+width:50%;
+height:180%;
+background:radial-gradient(
+ellipse,
+rgba(255,42,42,0.04) 0%,
+transparent 70%
+);
+pointer-events:none;
 }
 
 .footer-container{
@@ -1946,6 +2021,14 @@ opacity:0.5;
 margin:0;
 }
 
+.footer-lightroom{
+font-size:12px;
+opacity:0.45;
+margin:10px 0 0 0;
+color:rgba(255,255,255,0.6);
+font-style:italic;
+}  
+
 .back-to-top{
 display:flex;
 align-items:center;
@@ -1980,7 +2063,176 @@ box-shadow:0 0 12px rgba(255,42,42,0.3);
 50%{transform:translateY(-4px);}
 100%{transform:translateY(0);}
 }
+
+/* COUNT BADGES */
   
+.gallery-count-badge{
+display:inline-block;
+background:rgba(255,42,42,0.15);
+border:1px solid rgba(255,42,42,0.4);
+color:#ff2a2a;
+font-size:12px;
+letter-spacing:2px;
+padding:4px 12px;
+border-radius:20px;
+margin-left:12px;
+vertical-align:middle;
+font-family:'Poppins',sans-serif;
+font-weight:400;
+}
+  
+.fade-section{
+opacity:1;
+transition:opacity 0.5s ease;
+}
+
+.fade-section.dimmed{
+opacity:0.75;
+} 
+
+ /* SECTION ARROWS */
+.section-arrow-down{
+background:#000;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:30px 0;
+}
+
+.section-arrow-down a{
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:8px;
+text-decoration:none;
+}
+
+.section-arrow-label{
+color:rgba(255,255,255,0.4);
+font-size:12px;
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.section-arrow-chevron span{
+display:block;
+width:20px;
+height:20px;
+border-bottom:2px solid #ff2a2a;
+border-right:2px solid #ff2a2a;
+transform:rotate(45deg);
+animation:scrollBounce 2s infinite;
+box-shadow:0 0 8px rgba(255,42,42,0.5);
+}
+
+.section-arrow-down a:hover .section-arrow-label{
+color:#ff2a2a;
+}
+
+/* INSTAGRAM SECTION */
+.instagram-section{
+background:#000;
+padding:120px 40px;
+position:relative;
+overflow:hidden;
+}
+
+.instagram-container{
+max-width:1100px;
+margin:auto;
+position:relative;
+z-index:2;
+}
+
+.instagram-header{
+text-align:center;
+margin-bottom:50px;
+}
+
+.instagram-title{
+font-family:'Montserrat',sans-serif;
+font-size:48px;
+letter-spacing:2px;
+margin:0 0 12px 0;
+}
+
+.instagram-highlight{
+color:#ff2a2a;
+text-shadow:
+0 0 10px rgba(255,42,42,0.5),
+0 0 20px rgba(255,42,42,0.3);
+}
+
+.instagram-divider{
+width:80px;
+height:3px;
+background:#ff2a2a;
+margin:16px auto;
+border-radius:2px;
+box-shadow:
+0 0 10px rgba(255,42,42,0.8),
+0 0 20px rgba(255,42,42,0.5);
+}
+
+.instagram-subtitle{
+opacity:0.7;
+font-size:16px;
+margin:0;
+}
+
+.insta-handle{
+color:#ff2a2a;
+text-decoration:none;
+font-weight:600;
+}
+
+.insta-handle:hover{
+text-shadow:0 0 8px rgba(255,42,42,0.6);
+}
+
+.instagram-widget{
+margin:0 auto 40px auto;
+max-width:900px;
+}
+
+.instagram-widget iframe{
+width:100% !important;
+border-radius:8px;
+}
+
+.instagram-cta{
+text-align:center;
+}
+
+.insta-follow-btn{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:14px 32px;
+background:#ff2a2a;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+font-size:15px;
+transition:all 0.3s ease;
+}
+
+.insta-follow-btn:hover{
+box-shadow:
+0 0 15px #ff2a2a,
+0 0 30px rgba(255,42,42,0.5);
+transform:translateY(-2px);
+}
+
+@media(max-width:768px){
+.instagram-title{
+font-size:32px;
+}
+.section-arrow-label{
+font-size:10px;
+}
+} 
   
 /* SCROLLBAR STYLE */
 
@@ -2189,6 +2441,8 @@ font-size:34px;
 </head>
 
 <body id="top">
+<div id="customCursor"></div>
+<div id="customCursorDot"></div>
 <div id="scrollBar"></div>
 
 <!-- NAVBAR -->
@@ -3953,6 +4207,62 @@ data-comment="The structure behind the flowers are also made with flowers"
   
 </section>
 
+<!-- ARROW FROM PORTFOLIO TO INSTAGRAM -->
+<div class="section-arrow-down">
+<a href="#instagram">
+<span class="section-arrow-label">See my Instagram</span>
+<div class="section-arrow-chevron">
+<span></span>
+</div>
+</a>
+</div>
+
+<!-- INSTAGRAM SECTION -->
+<section id="instagram" class="instagram-section">
+<div class="particles"></div>
+<div class="hero-lights"></div>
+
+<div class="instagram-container">
+
+<div class="instagram-header reveal">
+<h2 class="instagram-title">
+Follow The <span class="instagram-highlight">Journey</span>
+</h2>
+<div class="instagram-divider"></div>
+<p class="instagram-subtitle">
+Latest shots from
+<a href="https://www.instagram.com/aj_lens._" target="_blank" class="insta-handle">@aj.lens._</a>
+</p>
+</div>
+
+<div class="instagram-widget reveal delay-1">
+YOUR_LIGHTWIDGET_EMBED_CODE_HERE
+</div>
+
+<div class="instagram-cta reveal delay-2">
+<a href="https://www.instagram.com/aj_lens._?igsh=M3RpMWprcHRpenZ4" target="_blank" class="insta-follow-btn">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+<rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+<circle cx="12" cy="12" r="4"/>
+<circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+</svg>
+Follow @aj.lens._
+</a>
+</div>
+
+</div>
+</section>
+
+<!-- ARROW FROM INSTAGRAM TO CONTACT -->
+<div class="section-arrow-down">
+<a href="#contact">
+<span class="section-arrow-label">Get in touch</span>
+<div class="section-arrow-chevron">
+<span></span>
+</div>
+</a>
+</div>
+  
 <div id="photoModal" class="photo-modal" tabindex="0">
 
 <div class="photo-modal-content">
@@ -4116,6 +4426,7 @@ AJ LENS
 <a href="https://www.linkedin.com/in/asher-john-mathew-bcagraduate" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
 <a href="https://github.com/aj1306" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg></a>
 </div>
+<p class="footer-lightroom">📸 Photos edited in Adobe Lightroom</p>
 </div>
 
 <div class="footer-nav">
@@ -4493,6 +4804,66 @@ if(e.key === "Escape" || e.key === "Esc") closeModal();
 
 }); // closes DOMContentLoaded
 </script>
+
+<script>
+
+/* CUSTOM CURSOR */
+const cursor = document.getElementById("customCursor");
+const cursorDot = document.getElementById("customCursorDot");
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+
+document.addEventListener("mousemove",(e)=>{
+mouseX = e.clientX;
+mouseY = e.clientY;
+cursorDot.style.left = mouseX + "px";
+cursorDot.style.top = mouseY + "px";
+});
+
+function animateCursor(){
+cursorX += (mouseX - cursorX) * 0.12;
+cursorY += (mouseY - cursorY) * 0.12;
+cursor.style.left = cursorX + "px";
+cursor.style.top = cursorY + "px";
+requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+const hoverables = document.querySelectorAll(
+"a, button, .gear-card, .contact-card, .masonry-gallery img, .follow-btn, .back-to-top, .insta-follow-btn"
+);
+hoverables.forEach(el => {
+el.addEventListener("mouseenter",()=> document.body.classList.add("cursor-hover"));
+el.addEventListener("mouseleave",()=> document.body.classList.remove("cursor-hover"));
+});
+
+/* SECTION FADE ON SCROLL */
+const fadeSections = document.querySelectorAll(".fade-section");
+const sectionObserver = new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.remove("dimmed");
+}else{
+entry.target.classList.add("dimmed");
+}
+});
+},{threshold:0.15});
+fadeSections.forEach(s=> sectionObserver.observe(s));
+
+/* IMAGE COUNT BADGES */
+const categories = document.querySelectorAll(".gallery-category");
+categories.forEach(cat=>{
+const nextGallery = cat.nextElementSibling;
+if(nextGallery && nextGallery.classList.contains("masonry-gallery")){
+const count = nextGallery.querySelectorAll("img").length;
+const badge = document.createElement("span");
+badge.classList.add("gallery-count-badge");
+badge.innerText = count + " photos";
+cat.appendChild(badge);
+}
+});
+
+</script>  
   
 </body>
 </html>

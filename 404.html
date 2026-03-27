@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — AJ LENS</title>
+<link rel="icon" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+background:#000;
+color:white;
+font-family:'Poppins',sans-serif;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+.particles{
+position:fixed;
+top:0;left:0;width:100%;height:100%;
+pointer-events:none;
+}
+.particles::before,.particles::after{
+content:'';
+position:absolute;
+width:200%;height:200%;
+top:-50%;left:-50%;
+background-image:radial-gradient(rgba(255,255,255,0.2) 1px,transparent 1px);
+background-size:40px 40px;
+animation:particlesMove 60s linear infinite;
+}
+.particles::after{animation-duration:90s;opacity:0.6;}
+@keyframes particlesMove{
+0%{transform:translateY(0);}
+100%{transform:translateY(-500px);}
+}
+.container{
+position:relative;
+z-index:2;
+padding:40px;
+}
+.logo{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+font-family:'Montserrat',sans-serif;
+font-size:20px;
+font-weight:700;
+color:#ff2a2a;
+letter-spacing:3px;
+margin-bottom:60px;
+text-decoration:none;
+}
+.logo img{width:28px;}
+.error-code{
+font-family:'Montserrat',sans-serif;
+font-size:120px;
+font-weight:700;
+color:#ff2a2a;
+line-height:1;
+text-shadow:
+0 0 20px rgba(255,42,42,0.6),
+0 0 40px rgba(255,42,42,0.3);
+animation:glitch 3s infinite;
+}
+@keyframes glitch{
+0%,95%,100%{text-shadow:0 0 20px rgba(255,42,42,0.6);}
+96%{text-shadow:-2px 0 #ff2a2a, 2px 0 rgba(255,42,42,0.4);}
+97%{text-shadow:2px 0 #ff2a2a, -2px 0 rgba(255,42,42,0.4);}
+98%{text-shadow:-2px 0 #ff2a2a, 2px 0 rgba(255,42,42,0.4);}
+}
+.divider{
+width:80px;
+height:2px;
+background:#ff2a2a;
+margin:20px auto;
+box-shadow:0 0 10px #ff2a2a;
+}
+h1{
+font-family:'Montserrat',sans-serif;
+font-size:28px;
+letter-spacing:2px;
+margin-bottom:12px;
+}
+p{
+opacity:0.6;
+font-size:15px;
+margin-bottom:40px;
+}
+.btn{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:14px 30px;
+background:#ff2a2a;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:700;
+font-size:14px;
+transition:all 0.3s ease;
+}
+.btn:hover{
+box-shadow:0 0 15px #ff2a2a, 0 0 30px rgba(255,42,42,0.4);
+transform:translateY(-2px);
+}
+</style>
+</head>
+<body>
+<div class="particles"></div>
+<div class="container">
+<a href="index.html" class="logo">
+<img src="logo.png">
+AJ LENS
+</a>
+<div class="error-code">404</div>
+<div class="divider"></div>
+<h1>Shot Not Found 📷</h1>
+<p>Looks like this page got lost in the darkroom.<br>Let's get you back to the gallery.</p>
+<a href="index.html" class="btn">← Back to Home</a>
+</div>
+</body>
+</html>

@@ -68,25 +68,115 @@ display:none;
 position:fixed;
 top:0;
 right:0;
-width:70%;
+width:75%;
 height:100vh;
-background:rgba(0,0,0,0.97);
-backdrop-filter:blur(20px);
-border-left:1px solid rgba(255,42,42,0.3);
+background:linear-gradient(
+135deg,
+rgba(15,0,0,0.92),
+rgba(5,0,0,0.96)
+);
+backdrop-filter:blur(24px);
+-webkit-backdrop-filter:blur(24px);
+border-left:1px solid rgba(255,42,42,0.25);
 flex-direction:column;
 align-items:center;
 justify-content:center;
-gap:30px;
+gap:0;
 z-index:1050;
+overflow:hidden;
+}
+
+.menu::before{
+content:'';
+position:absolute;
+top:-30%;
+right:-20%;
+width:300px;
+height:300px;
+background:radial-gradient(circle, rgba(255,42,42,0.08) 0%, transparent 70%);
+pointer-events:none;
+}
+
+.menu::after{
+content:'';
+position:absolute;
+bottom:-20%;
+left:-10%;
+width:200px;
+height:200px;
+background:radial-gradient(circle, rgba(255,42,42,0.05) 0%, transparent 70%);
+pointer-events:none;
 }
 
 .menu.open{
 display:flex;
+animation:menuSlideIn 0.35s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+
+@keyframes menuSlideIn{
+0%{transform:translateX(100%);opacity:0;}
+100%{transform:translateX(0);opacity:1;}
 }
 
 .menu a{
-font-size:22px;
+font-size:20px;
 margin:0;
+width:100%;
+text-align:center;
+padding:18px 0;
+border-bottom:1px solid rgba(255,42,42,0.08);
+letter-spacing:3px;
+font-family:'Montserrat',sans-serif;
+font-weight:600;
+position:relative;
+transition:all 0.3s ease;
+}
+
+.menu a:first-child{
+border-top:1px solid rgba(255,42,42,0.08);
+margin-top:60px;
+}
+
+.menu a::before{
+content:'';
+position:absolute;
+left:0;
+top:0;
+width:0%;
+height:100%;
+background:rgba(255,42,42,0.06);
+transition:width 0.3s ease;
+}
+
+.menu a:hover::before{
+width:100%;
+}
+
+.menu a:hover{
+color:#ff2a2a;
+letter-spacing:5px;
+}
+
+.menu-footer{
+position:absolute;
+bottom:30px;
+text-align:center;
+}
+
+.menu-footer-logo{
+font-family:'Montserrat',sans-serif;
+font-size:16px;
+font-weight:700;
+color:rgba(255,42,42,0.4);
+letter-spacing:4px;
+}
+
+.menu-footer-tag{
+font-size:10px;
+color:rgba(255,255,255,0.2);
+letter-spacing:2px;
+margin-top:4px;
+font-style:italic;
 }
 
 }
@@ -187,7 +277,15 @@ font-family:'Montserrat',sans-serif;
   
 /* CURSOR */
   
+@media (pointer:fine){
 *{ cursor:none; }
+}
+
+@media (pointer:coarse){
+#customCursor, #customCursorDot{
+display:none !important;
+}
+}
 
 #customCursor{
 position:fixed;
@@ -329,7 +427,7 @@ justify-content:center;
 align-items:center;
 text-align:center;
 position:relative;
-padding-top:80px;
+padding-top:120px;
 
 background:
 linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
@@ -1674,33 +1772,24 @@ margin-bottom:25px;
 }
   
 .modal-nav{
-
-position:absolute;
-
+position:fixed;
 top:50%;
 transform:translateY(-50%);
-
 font-size:42px;
-
 color:#ff2a2a;
-
 cursor:pointer;
-
 padding:10px 14px;
-
 background:rgba(0,0,0,0.35);
 border-radius:8px;
-
-z-index:50;
-
+z-index:3000;
 }
 
 .modal-prev{
-left:15px;
+left:20px;
 }
 
 .modal-next{
-right:15px;
+right:20px;
 }
 
 .modal-nav:hover{
@@ -2520,14 +2609,19 @@ transition:opacity 0.4s ease;
 }
   
 /* MOBILE */
-
 @media (max-width:768px){
 .hero h1{
 font-size:56px;
 letter-spacing:5px;
 }
+
+.hero{
+padding-top:80px;
+}
+   
 .hero{
 background-attachment:scroll;
+background-position:center center;
 }
 
 .hero-buttons{
@@ -2646,6 +2740,10 @@ AJ LENS
 <a href="#gear" onclick="closeMenu()">Gears</a>
 <a href="#portfolio" onclick="closeMenu()">Portfolio</a>
 <a href="#contact" onclick="closeMenu()">Contact</a>
+<div class="menu-footer">
+<div class="menu-footer-logo">AJ LENS</div>
+<div class="menu-footer-tag">Visual Stories Through My Lens</div>
+</div>
 </div>
 
 <div class="hamburger" id="hamburger" onclick="toggleMenu()">
@@ -4715,13 +4813,13 @@ window.addEventListener("load", reveal);
 <script>
 
 window.addEventListener("scroll", function(){
-
 const hero = document.querySelector(".hero");
-
 let scrollPosition = window.scrollY;
-
+if(window.innerWidth > 768){
 hero.style.backgroundPositionY = scrollPosition * 0.4 + "px";
-
+}else{
+hero.style.backgroundPositionY = "center";
+}
 });
 
 </script>
@@ -4975,6 +5073,9 @@ if(e.key === "Escape" || e.key === "Esc") closeModal();
 <script>
 
 /* CUSTOM CURSOR */
+if(window.matchMedia("(pointer:fine)").matches){
+
+  
 const cursor = document.getElementById("customCursor");
 const cursorDot = document.getElementById("customCursorDot");
 let mouseX = 0, mouseY = 0;
@@ -5003,7 +5104,8 @@ hoverables.forEach(el => {
 el.addEventListener("mouseenter",()=> document.body.classList.add("cursor-hover"));
 el.addEventListener("mouseleave",()=> document.body.classList.remove("cursor-hover"));
 });
-
+}
+  
 /* IMAGE COUNT BADGES */
 const categories = document.querySelectorAll(".gallery-category");
 categories.forEach(cat=>{

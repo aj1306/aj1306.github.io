@@ -91,7 +91,100 @@ margin:0;
 
 }
   
+/* CURSOR */
 
+#pageLoader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#000;
+z-index:99998;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:opacity 0.8s ease, visibility 0.8s ease;
+}
+
+#pageLoader.hidden{
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+}
+
+.loader-content{
+text-align:center;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:20px;
+}
+
+.loader-logo{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+font-family:'Montserrat',sans-serif;
+font-size:28px;
+font-weight:700;
+color:#ff2a2a;
+letter-spacing:4px;
+}
+
+.loader-logo-img{
+width:36px;
+filter:drop-shadow(0 0 8px rgba(255,42,42,0.6));
+}
+
+.loader-shutter svg{
+animation:shutterSpin 2s linear infinite;
+filter:drop-shadow(0 0 10px rgba(255,42,42,0.4));
+}
+
+@keyframes shutterSpin{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+}
+
+.loader-message{
+font-size:15px;
+color:rgba(255,255,255,0.7);
+letter-spacing:2px;
+min-height:24px;
+transition:opacity 0.4s ease;
+font-style:italic;
+}
+
+.loader-message.fade{
+opacity:0;
+}
+
+.loader-bar{
+width:220px;
+height:2px;
+background:rgba(255,42,42,0.15);
+border-radius:2px;
+overflow:hidden;
+}
+
+.loader-bar-fill{
+height:100%;
+width:0%;
+background:#ff2a2a;
+border-radius:2px;
+box-shadow:0 0 10px #ff2a2a;
+transition:width 0.1s linear;
+}
+
+.loader-percent{
+font-size:12px;
+color:rgba(255,42,42,0.6);
+letter-spacing:3px;
+font-family:'Montserrat',sans-serif;
+}
+  
 /* CURSOR */
   
 *{ cursor:none; }
@@ -2498,6 +2591,42 @@ font-size:34px;
 </head>
 
 <body id="top">
+
+<div id="pageLoader">
+<div class="loader-content">
+
+<div class="loader-logo">
+<img src="logo.png" class="loader-logo-img">
+<span>AJ LENS</span>
+</div>
+
+<div class="loader-shutter">
+<svg viewBox="0 0 100 100" width="80" height="80">
+<circle cx="50" cy="50" r="45" fill="none" stroke="rgba(255,42,42,0.2)" stroke-width="2"/>
+<circle cx="50" cy="50" r="35" fill="none" stroke="rgba(255,42,42,0.15)" stroke-width="1"/>
+<circle cx="50" cy="50" r="12" fill="rgba(255,42,42,0.3)"/>
+<g id="shutterBlades">
+<path d="M50,50 L50,8 A42,42 0 0,1 85,28 Z" fill="rgba(255,42,42,0.7)"/>
+<path d="M50,50 L85,28 A42,42 0 0,1 85,72 Z" fill="rgba(255,42,42,0.6)"/>
+<path d="M50,50 L85,72 A42,42 0 0,1 50,92 Z" fill="rgba(255,42,42,0.7)"/>
+<path d="M50,50 L50,92 A42,42 0 0,1 15,72 Z" fill="rgba(255,42,42,0.6)"/>
+<path d="M50,50 L15,72 A42,42 0 0,1 15,28 Z" fill="rgba(255,42,42,0.7)"/>
+<path d="M50,50 L15,28 A42,42 0 0,1 50,8 Z" fill="rgba(255,42,42,0.6)"/>
+</g>
+</svg>
+</div>
+
+<p class="loader-message" id="loaderMessage">Say cheese!</p>
+
+<div class="loader-bar">
+<div class="loader-bar-fill" id="loaderBarFill"></div>
+</div>
+
+<p class="loader-percent" id="loaderPercent">0%</p>
+
+</div>
+</div>  
+  
 <div id="customCursor"></div>
 <div id="customCursorDot"></div>
 <div id="scrollBar"></div>
@@ -4950,6 +5079,63 @@ status.style.color = "#4CAF50";
 status.innerText = "Opening your mail app...";
 }
 </script>
-  
+<script>
+const loaderMessages = [
+"Say cheese!",
+"Smile! AJ is clicking photos...",
+"Adjusting aperture...",
+"Copying photos from SD card...",
+"Loading visual stories..."
+];
+
+const loaderBarFill = document.getElementById("loaderBarFill");
+const pageLoader = document.getElementById("pageLoader");
+const loaderMessage = document.getElementById("loaderMessage");
+const loaderPercent = document.getElementById("loaderPercent");
+
+let width = 0;
+let msgIndex = 0;
+
+function cycleMessage(){
+loaderMessage.classList.add("fade");
+setTimeout(()=>{
+msgIndex = (msgIndex + 1) % loaderMessages.length;
+loaderMessage.innerText = loaderMessages[msgIndex];
+loaderMessage.classList.remove("fade");
+}, 400);
+}
+
+const msgInterval = setInterval(cycleMessage, 1200);
+
+const loadInterval = setInterval(()=>{
+width += Math.random() * 12;
+if(width >= 100){
+width = 100;
+loaderBarFill.style.width = "100%";
+loaderPercent.innerText = "100%";
+clearInterval(loadInterval);
+clearInterval(msgInterval);
+loaderMessage.innerText = "Welcome to AJ LENS!";
+setTimeout(()=>{
+pageLoader.classList.add("hidden");
+}, 600);
+}else{
+loaderBarFill.style.width = width + "%";
+loaderPercent.innerText = Math.floor(width) + "%";
+}
+}, 120);
+
+window.addEventListener("load",()=>{
+width = 100;
+loaderBarFill.style.width = "100%";
+loaderPercent.innerText = "100%";
+clearInterval(loadInterval);
+clearInterval(msgInterval);
+loaderMessage.innerText = "Welcome to AJ LENS!";
+setTimeout(()=>{
+pageLoader.classList.add("hidden");
+}, 600);
+});
+</script>
 </body>
 </html>

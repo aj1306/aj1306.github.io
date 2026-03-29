@@ -277,16 +277,6 @@ font-family:'Montserrat',sans-serif;
 }
   
 /* CURSOR */
-  
-@media (pointer:fine){
-*{ cursor:none; }
-}
-
-@media (pointer:coarse){
-#customCursor, #customCursorDot{
-display:none !important;
-}
-}
 
 #customCursor{
 position:fixed;
@@ -319,6 +309,14 @@ height:56px;
 opacity:0.4;
 box-shadow:0 0 15px rgba(255,42,42,0.4);
 }
+
+#customCursor{
+display:none;
+}
+
+#customCursorDot{
+display:none;
+}  
   
 /* SCROLLBAR */
   
@@ -429,6 +427,13 @@ align-items:center;
 text-align:center;
 position:relative;
 padding-top:120px;
+background:
+linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9)),
+url("hero.jpg");
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
 animation:heroZoom 20s ease-in-out infinite alternate;
 }
 
@@ -514,27 +519,6 @@ rgba(0,0,0,0.8),
 
 pointer-events:none;
 }
-
- .hero-bg-img{
-position:absolute;
-top:-20%;
-left:0;
-width:100%;
-height:140%;
-background:url("hero.jpg") center center / cover no-repeat;
-z-index:0;
-will-change:transform;
-}
-
-.hero-overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.9));
-z-index:1;
-} 
 
 /* BUTTONS */
 
@@ -1794,21 +1778,22 @@ margin-bottom:25px;
 position:fixed;
 top:50%;
 transform:translateY(-50%);
-font-size:42px;
+font-size:36px;
 color:#ff2a2a;
 cursor:pointer;
 padding:10px 14px;
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.6);
 border-radius:8px;
 z-index:3000;
+transition:color 0.3s ease;
 }
 
 .modal-prev{
-left:16px;
+left:max(16px, calc(50% - 500px));
 }
 
 .modal-next{
-right:16px;
+right:max(16px, calc(50% - 500px));
 }
 
 .modal-nav:hover{
@@ -2628,18 +2613,12 @@ transition:opacity 0.4s ease;
 }
   
 /* MOBILE */
-
 @media(max-width:768px){
-.hero-bg-img{
-top:0;
-height:100%;
-background-attachment:scroll;
-}
-
 .hero{
-overflow:hidden;
+background-attachment:scroll;
+background-position:center center;
 }
-}  
+}
   
 @media (max-width:768px){
 .hero h1{
@@ -2789,8 +2768,7 @@ AJ LENS
 <!-- HERO -->
 
 <section class="hero fade-section">
-<div class="hero-bg-img" id="heroBgImg"></div>
-<div class="hero-overlay"></div>
+
 <div class="particles"></div>
 
 
@@ -4845,10 +4823,9 @@ window.addEventListener("load", reveal);
 <script>
 
 window.addEventListener("scroll", function(){
-const heroBg = document.getElementById("heroBgImg");
-if(heroBg){
-const scrollPosition = window.scrollY;
-heroBg.style.transform = "translateY(" + scrollPosition * 0.3 + "px)";
+const hero = document.querySelector(".hero");
+if(window.innerWidth > 768){
+hero.style.backgroundPositionY = (window.scrollY * 0.4) + "px";
 }
 });
 
@@ -5103,12 +5080,50 @@ if(e.key === "Escape" || e.key === "Esc") closeModal();
 <script>
 
 /* CUSTOM CURSOR */
-const hasMouseConnected = window.matchMedia("(pointer:fine)").matches || 
-window.matchMedia("(any-pointer:fine)").matches;
+let cursorStarted = false;
 
-if(hasMouseConnected){
+document.addEventListener("mousemove", function initCursor(e){
+if(cursorStarted) return;
+cursorStarted = true;
 
-  
+document.removeEventListener("mousemove", initCursor);
+
+const cursor = document.getElementById("customCursor");
+const cursorDot = document.getElementById("customCursorDot");
+
+cursor.style.display = "block";
+cursorDot.style.display = "block";
+document.body.style.cursor = "none";
+
+let mouseX = e.clientX, mouseY = e.clientY;
+let cursorX = mouseX, cursorY = mouseY;
+
+document.addEventListener("mousemove",(e)=>{
+mouseX = e.clientX;
+mouseY = e.clientY;
+cursorDot.style.left = mouseX + "px";
+cursorDot.style.top = mouseY + "px";
+});
+
+function animateCursor(){
+cursorX += (mouseX - cursorX) * 0.12;
+cursorY += (mouseY - cursorY) * 0.12;
+cursor.style.left = cursorX + "px";
+cursor.style.top = cursorY + "px";
+requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+const hoverables = document.querySelectorAll(
+"a, button, .gear-card, .contact-card, .masonry-gallery img, .follow-btn, .back-to-top"
+);
+hoverables.forEach(el => {
+el.addEventListener("mouseenter",()=> document.body.classList.add("cursor-hover"));
+el.addEventListener("mouseleave",()=> document.body.classList.remove("cursor-hover"));
+});
+
+});
+
 const cursor = document.getElementById("customCursor");
 const cursorDot = document.getElementById("customCursorDot");
 let mouseX = 0, mouseY = 0;

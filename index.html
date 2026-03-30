@@ -489,13 +489,13 @@ overflow:hidden;
 
 .hero-bg-img{
 position:absolute;
-top:0;
+top:-20%;
 left:0;
 width:100%;
-height:100%;
+height:140%;
 background:url("hero.jpg") center center / cover no-repeat;
 z-index:0;
-will-change: transform;
+will-change:transform;
 }
 
 .hero-overlay{
@@ -1478,14 +1478,14 @@ margin-bottom:20px;
 border-radius:6px;
 break-inside:avoid;
 opacity:0;
-filter:blur(20px);
-transform:scale(1.05);
+filter:blur(12px);
+transform:scale(1.03);
 transition:
-opacity 0.6s ease,
-transform 0.5s ease,
-filter 0.6s ease,
-box-shadow 0.35s ease;
-will-change: transform, opacity;
+opacity 0.7s ease,
+transform 0.7s ease,
+filter 0.7s ease,
+box-shadow 0.3s ease;
+will-change:transform, opacity, filter;
 }
 
 .masonry-gallery img.loaded{
@@ -1496,12 +1496,14 @@ transform:scale(1) !important;
 
 .masonry-gallery:hover img.loaded{
 opacity:0.4;
-filter:brightness(0.6);
+filter:brightness(0.6) !important;
+transform:scale(1) !important;
 }
 
 .masonry-gallery img.loaded:hover{
 opacity:1 !important;
 filter:brightness(1) !important;
+transform:scale(1) !important;
 box-shadow:
 0 0 0 3px #ff2a2a,
 0 12px 35px rgba(0,0,0,0.7);
@@ -2591,12 +2593,6 @@ transition:opacity 0.4s ease;
 }
   
 /* MOBILE */
-@media(max-width:768px){
-.hero{
-background-attachment:scroll;
-background-position:center center;
-}
-}
   
 @media (max-width:768px){
 .hero h1{
@@ -3076,7 +3072,7 @@ Click or hover for 3 seconds on any image to enlarge and find more details about
 <img 
 src="pimages/eimagesb/e001-001.jpg"
 data-full="pimages/eimages/e001-001.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Celebrity Night"
@@ -3087,7 +3083,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/eimagesb/e001-002.jpg"
 data-full="pimages/eimages/e001-002.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2026"
@@ -3109,7 +3105,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/eimagesb/e001-004.jpg"
 data-full="pimages/eimages/e001-004.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2026"
@@ -3120,7 +3116,7 @@ data-comment="Final Group Pose"
 <img 
 src="pimages/eimagesb/e001-005.jpg"
 data-full="pimages/eimages/e001-005.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Celebrity Night"
@@ -3131,7 +3127,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/eimagesb/e001-006.jpg"
 data-full="pimages/eimages/e001-006.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2026"
@@ -3142,7 +3138,7 @@ data-comment="External Team Dance"
 <img 
 src="pimages/eimagesb/e001-007.jpg"
 data-full="pimages/eimages/e001-007.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Celebrity Night"
@@ -3153,7 +3149,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/eimagesb/e001-008.jpg"
 data-full="pimages/eimages/e001-008.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2026"
@@ -3164,7 +3160,7 @@ data-comment="External Team Group Pose"
 <img 
 src="pimages/eimagesb/e001-009.jpg"
 data-full="pimages/eimages/e001-009.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Celebrity Night"
@@ -3175,7 +3171,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/eimagesb/e001-010.jpg"
 data-full="pimages/eimages/e001-010.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2026"
@@ -3186,7 +3182,7 @@ data-comment="External Team Dance"
 <img 
 src="pimages/eimagesb/e001-011.jpg"
 data-full="pimages/eimages/e001-011.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Celebrity Night"
@@ -3197,7 +3193,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/eimagesb/e001-012.jpg"
 data-full="pimages/eimages/e001-012.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2026"
@@ -3208,7 +3204,7 @@ data-comment="External Team Pose"
 <img 
 src="pimages/eimagesb/e001-013.jpg"
 data-full="pimages/eimages/e001-013.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Celebrity Night"
@@ -3219,7 +3215,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/eimagesb/e001-014.jpg"
 data-full="pimages/eimages/e001-014.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Natraj (Solo Dance) - Pulse 2026"
@@ -3230,7 +3226,7 @@ data-comment="External Dance Performer"
 <img 
 src="pimages/eimagesb/e001-015.jpg"
 data-full="pimages/eimages/e001-015.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Celebrity Night"
@@ -3241,7 +3237,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/eimagesb/e001-0016.jpg"
 data-full="pimages/eimages/e001-016.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2026"
@@ -3252,7 +3248,7 @@ data-comment="External Participant Pose"
 <img 
 src="pimages/eimagesb/e001-017.jpg"
 data-full="pimages/eimages/e001-017.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Celebrity Night"
@@ -3263,7 +3259,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/eimagesb/e001-018.jpg"
 data-full="pimages/eimages/e001-018.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2026"
@@ -3274,7 +3270,7 @@ data-comment="External Participant Pose"
 <img 
 src="pimages/eimagesb/e001-019.jpg"
 data-full="pimages/eimages/e001-019.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Celebrity Night"
@@ -3285,7 +3281,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/eimagesb/e001-020.jpg"
 data-full="pimages/eimages/e001-020.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2026"
@@ -3296,7 +3292,7 @@ data-comment="External Participant Pose"
 <img 
 src="pimages/eimagesb/e001-021.jpg"
 data-full="pimages/eimages/e001-021.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Natraj (Solo Dance) - Pulse 2026"
@@ -3307,7 +3303,7 @@ data-comment="External Dance Performer"
 <img 
 src="pimages/eimagesb/e001-022.jpg"
 data-full="pimages/eimages/e001-022.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2026"
@@ -3318,7 +3314,7 @@ data-comment="External Participant Pose"
 <img 
 src="pimages/eimagesb/e001-0023.jpg"
 data-full="pimages/eimages/e001-023.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Natraj (Solo Dance) - Pulse 2026"
@@ -3329,7 +3325,7 @@ data-comment="External Dance Performer"
 <img 
 src="pimages/eimagesb/e001-024.jpg"
 data-full="pimages/eimages/e001-024.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2026"
@@ -3340,7 +3336,7 @@ data-comment="External Participant Pose"
 <img 
 src="pimages/eimagesb/e001-025.jpg"
 data-full="pimages/eimages/e001-025.JPG"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Natraj (Solo Dance) - Pulse 2026"
@@ -3351,7 +3347,7 @@ data-comment="External Dance Performer"
 <img 
 src="pimages/eimagesb/e001-026.jpg"
 data-full="pimages/eimages/e001-026.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2026"
@@ -3362,7 +3358,7 @@ data-comment="External Participant Pose"
 <img 
 src="pimages/eimagesb/e001-027.jpg"
 data-full="pimages/eimages/e001-027.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Natraj (Solo Dance) - Pulse 2026"
@@ -3373,7 +3369,7 @@ data-comment="External Dance Performer"
 <img 
 src="pimages/eimagesb/e001.jpg"
 data-full="pimages/eimages/e001.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2025"
@@ -3384,7 +3380,7 @@ data-comment="Final Group Pose"
 <img 
 src="pimages/eimagesb/e002.jpg"
 data-full="pimages/eimages/e002.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Fashion Show - Genesis"
@@ -3395,7 +3391,7 @@ data-comment="Final Group Pose"
 <img 
 src="pimages/eimagesb/e003.jpg"
 data-full="pimages/eimages/e003.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Fashion Show - Crisco 2.0"
@@ -3406,7 +3402,7 @@ data-comment="IMS participant at Crisco 2.0"
 <img 
 src="pimages/eimagesb/e004.jpg"
 data-full="pimages/eimages/e004.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3417,7 +3413,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e005.jpg"
 data-full="pimages/eimages/e005.jpg"
-class="reveal" 
+class=""
 loading="lazy"
 decoding="async"
 data-event="Fashion Show - Genesis"
@@ -3428,7 +3424,7 @@ data-comment="Final Group Pose"
 <img 
 src="pimages/eimagesb/e006.jpg"
 data-full="pimages/eimages/e006.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3439,7 +3435,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e007.jpg"
 data-full="pimages/eimages/e007.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Fashion Show - Crisco 2.0"
@@ -3451,7 +3447,7 @@ data-comment="IMS Team performance at Crisco 2.0"
 <img 
 src="pimages/eimagesb/e009.jpg"
 data-full="pimages/eimages/e009.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2025"
@@ -3462,7 +3458,7 @@ data-comment="External Participant Pose"
 <img 
 src="pimages/eimagesb/e010.jpg"
 data-full="pimages/eimages/e010.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3473,7 +3469,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e011.jpg"
 data-full="pimages/eimages/e011.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tashanbaaz Red FM Talent Hunt"
@@ -3484,7 +3480,7 @@ data-comment="RJ Swati Sharma anchoring the event"
 <img 
 src="pimages/eimagesb/e012.jpg"
 data-full="pimages/eimages/e012.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3495,7 +3491,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e013.jpg"
 data-full="pimages/eimages/e013.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="7th International Conference"
@@ -3506,7 +3502,7 @@ data-comment="Ganesh Vandhana at the 7th International Conference"
 <img 
 src="pimages/eimagesb/e014.jpg"
 data-full="pimages/eimages/e014.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3517,7 +3513,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e015.jpg"
 data-full="pimages/eimages/e015.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="7th International Conference"
@@ -3528,7 +3524,7 @@ data-comment="Mohiniyattam Performance by Kinjal Yadav"
 <img 
 src="pimages/eimagesb/e016.jpg"
 data-full="pimages/eimages/e016.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3539,7 +3535,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e017.jpg"
 data-full="pimages/eimages/e017.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="7th International Conference"
@@ -3550,7 +3546,7 @@ data-comment="Rajasthan Folk Dance by Tamanna & Riddhi"
 <img 
 src="pimages/eimagesb/e018.jpg"
 data-full="pimages/eimages/e018.jpg" 
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3561,7 +3557,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e019.jpg"
 data-full="pimages/eimages/e019.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2025"
@@ -3572,7 +3568,7 @@ data-comment="External Participant Pose"
 <img 
 src="pimages/eimagesb/e020.jpg"
 data-full="pimages/eimages/e020.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3594,7 +3590,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e023.jpg"
 data-full="pimages/eimages/e023.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Republic Day"
@@ -3605,7 +3601,7 @@ data-comment="Dance performance by cultural team. In frame - Tanu Kumari"
 <img 
 src="pimages/eimagesb/e024.jpg"
 data-full="pimages/eimages/e024.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3616,7 +3612,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e025.jpg"
 data-full="pimages/eimages/e025.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="MarkFest 2K26"
@@ -3627,7 +3623,7 @@ data-comment="Fashion walk during Markfest"
 <img 
 src="pimages/eimagesb/e026.jpg"
 data-full="pimages/eimages/e026.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3638,7 +3634,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e027.jpg"
 data-full="pimages/eimages/e027.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Teacher's Day Celebrations"
@@ -3649,7 +3645,7 @@ data-comment="Solo dance by Tanisha"
 <img 
 src="pimages/eimagesb/e028.jpg"
 data-full="pimages/eimages/e028.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3660,7 +3656,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e029.jpg"
 data-full="pimages/eimages/e029.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2025"
@@ -3671,7 +3667,7 @@ data-comment="External participant pose"
 <img 
 src="pimages/eimagesb/e031.jpg"
 data-full="pimages/eimages/e031.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2025"
@@ -3682,7 +3678,7 @@ data-comment="External participant pose"
 <img 
 src="pimages/eimagesb/e032.jpg"
 data-full="pimages/eimages/e032.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3693,7 +3689,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e033.jpg"
 data-full="pimages/eimages/e033.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Fashion Show - Crisco 2.0"
@@ -3704,7 +3700,7 @@ data-comment="IMS participants at Crisco 2.0"
 <img 
 src="pimages/eimagesb/e034.jpg"
 data-full="pimages/eimages/e034.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2025"
@@ -3715,7 +3711,7 @@ data-comment="Fashion Group Pose"
 <img 
 src="pimages/eimagesb/e035.jpg"
 data-full="pimages/eimages/e035.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Ghungroo (Group Dance) - Pulse 2025"
@@ -3726,7 +3722,7 @@ data-comment="Dance performance by external team"
 <img 
 src="pimages/eimagesb/e036.jpg"
 data-full="pimages/eimages/e036.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2025"
@@ -3737,7 +3733,7 @@ data-comment="Fashion Group Pose"
 <img 
 src="pimages/eimagesb/e037.jpg"
 data-full="pimages/eimages/e037.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Alankrita (Fashion Show) - Pulse 2025"
@@ -3757,7 +3753,7 @@ data-comment="Fashion Group Pose"
 <img 
 src="pimages/poimagesb/p001-001.jpg"
 data-full="pimages/poimages/p001-001.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Indian Singer"
@@ -3768,7 +3764,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/poimagesb/p001-002.jpg"
 data-full="pimages/poimages/p001-002.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Saumya Dobhal"
@@ -3779,7 +3775,7 @@ data-comment="Dhanywaad बच्ची 🫶🏻 x1"
 <img 
 src="pimages/poimagesb/p001-003.jpg"
 data-full="pimages/poimages/p001-003.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Indian Singer"
@@ -3790,7 +3786,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/poimagesb/p001-004.jpg"
 data-full="pimages/poimages/p001-004.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Saumya Dobhal"
@@ -3801,7 +3797,7 @@ data-comment="Dhanywaad बच्ची 🫶🏻 x2"
 <img 
 src="pimages/poimagesb/p001-005.jpg"
 data-full="pimages/poimages/p001-005.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Indian Singer"
@@ -3812,7 +3808,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/poimagesb/p001-006.jpg"
 data-full="pimages/poimages/p001-006.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Saumya Dobhal"
@@ -3823,7 +3819,7 @@ data-comment="Dhanywaad बच्ची 🫶🏻 x3"
 <img 
 src="pimages/poimagesb/p001-007.jpg"
 data-full="pimages/poimages/p001-007.JPG"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Indian Singer"
@@ -3834,7 +3830,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/poimagesb/p001-008.jpg"
 data-full="pimages/poimages/p001-008.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tanu Kumari"
@@ -3845,7 +3841,7 @@ data-comment="Butki Pose x1"
 <img 
 src="pimages/poimagesb/p001-009.jpg"
 data-full="pimages/poimages/p001-009.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Indian Singer"
@@ -3856,7 +3852,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/poimagesb/p001-010.jpg"
 data-full="pimages/poimages/p001-010.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kinjal Yadav"
@@ -3867,7 +3863,7 @@ data-comment="दूसरी बच्ची 📈"
 <img 
 src="pimages/poimagesb/p001-011.jpg"
 data-full="pimages/poimages/p001-011.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Indian Singer"
@@ -3878,7 +3874,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/poimagesb/p001-012.jpg"
 data-full="pimages/poimages/p001-012.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tamanna"
@@ -3889,7 +3885,7 @@ data-comment="Joint Secretery ko bhi dhanywaad"
 <img 
 src="pimages/poimagesb/p001-013.jpg"
 data-full="pimages/poimages/p001-013.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kanika Kapoor - Indian Singer"
@@ -3900,7 +3896,7 @@ data-comment="Day 2 at Pulse 2026"
 <img 
 src="pimages/poimagesb/p001-014.jpg"
 data-full="pimages/poimages/p001-014.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tanu Kumari"
@@ -3911,7 +3907,7 @@ data-comment="Butki Pose x2"
 <img 
 src="pimages/poimagesb/p001-015.jpg"
 data-full="pimages/poimages/p001-015.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kinjal Yadav"
@@ -3922,7 +3918,7 @@ data-comment="दूसरी बच्ची 📈"
 <img 
 src="pimages/poimagesb/p001-016.jpg"
 data-full="pimages/poimages/p001-016.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tanu Kumari"
@@ -3933,7 +3929,7 @@ data-comment="Butki Pose x3"
 <img 
 src="pimages/poimagesb/p001-017.jpg"
 data-full="pimages/poimages/p001-017.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kinjal Yadav"
@@ -3944,7 +3940,7 @@ data-comment="दूसरी बच्ची 📈"
 <img 
 src="pimages/poimagesb/p001-018.jpg"
 data-full="pimages/poimages/p001-018.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tanu Kumari"
@@ -3955,7 +3951,7 @@ data-comment="Butki Pose x4"
 <img 
 src="pimages/poimagesb/p001-019.jpg"
 data-full="pimages/poimages/p001-019.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Mugdha"
@@ -3966,7 +3962,7 @@ data-comment="EWL x BAJMC Collab hai ye "
 <img 
 src="pimages/poimagesb/p001-020.jpg"
 data-full="pimages/poimages/p001-020.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tanu Kumari"
@@ -3977,7 +3973,7 @@ data-comment="Butki Pose x5"
 <img 
 src="pimages/poimagesb/p001-021.jpg"
 data-full="pimages/poimages/p001-021.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Rahila Riaz"
@@ -3988,7 +3984,7 @@ data-comment=""
 <img 
 src="pimages/poimagesb/p001-022.jpg"
 data-full="pimages/poimages/p001-022.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tanu Kumari"
@@ -3999,7 +3995,7 @@ data-comment="Butki Pose x6"
 <img 
 src="pimages/poimagesb/p001-023.jpg"
 data-full="pimages/poimages/p001-023.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Himani"
@@ -4010,7 +4006,7 @@ data-comment=""
 <img 
 src="pimages/poimagesb/p001-024.jpg"
 data-full="pimages/poimages/p001-024.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Kinjal Yadav"
@@ -4021,7 +4017,7 @@ data-comment="दूसरी बच्ची 📈"
 <img 
 src="pimages/poimagesb/p001-025.jpg"
 data-full="pimages/poimages/p001-025.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tanu Kumari"
@@ -4032,7 +4028,7 @@ data-comment="Butki Pose x7"
 <img 
 src="pimages/poimagesb/p001.jpg"
 data-full="pimages/poimages/p001.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Saumya Dobhal"
@@ -4043,7 +4039,7 @@ data-comment="Dhanywaad बच्ची 🫶🏻 x4"
 <img 
 src="pimages/poimagesb/p002.jpg"
 data-full="pimages/poimages/p002.jpg" 
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Eion Charles John"
@@ -4054,7 +4050,7 @@ data-comment="Eion's Birthday Party"
 <img 
 src="pimages/poimagesb/p003.jpg"
 data-full="pimages/poimages/p003.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Saumya Dobhal"
@@ -4065,7 +4061,7 @@ data-comment="Dhanywaad बच्ची 🫶🏻 x5"
 <img 
 src="pimages/poimagesb/p004.jpg"
 data-full="pimages/poimages/p004.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="7th International Conference Backstage"
@@ -4076,7 +4072,7 @@ data-comment="In frame - Tanu and Kinjal"
 <img 
 src="pimages/poimagesb/p005.jpg"
 data-full="pimages/poimages/p005.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Saumya Dobhal"
@@ -4087,7 +4083,7 @@ data-comment="Dhanywaad बच्ची 🫶🏻 x6"
 <img 
 src="pimages/poimagesb/p006.jpg"
 data-full="pimages/poimages/p006.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Garv Bhatia"
@@ -4098,7 +4094,7 @@ data-comment="EWL Family Pic - No dhanyawaad"
 <img 
 src="pimages/poimagesb/p007.jpg"
 data-full="pimages/poimages/p007.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Saumya Dobhal"
@@ -4109,7 +4105,7 @@ data-comment="Dhanywaad बच्ची 🫶🏻 x7"
 <img 
 src="pimages/poimagesb/p008.jpg"
 data-full="pimages/poimages/p008.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Aditya Kumar Pandey"
@@ -4120,7 +4116,7 @@ data-comment="EWL Family Pic - No dhanyawaad"
 <img 
 src="pimages/poimagesb/p009.jpg"
 data-full="pimages/poimages/p009.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Saumya Dobhal"
@@ -4131,7 +4127,7 @@ data-comment="Dhanywaad बच्ची 🫶🏻 x8"
 <img 
 src="pimages/poimagesb/p013.jpg"
 data-full="pimages/poimages/p013.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Saumya Dobhal"
@@ -4142,7 +4138,7 @@ data-comment="Dhanywaad बच्ची 🫶🏻 x9"
 <img 
 src="pimages/poimagesb/p015.jpg"
 data-full="pimages/poimages/p015.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Saumya Dobhal"
@@ -4163,7 +4159,7 @@ data-comment="Dhanywaad बच्ची 🫶🏻 x10"
 <img 
 src="pimages/rimagesb/r001.jpg"
 data-full="pimages/rimages/r001.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Naina Peak Forest"
@@ -4174,7 +4170,7 @@ data-comment="Shot during the trek to the top of Naina Peak"
 <img 
 src="pimages/rimagesb/r002.jpg"
 data-full="pimages/rimages/r002.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Paddle Closeup"
@@ -4185,7 +4181,7 @@ data-comment="Shot during boat ride at Naukuchiatal Lake"
 <img 
 src="pimages/rimagesb/r003.jpg"
 data-full="pimages/rimages/r003.jpg" 
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Sunflower Closeup"
@@ -4196,7 +4192,7 @@ data-comment="Shot during the visit to the Raj Bhawan, Nainital"
 <img 
 src="pimages/rimagesb/r004.jpg"
 data-full="pimages/rimages/r004.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="IIT Dog"
@@ -4207,7 +4203,7 @@ data-comment="Shot during our lunch break at IIT Kanpur."
 <img 
 src="pimages/rimagesb/r005.jpg"
 data-full="pimages/rimages/r005.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="London Eye"
@@ -4218,7 +4214,7 @@ data-comment="Shot during summer trip to the UK"
 <img 
 src="pimages/rimagesb/r006.jpg"
 data-full="pimages/rimages/r006.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Eastbourne Pier"
@@ -4229,7 +4225,7 @@ data-comment="Shot during summer trip to the UK"
 <img 
 src="pimages/rimagesb/r007.jpg"
 data-full="pimages/rimages/r007.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Jatayu Para"
@@ -4240,7 +4236,7 @@ data-comment="Captured at the top of Jatayu"
 <img 
 src="pimages/rimagesb/r008.jpg"
 data-full="pimages/rimages/r008.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Elizabeth Tower (Big Ben)"
@@ -4251,7 +4247,7 @@ data-comment="A lot of time and tries to get this perfect shot (witht the aeropl
 <img 
 src="pimages/rimagesb/r009.jpg"
 data-full="pimages/rimages/r009.jpg" 
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tree 1"
@@ -4262,7 +4258,7 @@ data-comment="Random day in Ghaziabad"
 <img 
 src="pimages/rimagesb/r010.jpg"
 data-full="pimages/rimages/r010.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Tree 2"
@@ -4273,7 +4269,7 @@ data-comment="Random day in Kanpur"
 <img 
 src="pimages/rimagesb/r011.jpg"
 data-full="pimages/rimages/r011.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="The Himalayas (if you squint your eyes)"
@@ -4284,7 +4280,7 @@ data-comment="Shot during the trek to Naina Peak"
 <img 
 src="pimages/rimagesb/r012.jpg"
 data-full="pimages/rimages/r012.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Church"
@@ -4295,7 +4291,7 @@ data-comment="Random church in Ireland"
 <img 
 src="pimages/rimagesb/r013.jpg"
 data-full="pimages/rimages/r013.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Game of Thrones scene recreated"
@@ -4306,7 +4302,7 @@ data-comment="Shot during the visit to Elizabeth Fort, Cork"
 <img 
 src="pimages/rimagesb/r014.jpg"
 data-full="pimages/rimages/r014.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Eatable Snowman"
@@ -4317,7 +4313,7 @@ data-comment="Shot during Magic Meal event of Genesis 2025"
 <img 
 src="pimages/rimagesb/r015.jpg"
 data-full="pimages/rimages/r015.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Naukuchiatal Lake"
@@ -4328,7 +4324,7 @@ data-comment="Shot during boat ride at Naukuchiatal Lake"
 <img 
 src="pimages/rimagesb/r016.jpg"
 data-full="pimages/rimages/r016.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Oreos"
@@ -4339,7 +4335,7 @@ data-comment="Shot during Magic Meal event of Genesis 2025"
 <img 
 src="pimages/rimagesb/r017.jpg"
 data-full="pimages/rimages/r017.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Red Flowers"
@@ -4350,7 +4346,7 @@ data-comment="Random day in Kanpur"
 <img 
 src="pimages/rimagesb/r018.jpg"
 data-full="pimages/rimages/r018.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Sprinkled Meetha Lola's"
@@ -4361,7 +4357,7 @@ data-comment="Shot during Magic Meal event of Genesis 2025"
 <img 
 src="pimages/rimagesb/r019.jpg"
 data-full="pimages/rimages/r019.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Sunset at beach"
@@ -4372,7 +4368,7 @@ data-comment="Beautiful Sunset"
 <img 
 src="pimages/rimagesb/r020.jpg"
 data-full="pimages/rimages/r020.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Buckingham Palace"
@@ -4383,7 +4379,7 @@ data-comment="Shot during the visit to the Palace"
 <img 
 src="pimages/rimagesb/r021.jpg"
 data-full="pimages/rimages/r021.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Nainital"
@@ -4394,7 +4390,7 @@ data-comment="Nainital from Naina Peak"
 <img 
 src="pimages/rimagesb/r022.jpg"
 data-full="pimages/rimages/r022.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Emirates Stadium"
@@ -4405,7 +4401,7 @@ data-comment="Home to the Gunners"
 <img 
 src="pimages/rimagesb/r023.jpg"
 data-full="pimages/rimages/r023.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="London Railway"
@@ -4416,7 +4412,7 @@ data-comment="Shot from the top of The Shard"
 <img 
 src="pimages/rimagesb/r024.jpg"
 data-full="pimages/rimages/r024.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Buckingham Palace"
@@ -4427,7 +4423,7 @@ data-comment="Shot during the visit to the Palace"
 <img 
 src="pimages/rimagesb/r025.jpg"
 data-full="pimages/rimages/r025.jpg"
-class="reveal"
+class=""
 loading="lazy"
 decoding="async"
 data-event="Purple Flowers?"
@@ -4438,7 +4434,7 @@ data-comment="Random day in Kanpur"
 <img 
 src="pimages/rimagesb/r026.jpg"
 data-full="pimages/rimages/r026.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Flower Show"
@@ -4449,7 +4445,7 @@ data-comment="Went for the first time, got some good shots"
 <img 
 src="pimages/rimagesb/r027.jpg"
 data-full="pimages/rimages/r027.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Water Fountain"
@@ -4460,7 +4456,7 @@ data-comment="Random day in Kanpur"
 <img 
 src="pimages/rimagesb/r028.jpg"
 data-full="pimages/rimages/r028.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Lavender Field"
@@ -4471,7 +4467,7 @@ data-comment="Filled with lavenders"
 <img 
 src="pimages/rimagesb/r029.jpg"
 data-full="pimages/rimages/r029.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Chilli Bird"
@@ -4482,7 +4478,7 @@ data-comment="Bird made up of Red Chillies"
 <img 
 src="pimages/rimagesb/r030.jpg"
 data-full="pimages/rimages/r030.jpg"
-class="reveal" 
+class="" 
 loading="lazy"
 decoding="async"
 data-event="Yellow Flowers"
@@ -4794,7 +4790,7 @@ window.addEventListener("load", reveal);
 window.addEventListener("scroll", function(){
 const heroBg = document.getElementById("heroBgImg");
 if(heroBg){
-heroBg.style.transform = "translateY(" + (window.scrollY * 0.3) + "px)";
+heroBg.style.transform = "translateY(" + (window.scrollY * 0.25) + "px)";
 }
 });
 </script>
@@ -5047,31 +5043,68 @@ if(e.key === "Escape" || e.key === "Esc") closeModal();
 </script>
   
 <script>
-const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
+(function(){
 
-if (!isTouchDevice) {
+let started = false;
 
-  const cursor = document.getElementById("customCursor");
-  const dot = document.getElementById("customCursorDot");
+function startCursor(e){
+if(started) return;
+started = true;
+document.removeEventListener("mousemove", startCursor);
 
-  cursor.style.display = "block";
-  dot.style.display = "block";
+const cursor = document.getElementById("customCursor");
+const cursorDot = document.getElementById("customCursorDot");
 
-  document.addEventListener("mousemove", e => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
+if(!cursor || !cursorDot) return;
 
-    dot.style.left = e.clientX + "px";
-    dot.style.top = e.clientY + "px";
-  });
+cursor.style.display = "block";
+cursorDot.style.display = "block";
+document.documentElement.style.cursor = "none";
+document.body.style.cursor = "none";
 
+let mx = e.clientX, my = e.clientY;
+let cx = mx, cy = my;
+
+cursor.style.left = cx + "px";
+cursor.style.top = cy + "px";
+cursorDot.style.left = mx + "px";
+cursorDot.style.top = my + "px";
+
+document.addEventListener("mousemove", function(e){
+mx = e.clientX;
+my = e.clientY;
+cursorDot.style.left = mx + "px";
+cursorDot.style.top = my + "px";
+});
+
+(function animate(){
+cx += (mx - cx) * 0.12;
+cy += (my - cy) * 0.12;
+cursor.style.left = cx + "px";
+cursor.style.top = cy + "px";
+requestAnimationFrame(animate);
+})();
+
+document.querySelectorAll(
+"a, button, .gear-card, .contact-card, .masonry-gallery img, .follow-btn, .back-to-top, .form-submit, .photo-close, .modal-nav"
+).forEach(function(el){
+el.addEventListener("mouseenter", function(){
+document.body.classList.add("cursor-hover");
+document.documentElement.style.cursor = "none";
+});
+el.addEventListener("mouseleave", function(){
+document.body.classList.remove("cursor-hover");
+});
+});
 }
-</script>
-  
-<script>
+
+document.addEventListener("mousemove", startCursor);
+
+})();
+
 /* IMAGE COUNT BADGES */
 const categories = document.querySelectorAll(".gallery-category");
-categories.forEach(cat=>{
+categories.forEach(function(cat){
 const nextGallery = cat.nextElementSibling;
 if(nextGallery && nextGallery.classList.contains("masonry-gallery")){
 const count = nextGallery.querySelectorAll("img").length;

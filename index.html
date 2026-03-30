@@ -39,6 +39,36 @@ display:none;
 display:none;
 }
 
+.hamburger{
+display:none;
+flex-direction:column;
+gap:5px;
+cursor:pointer;
+padding:4px;
+z-index:1100;
+}
+
+.hamburger span{
+display:block;
+width:24px;
+height:2px;
+background:#ff2a2a;
+border-radius:2px;
+transition:all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1){
+transform:rotate(45deg) translate(5px,5px);
+}
+
+.hamburger.active span:nth-child(2){
+opacity:0;
+}
+
+.hamburger.active span:nth-child(3){
+transform:rotate(-45deg) translate(5px,-5px);
+}
+  
 @media(max-width:768px){
 
 .hamburger{
@@ -471,14 +501,13 @@ animation:heroZoom 20s ease-in-out infinite alternate;
 
 .hero-bg-img{
 position:absolute;
-top:0;
+top:-15%;
 left:0;
 width:100%;
-height:100%;
+height:130%;
 background:url("hero.jpg") center center / cover no-repeat;
 z-index:0;
 will-change:transform;
-transform:scale(1.15);
 }
 
 .hero-overlay{
@@ -1514,9 +1543,9 @@ will-change: transform, opacity;
 }
 
 .masonry-gallery img.loaded{
-opacity:1;
-filter:blur(0);
-transform:scale(1);
+opacity:1 !important;
+filter:blur(0) !important;
+transform:scale(1) !important;
 }
 
 .masonry-gallery:hover img.loaded{
@@ -4918,7 +4947,7 @@ window.addEventListener("load", reveal);
 window.addEventListener("scroll", function(){
 const heroBg = document.getElementById("heroBgImg");
 if(heroBg){
-heroBg.style.transform = "scale(1.15) translateY(" + (window.scrollY * 0.15) + "px)";
+heroBg.style.transform = "translateY(" + (window.scrollY * 0.3) + "px)";
 }
 });
 
@@ -5077,9 +5106,9 @@ setTimeout(()=>{
 modal.classList.remove("closing");
 modal.style.display = "none";
 document.body.classList.remove("modal-open");
+document.body.style.width = "";
 document.body.style.position = "";
 document.body.style.top = "";
-document.body.style.width = "";
 window.scrollTo({ top: scrollY, behavior: "instant" });
 }, 350);
 
@@ -5169,16 +5198,13 @@ if(e.key === "Escape" || e.key === "Esc") closeModal();
 
 }); // closes DOMContentLoaded
 </script>
-
 <script>
-
 /* CUSTOM CURSOR */
 let cursorStarted = false;
 
 document.addEventListener("mousemove", function initCursor(e){
 if(cursorStarted) return;
 cursorStarted = true;
-
 document.removeEventListener("mousemove", initCursor);
 
 const cursor = document.getElementById("customCursor");
@@ -5207,46 +5233,14 @@ requestAnimationFrame(animateCursor);
 }
 animateCursor();
 
-const hoverables = document.querySelectorAll(
+document.querySelectorAll(
 "a, button, .gear-card, .contact-card, .masonry-gallery img, .follow-btn, .back-to-top"
-);
-hoverables.forEach(el => {
+).forEach(el => {
 el.addEventListener("mouseenter",()=> document.body.classList.add("cursor-hover"));
 el.addEventListener("mouseleave",()=> document.body.classList.remove("cursor-hover"));
 });
-
 });
 
-const cursor = document.getElementById("customCursor");
-const cursorDot = document.getElementById("customCursorDot");
-let mouseX = 0, mouseY = 0;
-let cursorX = 0, cursorY = 0;
-
-document.addEventListener("mousemove",(e)=>{
-mouseX = e.clientX;
-mouseY = e.clientY;
-cursorDot.style.left = mouseX + "px";
-cursorDot.style.top = mouseY + "px";
-});
-
-function animateCursor(){
-cursorX += (mouseX - cursorX) * 0.12;
-cursorY += (mouseY - cursorY) * 0.12;
-cursor.style.left = cursorX + "px";
-cursor.style.top = cursorY + "px";
-requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-const hoverables = document.querySelectorAll(
-"a, button, .gear-card, .contact-card, .masonry-gallery img, .follow-btn, .back-to-top, .insta-follow-btn"
-);
-hoverables.forEach(el => {
-el.addEventListener("mouseenter",()=> document.body.classList.add("cursor-hover"));
-el.addEventListener("mouseleave",()=> document.body.classList.remove("cursor-hover"));
-});
-}
-  
 /* IMAGE COUNT BADGES */
 const categories = document.querySelectorAll(".gallery-category");
 categories.forEach(cat=>{
@@ -5259,8 +5253,7 @@ badge.innerText = count + " photos";
 cat.appendChild(badge);
 }
 });
-
-</script>  
+</script>
 <script>
 const instagramWidget = document.getElementById("instagramWidget");
 

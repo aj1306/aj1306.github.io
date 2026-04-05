@@ -475,6 +475,17 @@ filter:drop-shadow(0 0 6px #ff2a2a);
 
 /* HERO */
 
+@media(max-width:768px){
+.hero-bg-img{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+transform:none !important;
+}
+}
+  
 .hero{
 min-height:100vh;
 display:flex;
@@ -1478,28 +1489,40 @@ margin-bottom:20px;
 border-radius:6px;
 break-inside:avoid;
 opacity:1;
-filter:blur(8px);
-transform:scale(1.03);
 will-change:filter, transform;
+box-sizing:border-box;
+}
+
+.masonry-gallery:hover img{
+opacity:0.4;
+transition:opacity 0.4s ease, filter 0.4s ease;
+filter:brightness(0.6);
+}
+
+.masonry-gallery img:hover{
+opacity:1 !important;
+filter:brightness(1) !important;
+box-shadow:0 0 0 3px #ff2a2a, 0 12px 35px rgba(0,0,0,0.7);
 }
 
 .masonry-gallery img.sharp{
 filter:blur(0);
 transform:scale(1);
-transition:filter 0.8s ease, transform 0.8s ease;
+transition:filter 0.8s ease, transform 0.8s ease, opacity 0.4s ease, box-shadow 0.3s ease;
 }
 
 .masonry-gallery:hover img.sharp{
+opacity:0.4;
 filter:brightness(0.5);
-transform:scale(1);
+transition:opacity 0.4s ease, filter 0.4s ease;
 }
 
 .masonry-gallery img.sharp:hover{
+opacity:1 !important;
 filter:brightness(1) !important;
 transform:scale(1.01) !important;
-box-shadow:
-0 0 0 3px #ff2a2a,
-0 12px 35px rgba(0,0,0,0.7);
+box-shadow:0 0 0 3px #ff2a2a, 0 12px 35px rgba(0,0,0,0.7);
+transition:opacity 0.4s ease, filter 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
 }
 
 .photo-modal{
@@ -4850,7 +4873,8 @@ filmstripTrack.appendChild(thumb);
 /* LAZY LOAD */
 
 galleryImages.forEach(function(img){
-img.classList.add("loaded");
+img.style.filter = "blur(8px)";
+img.style.transform = "scale(1.03)";
 });
 
 const imageObserver = new IntersectionObserver(function(entries, observer){
@@ -4863,13 +4887,19 @@ observer.unobserve(img);
 const loader = new Image();
 loader.src = img.dataset.full;
 loader.onload = function(){
-img.style.transition = "none";
+img.style.opacity = "0";
 img.src = loader.src;
-img.getBoundingClientRect();
-img.style.transition = "filter 0.8s ease, transform 0.8s ease";
+requestAnimationFrame(function(){
+requestAnimationFrame(function(){
+img.style.transition = "opacity 0.1s ease, filter 0.8s ease, transform 0.8s ease";
+img.style.opacity = "1";
+img.style.filter = "blur(0)";
+img.style.transform = "scale(1)";
 img.classList.add("sharp");
-};
 });
+});
+};
+}); 
 }, {threshold:0, rootMargin:"400px"});
 
 galleryImages.forEach(function(img){

@@ -1488,41 +1488,9 @@ height:auto;
 margin-bottom:20px;
 border-radius:6px;
 break-inside:avoid;
-opacity:1;
-will-change:filter, transform;
+will-change:filter, transform, opacity;
 box-sizing:border-box;
-}
-
-.masonry-gallery:hover img{
-opacity:0.4;
-transition:opacity 0.4s ease, filter 0.4s ease;
-filter:brightness(0.6);
-}
-
-.masonry-gallery img:hover{
-opacity:1 !important;
-filter:brightness(1) !important;
-box-shadow:0 0 0 3px #ff2a2a, 0 12px 35px rgba(0,0,0,0.7);
-}
-
-.masonry-gallery img.sharp{
-filter:blur(0);
-transform:scale(1);
-transition:filter 0.8s ease, transform 0.8s ease, opacity 0.4s ease, box-shadow 0.3s ease;
-}
-
-.masonry-gallery:hover img.sharp{
-opacity:0.4;
-filter:brightness(0.5);
-transition:opacity 0.4s ease, filter 0.4s ease;
-}
-
-.masonry-gallery img.sharp:hover{
-opacity:1 !important;
-filter:brightness(1) !important;
-transform:scale(1.01) !important;
-box-shadow:0 0 0 3px #ff2a2a, 0 12px 35px rgba(0,0,0,0.7);
-transition:opacity 0.4s ease, filter 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease !important;
+transition:filter 0.4s ease, opacity 0.4s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .photo-modal{
@@ -4887,19 +4855,15 @@ observer.unobserve(img);
 const loader = new Image();
 loader.src = img.dataset.full;
 loader.onload = function(){
-img.style.opacity = "0";
 img.src = loader.src;
+img.style.transition = "filter 0.9s ease, transform 0.9s ease";
 requestAnimationFrame(function(){
-requestAnimationFrame(function(){
-img.style.transition = "opacity 0.1s ease, filter 0.8s ease, transform 0.8s ease";
-img.style.opacity = "1";
 img.style.filter = "blur(0)";
 img.style.transform = "scale(1)";
 img.classList.add("sharp");
 });
-});
 };
-}); 
+});
 }, {threshold:0, rootMargin:"400px"});
 
 galleryImages.forEach(function(img){
@@ -5292,15 +5256,48 @@ if(!heroBg) return;
 let ticking = false;
 window.addEventListener("scroll", function(){
 if(!ticking){
+ticking = true;
 requestAnimationFrame(function(){
-const scrolled = window.scrollY;
-heroBg.style.transform = "translateY(" + (scrolled * 0.4) + "px)";
+heroBg.style.transform = "translateY(" + (window.scrollY * 0.4) + "px)";
 ticking = false;
 });
-ticking = true;
 }
 });
 })();
+</script>
+
+<script>
+document.querySelectorAll(".masonry-gallery").forEach(function(gallery){
+gallery.addEventListener("mouseenter", function(){
+gallery.querySelectorAll("img.sharp").forEach(function(img){
+img.style.opacity = "0.35";
+img.style.filter = "brightness(0.5)";
+});
+});
+gallery.addEventListener("mouseleave", function(){
+gallery.querySelectorAll("img.sharp").forEach(function(img){
+img.style.opacity = "1";
+img.style.filter = "blur(0) brightness(1)";
+});
+});
+gallery.querySelectorAll("img").forEach(function(img){
+img.addEventListener("mouseenter", function(){
+gallery.querySelectorAll("img.sharp").forEach(function(other){
+if(other !== img){
+other.style.opacity = "0.35";
+other.style.filter = "brightness(0.5)";
+}else{
+other.style.opacity = "1";
+other.style.filter = "blur(0) brightness(1)";
+other.style.boxShadow = "0 0 0 3px #ff2a2a, 0 12px 35px rgba(0,0,0,0.7)";
+}
+});
+});
+img.addEventListener("mouseleave", function(){
+img.style.boxShadow = "";
+});
+});
+});
 </script>
     
 </body>

@@ -1488,25 +1488,21 @@ break-inside:avoid;
 opacity:1;
 filter:blur(8px);
 transform:scale(1.03);
-transition:filter 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
 will-change:filter, transform;
 }
 
-.masonry-gallery img.loaded{
-opacity:1;
+.masonry-gallery img.sharp{
+filter:blur(0);
+transform:scale(1);
+transition:filter 0.8s ease, transform 0.8s ease;
 }
 
-.masonry-gallery img.loaded.sharp{
-filter:blur(0) !important;
-transform:scale(1) !important;
+.masonry-gallery:hover img.sharp{
+filter:brightness(0.5);
+transform:scale(1);
 }
 
-.masonry-gallery:hover img.loaded.sharp{
-filter:brightness(0.5) !important;
-transform:scale(1) !important;
-}
-
-.masonry-gallery img.loaded.sharp:hover{
+.masonry-gallery img.sharp:hover{
 filter:brightness(1) !important;
 transform:scale(1.01) !important;
 box-shadow:
@@ -4791,16 +4787,7 @@ window.addEventListener("scroll", reveal);
 window.addEventListener("load", reveal);
 
 </script>
-  
-<script>
-window.addEventListener("scroll", function(){
-const heroBg = document.getElementById("heroBgImg");
-if(heroBg){
-heroBg.style.transform = "translateY(" + (window.scrollY * 0.25) + "px)";
-}
-});
-</script>
-  
+    
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
@@ -4878,26 +4865,25 @@ img.classList.add("loaded");
 
 const imageObserver = new IntersectionObserver((entries, observer) => {
 entries.forEach(entry => {
-if(entry.isIntersecting){
+if(!entry.isIntersecting) return;
 const img = entry.target;
-const full = img.dataset.full;
+if(img.dataset.fullLoaded) return;
+img.dataset.fullLoaded = "true";
 observer.unobserve(img);
 
-img.classList.remove("sharp");
-
-const temp = new Image();
-temp.src = full;
-temp.onload = () => {
-requestAnimationFrame(() => {
-img.src = full;
-requestAnimationFrame(() => {
+const loader = new Image();
+loader.src = img.dataset.full;
+loader.onload = function(){
+const newSrc = loader.src;
+img.style.transition = "none";
+img.src = newSrc;
+img.getBoundingClientRect();
+img.style.transition = "filter 0.8s ease, transform 0.8s ease";
 img.classList.add("sharp");
-});
-});
 };
 }
 });
-}, {threshold:0.05, rootMargin:"300px"});
+}, {threshold:0, rootMargin:"400px"});
 
 galleryImages.forEach(img => {
 imageObserver.observe(img);
@@ -5280,6 +5266,23 @@ link.classList.add('active-link');
 
 window.addEventListener('scroll', updateActiveMenuLink);
 updateActiveMenuLink();
+</script>
+
+<script>
+(function(){
+const heroBg = document.getElementById("heroBgImg");
+if(!heroBg) return;
+let ticking = false;
+window.addEventListener("scroll", function(){
+if(!ticking){
+requestAnimationFrame(function(){
+heroBg.style.transform = "translateY(" + (window.scrollY * 0.25) + "px)";
+ticking = false;
+});
+ticking = true;
+}
+});
+})();
 </script>
     
 </body>

@@ -484,25 +484,17 @@ align-items:center;
 text-align:center;
 position:relative;
 padding-top:120px;
+clip-path:inset(0);
 }
 
-.hero-bg-clip{
-position:absolute;
+.hero-bg-img{
+position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-overflow:hidden;
-z-index:0;
-}
-
-.hero-bg-img{
-position:absolute;
-top:-25%;
-left:0;
-width:100%;
-height:150%;
 background:url("hero.jpg") center center / cover no-repeat;
+z-index:0;
 will-change:transform;
 }
 
@@ -2770,9 +2762,7 @@ AJ LENS
 <!-- HERO -->
 
 <section class="hero fade-section">
-<div class="hero-bg-clip">
 <div class="hero-bg-img" id="heroBgImg"></div>
-</div>
 <div class="hero-overlay"></div>
 <div class="particles"></div>
 
@@ -4859,33 +4849,30 @@ filmstripTrack.appendChild(thumb);
 
 /* LAZY LOAD */
 
-galleryImages.forEach(img => {
+galleryImages.forEach(function(img){
 img.classList.add("loaded");
 });
 
-const imageObserver = new IntersectionObserver((entries, observer) => {
-entries.forEach(entry => {
+const imageObserver = new IntersectionObserver(function(entries, observer){
+entries.forEach(function(entry){
 if(!entry.isIntersecting) return;
 const img = entry.target;
 if(img.dataset.fullLoaded) return;
 img.dataset.fullLoaded = "true";
 observer.unobserve(img);
-
 const loader = new Image();
 loader.src = img.dataset.full;
 loader.onload = function(){
-const newSrc = loader.src;
 img.style.transition = "none";
-img.src = newSrc;
+img.src = loader.src;
 img.getBoundingClientRect();
 img.style.transition = "filter 0.8s ease, transform 0.8s ease";
 img.classList.add("sharp");
 };
-}
 });
 }, {threshold:0, rootMargin:"400px"});
 
-galleryImages.forEach(img => {
+galleryImages.forEach(function(img){
 imageObserver.observe(img);
 });
 
@@ -5276,7 +5263,8 @@ let ticking = false;
 window.addEventListener("scroll", function(){
 if(!ticking){
 requestAnimationFrame(function(){
-heroBg.style.transform = "translateY(" + (window.scrollY * 0.25) + "px)";
+const scrolled = window.scrollY;
+heroBg.style.transform = "translateY(" + (scrolled * 0.4) + "px)";
 ticking = false;
 });
 ticking = true;

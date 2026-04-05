@@ -5043,18 +5043,22 @@ if(e.key === "Escape" || e.key === "Esc") closeModal();
 </script>
   
 <script>
+<script>
 (function(){
-
 let started = false;
+let touchDetected = false;
+
+document.addEventListener("touchstart", function(){
+touchDetected = true;
+}, {once: true});
 
 function startCursor(e){
-if(started) return;
+if(started || touchDetected) return;
 started = true;
 document.removeEventListener("mousemove", startCursor);
 
 const cursor = document.getElementById("customCursor");
 const cursorDot = document.getElementById("customCursorDot");
-
 if(!cursor || !cursorDot) return;
 
 cursor.style.display = "block";
@@ -5099,9 +5103,10 @@ document.body.classList.remove("cursor-hover");
 }
 
 document.addEventListener("mousemove", startCursor);
-
 })();
-
+</script>
+  
+<script>
 /* IMAGE COUNT BADGES */
 const categories = document.querySelectorAll(".gallery-category");
 categories.forEach(function(cat){
@@ -5259,27 +5264,6 @@ link.classList.add('active-link');
 window.addEventListener('scroll', updateActiveMenuLink);
 updateActiveMenuLink();
 </script>
-  
-<script>
-const heroBg = document.getElementById("heroBgImg");
-
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY;
-  heroBg.style.transform = `translateY(${scrollY * 0.4}px)`;
-});
-</script>
-
-<script>
-document.querySelectorAll("img").forEach(img => {
-  if (img.complete) {
-    img.classList.add("loaded");
-  } else {
-    img.addEventListener("load", () => {
-      img.classList.add("loaded");
-    });
-  }
-});
-</script>
-  
+    
 </body>
 </html>

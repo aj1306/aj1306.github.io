@@ -484,30 +484,43 @@ align-items:center;
 text-align:center;
 position:relative;
 padding-top:120px;
-clip-path:inset(0);
+overflow:hidden;
 }
 
 .hero-bg-img{
-position:fixed;
-top:0;
+position:absolute;
+top:-30%;
 left:0;
 width:100%;
-height:100%;
+height:160%;
 background:url("hero.jpg") center center / cover no-repeat;
 z-index:0;
 will-change:transform;
 }
 
 @media(max-width:768px){
+.hero{
+overflow:hidden;
+}
 .hero-bg-img{
-position:absolute !important;
-top:0 !important;
-left:0 !important;
-width:100% !important;
-height:100% !important;
-background-size:cover !important;
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
 transform:none !important;
-will-change:auto !important;
+animation:kenBurns 8s ease-out forwards;
+}
+}
+
+@keyframes kenBurns{
+0%{
+transform:scale(1) !important;
+transform-origin:center center;
+}
+100%{
+transform:scale(1.08) !important;
+transform-origin:center center;
 }
 }
 
@@ -4855,16 +4868,27 @@ const img = entry.target;
 if(img.dataset.fullLoaded) return;
 img.dataset.fullLoaded = "true";
 observer.unobserve(img);
+
 const loader = new Image();
 loader.src = img.dataset.full;
-loader.onload = function(){
+
+const applyFull = function(){
 img.src = loader.src;
+void img.offsetWidth;
 img.style.transition = "filter 1s ease, transform 1s ease";
 img.style.filter = "blur(0px)";
 img.style.transform = "scale(1)";
 img.classList.add("sharp");
+setTimeout(function(){
 img.style.transition = "filter 0.5s ease, opacity 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease";
+}, 1000);
 };
+
+if(loader.decode){
+loader.decode().then(applyFull).catch(applyFull);
+}else{
+loader.onload = applyFull;
+}
 });
 },{threshold:0, rootMargin:"400px"});
 
@@ -5129,6 +5153,7 @@ instaObserver.unobserve(instagramWidget);
 
 instaObserver.observe(instagramWidget);
 </script>
+  
 <script>
 function toggleMenu(){
 const menu = document.getElementById("navMenu");
@@ -5253,6 +5278,7 @@ updateActiveMenuLink();
 
 <script>
 (function(){
+if(window.innerWidth <= 768) return;
 const heroBg = document.getElementById("heroBgImg");
 if(!heroBg) return;
 let ticking = false;
@@ -5260,7 +5286,7 @@ window.addEventListener("scroll", function(){
 if(!ticking){
 ticking = true;
 requestAnimationFrame(function(){
-heroBg.style.transform = "translateY(" + (window.scrollY * 0.4) + "px)";
+heroBg.style.transform = "translateY(" + (window.scrollY * 0.35) + "px)";
 ticking = false;
 });
 }

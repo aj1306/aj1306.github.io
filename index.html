@@ -5384,10 +5384,10 @@ calibrated = true;
 return;
 }
 
-const dx = (e.gamma - baseGamma) * 0.8;
-const dy = (e.beta - baseBeta) * 0.8;
-const clampedX = Math.max(-80, Math.min(80, dx));
-const clampedY = Math.max(-80, Math.min(80, dy));
+const dx = (e.gamma - baseGamma) * 10;
+const dy = (e.beta - baseBeta) * 10;
+const clampedX = Math.max(-100, Math.min(100, dx));
+const clampedY = Math.max(-100, Math.min(100, dy));
 
 heroBg.style.transition = "transform 0.2s ease-out";
 heroBg.style.transform = "translate(" + clampedX + "px, " + clampedY + "px)";

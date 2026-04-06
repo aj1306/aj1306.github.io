@@ -496,6 +496,17 @@ height:100%;
 background:url("hero.jpg") center center / cover no-repeat;
 z-index:0;
 will-change:transform;
+transform:translateY(var(--parallax-y, 0px)) translate(var(--gyro-x, 0px), var(--gyro-y, 0px));
+}
+
+@media(max-width:480px){
+.hero-bg-img{
+width:140% !important;
+height:140% !important;
+top:-20% !important;
+left:-20% !important;
+background-size:cover !important;
+}
 }
 
 .hero-overlay{
@@ -5283,18 +5294,18 @@ updateActiveMenuLink();
 const heroBg = document.getElementById("heroBgImg");
 if(!heroBg) return;
 
-function isMobileDevice(){
-return window.innerWidth <= 480;
-}
+function isMobile(){ return window.innerWidth <= 480; }
 
 let ticking = false;
-
 window.addEventListener("scroll", function(){
-if(isMobileDevice()) return;
+if(isMobile()){
+heroBg.style.setProperty("--parallax-y", "0px");
+return;
+}
 if(!ticking){
 ticking = true;
 requestAnimationFrame(function(){
-heroBg.style.transform = "translateY(" + (window.scrollY * 0.4) + "px)";
+heroBg.style.setProperty("--parallax-y", (window.scrollY * 0.4) + "px");
 ticking = false;
 });
 }

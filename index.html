@@ -1725,6 +1725,7 @@ display:flex;
 
 body.modal-open{
 overflow:hidden;
+height:100%;
 }
 
 .photo-modal-content{
@@ -4918,10 +4919,6 @@ const rect = img.getBoundingClientRect();
 const content = document.querySelector(".photo-modal-content");
 
 scrollY = window.scrollY;
-
-document.body.style.top = `-${scrollY}px`;
-document.body.style.position = "fixed";
-document.body.style.width = "100%";
 document.body.classList.add("modal-open");
 
 modal.classList.remove("closing");
@@ -4969,13 +4966,6 @@ setTimeout(function(){
 modal.classList.remove("closing");
 modal.style.display = "none";
 document.body.classList.remove("modal-open");
-
-const restoreY = scrollY;
-document.body.style.position = "";
-document.body.style.top = "";
-document.body.style.width = "";
-
-window.scrollTo({ top: restoreY, behavior: "instant" });
 }, 350);
 }
 
@@ -5290,11 +5280,17 @@ updateActiveMenuLink();
 
 <script>
 (function(){
-if(window.innerWidth <= 480) return;
 const heroBg = document.getElementById("heroBgImg");
 if(!heroBg) return;
+
+function isMobileDevice(){
+return window.innerWidth <= 480;
+}
+
 let ticking = false;
+
 window.addEventListener("scroll", function(){
+if(isMobileDevice()) return;
 if(!ticking){
 ticking = true;
 requestAnimationFrame(function(){
@@ -5384,8 +5380,8 @@ calibrated = true;
 return;
 }
 
-const dx = (e.gamma - baseGamma) * 10;
-const dy = (e.beta - baseBeta) * 10;
+const dx = (e.gamma - baseGamma) * 0.8;
+const dy = (e.beta - baseBeta) * 0.8;
 const clampedX = Math.max(-100, Math.min(100, dx));
 const clampedY = Math.max(-100, Math.min(100, dy));
 

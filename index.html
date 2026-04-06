@@ -501,11 +501,13 @@ transform:translateY(var(--parallax-y, 0px)) translate(var(--gyro-x, 0px), var(-
 
 @media(max-width:480px){
 .hero-bg-img{
+position:absolute !important;
 width:140% !important;
 height:140% !important;
 top:-20% !important;
 left:-20% !important;
 background-size:cover !important;
+transform:translate(var(--gyro-x, 0px), var(--gyro-y, 0px)) !important;
 }
 }
 
@@ -5298,10 +5300,7 @@ function isMobile(){ return window.innerWidth <= 480; }
 
 let ticking = false;
 window.addEventListener("scroll", function(){
-if(isMobile()){
-heroBg.style.setProperty("--parallax-y", "0px");
-return;
-}
+if(isMobile()) return;
 if(!ticking){
 ticking = true;
 requestAnimationFrame(function(){
@@ -5391,13 +5390,14 @@ calibrated = true;
 return;
 }
 
-const dx = (e.gamma - baseGamma) * 0.8;
-const dy = (e.beta - baseBeta) * 0.8;
-const clampedX = Math.max(-100, Math.min(100, dx));
-const clampedY = Math.max(-100, Math.min(100, dy));
+const dx = (e.gamma - baseGamma) * 1.4;
+const dy = (e.beta - baseBeta) * 1.4;
+const clampedX = Math.max(-110, Math.min(110, dx));
+const clampedY = Math.max(-110, Math.min(110, dy));
 
-heroBg.style.transition = "transform 0.2s ease-out";
-heroBg.style.transform = "translate(" + clampedX + "px, " + clampedY + "px)";
+heroBg.style.transition = "transform 0.15s ease-out";
+heroBg.style.setProperty("--gyro-x", clampedX + "px");
+heroBg.style.setProperty("--gyro-y", clampedY + "px");
 }
 
 function startGyro(){

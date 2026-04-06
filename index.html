@@ -618,6 +618,16 @@ color:#ff2a2a;
 margin-right:6px;
 }
 
+@media(max-width:480px){
+.hero-bg-img{
+width:140% !important;
+height:140% !important;
+top:-20% !important;
+left:-20% !important;
+background-size:cover !important;
+}
+}
+
 /* BUTTONS */
 
 .hero-buttons{
@@ -4940,36 +4950,33 @@ updateModal(img);
 /* CLOSE MODAL */
 
 function closeModal(){
-
 const content = document.querySelector(".photo-modal-content");
 const allThumbs = document.querySelectorAll(".masonry-gallery img");
 const img = allThumbs[currentIndex];
 
 if(img){
-
 const rect = img.getBoundingClientRect();
 const contentRect = content.getBoundingClientRect();
-
 const originX = rect.left + rect.width / 2 - contentRect.left;
 const originY = rect.top + rect.height / 2 - contentRect.top;
-
 content.style.transformOrigin = originX + "px " + originY + "px";
-
 }
 
 modal.classList.add("closing");
 modal.classList.remove("active");
 
-setTimeout(()=>{
+setTimeout(function(){
 modal.classList.remove("closing");
 modal.style.display = "none";
 document.body.classList.remove("modal-open");
-document.body.style.width = "";
+
+const restoreY = scrollY;
 document.body.style.position = "";
 document.body.style.top = "";
-window.scrollTo({ top: scrollY, behavior: "instant" });
-}, 350);
+document.body.style.width = "";
 
+window.scrollTo({ top: restoreY, behavior: "instant" });
+}, 350);
 }
 
 /* UPDATE MODAL */
@@ -5364,9 +5371,11 @@ const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 let calibrated = false;
 let baseGamma = 0;
 let baseBeta = 0;
+let gyroWorking = false;
 
 function handleOrientation(e){
 if(e.gamma === null || e.beta === null) return;
+gyroWorking = true;
 
 if(!calibrated){
 baseGamma = e.gamma;
@@ -5375,10 +5384,10 @@ calibrated = true;
 return;
 }
 
-const dx = (e.gamma - baseGamma) * 0.4;
-const dy = (e.beta - baseBeta) * 0.4;
-const clampedX = Math.max(-20, Math.min(20, dx));
-const clampedY = Math.max(-20, Math.min(20, dy));
+const dx = (e.gamma - baseGamma) * 0.8;
+const dy = (e.beta - baseBeta) * 0.8;
+const clampedX = Math.max(-80, Math.min(80, dx));
+const clampedY = Math.max(-80, Math.min(80, dy));
 
 heroBg.style.transition = "transform 0.2s ease-out";
 heroBg.style.transform = "translate(" + clampedX + "px, " + clampedY + "px)";
@@ -5389,6 +5398,19 @@ window.addEventListener("deviceorientation", handleOrientation);
 prompt.style.transition = "opacity 0.4s ease";
 prompt.style.opacity = "0";
 setTimeout(function(){ prompt.style.display = "none"; }, 400);
+
+setTimeout(function(){
+if(!gyroWorking){
+prompt.style.display = "block";
+prompt.style.opacity = "1";
+prompt.innerHTML = "<span>⚠️</span> Enable motion in browser settings";
+prompt.style.cursor = "default";
+setTimeout(function(){
+prompt.style.opacity = "0";
+setTimeout(function(){ prompt.style.display = "none"; }, 400);
+}, 4000);
+}
+}, 1500);
 }
 
 if(isIOS){
@@ -5417,7 +5439,7 @@ startGyro();
 }
 }
 })();
-</script> 
+</script>
     
 </body>
 </html>

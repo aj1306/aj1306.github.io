@@ -5283,6 +5283,7 @@ updateActiveMenuLink();
 
 <script>
 (function(){
+if(window.innerWidth <= 480) return;
 const heroBg = document.getElementById("heroBgImg");
 if(!heroBg) return;
 let ticking = false;
@@ -5355,37 +5356,37 @@ const heroBg = document.getElementById("heroBgImg");
 const prompt = document.getElementById("gyroPrompt");
 if(!heroBg || !prompt) return;
 
-const isMobile = window.innerWidth <= 768;
+const isMobile = window.innerWidth <= 480;
 if(!isMobile) return;
 
 const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-const isAndroid = /Android/.test(navigator.userAgent);
 
-let gyroEnabled = false;
-let baseX = 0;
-let baseY = 0;
 let calibrated = false;
+let baseGamma = 0;
+let baseBeta = 0;
 
-function applyGyro(x, y){
+function handleOrientation(e){
+if(e.gamma === null || e.beta === null) return;
+
 if(!calibrated){
-baseX = x;
-baseY = y;
+baseGamma = e.gamma;
+baseBeta = e.beta;
 calibrated = true;
+return;
 }
-const dx = (x - baseX) * 0.3;
-const dy = (y - baseY) * 0.3;
-const clampedX = Math.max(-18, Math.min(18, dx));
-const clampedY = Math.max(-18, Math.min(18, dy));
-heroBg.style.transition = "transform 0.3s ease-out";
+
+const dx = (e.gamma - baseGamma) * 0.4;
+const dy = (e.beta - baseBeta) * 0.4;
+const clampedX = Math.max(-20, Math.min(20, dx));
+const clampedY = Math.max(-20, Math.min(20, dy));
+
+heroBg.style.transition = "transform 0.2s ease-out";
 heroBg.style.transform = "translate(" + clampedX + "px, " + clampedY + "px)";
 }
 
 function startGyro(){
-window.addEventListener("deviceorientation", function(e){
-if(!gyroEnabled) return;
-applyGyro(e.gamma, e.beta);
-});
-gyroEnabled = true;
+window.addEventListener("deviceorientation", handleOrientation);
+prompt.style.transition = "opacity 0.4s ease";
 prompt.style.opacity = "0";
 setTimeout(function(){ prompt.style.display = "none"; }, 400);
 }
@@ -5409,14 +5410,14 @@ prompt.style.display = "none";
 startGyro();
 }
 });
-}else if(isAndroid){
+}else{
 if("DeviceOrientationEvent" in window){
 prompt.style.display = "none";
 startGyro();
 }
 }
 })();
-</script>  
+</script> 
     
 </body>
 </html>

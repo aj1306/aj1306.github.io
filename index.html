@@ -484,44 +484,18 @@ align-items:center;
 text-align:center;
 position:relative;
 padding-top:120px;
-overflow:hidden;
+clip-path:inset(0);
 }
 
 .hero-bg-img{
-position:absolute;
-top:-30%;
-left:0;
-width:100%;
-height:160%;
-background:url("hero.jpg") center center / cover no-repeat;
-z-index:0;
-will-change:transform;
-}
-
-@media(max-width:768px){
-.hero{
-overflow:hidden;
-}
-.hero-bg-img{
-position:absolute;
+position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-transform:none !important;
-animation:kenBurns 8s ease-out forwards;
-}
-}
-
-@keyframes kenBurns{
-0%{
-transform:scale(1) !important;
-transform-origin:center center;
-}
-100%{
-transform:scale(1.08) !important;
-transform-origin:center center;
-}
+background:url("hero.jpg") center center / cover no-repeat;
+z-index:0;
+will-change:transform;
 }
 
 .hero-overlay{
@@ -611,6 +585,37 @@ rgba(0,0,0,0.8),
 #000
 );
 pointer-events:none;
+}
+
+#gyroPrompt{
+display:none;
+position:absolute;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+z-index:10;
+background:rgba(0,0,0,0.55);
+border:1px solid rgba(255,42,42,0.5);
+backdrop-filter:blur(10px);
+padding:10px 20px;
+border-radius:30px;
+color:white;
+font-size:12px;
+letter-spacing:2px;
+cursor:pointer;
+white-space:nowrap;
+transition:all 0.3s ease;
+font-family:'Montserrat',sans-serif;
+}
+
+#gyroPrompt:hover{
+border-color:#ff2a2a;
+box-shadow:0 0 12px rgba(255,42,42,0.4);
+}
+
+#gyroPrompt span{
+color:#ff2a2a;
+margin-right:6px;
 }
 
 /* BUTTONS */
@@ -2787,7 +2792,7 @@ AJ LENS
 <p class="scroll-text">Press the arrow</p>
 <span></span>
 </a>
-
+<button id="gyroPrompt"><span>⚡</span> Enable Motion Effect</button>
 </section>
 <div class="section-divider"></div>
 
@@ -5278,7 +5283,6 @@ updateActiveMenuLink();
 
 <script>
 (function(){
-if(window.innerWidth <= 768) return;
 const heroBg = document.getElementById("heroBgImg");
 if(!heroBg) return;
 let ticking = false;
@@ -5286,7 +5290,7 @@ window.addEventListener("scroll", function(){
 if(!ticking){
 ticking = true;
 requestAnimationFrame(function(){
-heroBg.style.transform = "translateY(" + (window.scrollY * 0.35) + "px)";
+heroBg.style.transform = "translateY(" + (window.scrollY * 0.4) + "px)";
 ticking = false;
 });
 }
@@ -5344,6 +5348,75 @@ img.style.transform = "scale(1)";
 });
 });
 </script>
+
+<script>
+(function(){
+const heroBg = document.getElementById("heroBgImg");
+const prompt = document.getElementById("gyroPrompt");
+if(!heroBg || !prompt) return;
+
+const isMobile = window.innerWidth <= 768;
+if(!isMobile) return;
+
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+const isAndroid = /Android/.test(navigator.userAgent);
+
+let gyroEnabled = false;
+let baseX = 0;
+let baseY = 0;
+let calibrated = false;
+
+function applyGyro(x, y){
+if(!calibrated){
+baseX = x;
+baseY = y;
+calibrated = true;
+}
+const dx = (x - baseX) * 0.3;
+const dy = (y - baseY) * 0.3;
+const clampedX = Math.max(-18, Math.min(18, dx));
+const clampedY = Math.max(-18, Math.min(18, dy));
+heroBg.style.transition = "transform 0.3s ease-out";
+heroBg.style.transform = "translate(" + clampedX + "px, " + clampedY + "px)";
+}
+
+function startGyro(){
+window.addEventListener("deviceorientation", function(e){
+if(!gyroEnabled) return;
+applyGyro(e.gamma, e.beta);
+});
+gyroEnabled = true;
+prompt.style.opacity = "0";
+setTimeout(function(){ prompt.style.display = "none"; }, 400);
+}
+
+if(isIOS){
+prompt.style.display = "block";
+prompt.addEventListener("click", function(){
+if(typeof DeviceOrientationEvent !== "undefined" &&
+typeof DeviceOrientationEvent.requestPermission === "function"){
+DeviceOrientationEvent.requestPermission().then(function(state){
+if(state === "granted"){
+startGyro();
+}else{
+prompt.innerHTML = "<span>✕</span> Permission denied";
+setTimeout(function(){ prompt.style.display = "none"; }, 2000);
+}
+}).catch(function(){
+prompt.style.display = "none";
+});
+}else{
+startGyro();
+}
+});
+}else if(isAndroid){
+if("DeviceOrientationEvent" in window){
+prompt.style.display = "none";
+startGyro();
+}
+}
+})();
+</script>  
     
 </body>
 </html>

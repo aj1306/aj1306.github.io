@@ -47,7 +47,7 @@ I'm Asher, a South Indian student pursuing BCA from an insitute in North India
 ---
 
 ## 🤝 Connect With Me  
-- 📷 Instagram: https://instagram.com/aj_1306-._ 
+- 📷 Instagram: [https://instagram.com/aj_1306._?igsh=M296YzNxbW8yN3Iz
 - 💼 LinkedIn: https://linkedin.com/in/asher-john-mathew-bcagraduate
 - 💻 GitHub: https://github.com/aj1306  
 

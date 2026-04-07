@@ -986,6 +986,24 @@ transform:rotate(45deg) translateY(4px);
 box-shadow:0 0 10px #ff2a2a;
 }   
 
+@media(max-width:768px){
+.about-container{
+grid-template-columns:1fr;
+text-align:center;
+display:flex;
+flex-direction:column;
+}
+
+.about-image{
+order:2;
+margin-bottom:30px;
+}
+
+.about-text{
+order:1;
+}
+}
+
 /* GEAR SECTION */
 
 .gear-section{

@@ -799,8 +799,9 @@ max-width:1200px;
 margin:auto;
 display:grid;
 grid-template-columns:1.1fr 1fr;
+grid-template-rows:auto;
 gap:80px;
-align-items:center;
+align-items:start;
 }
 
 .about-image{
@@ -819,6 +820,25 @@ transition:transform 0.6s ease;
 transform:scale(1.05);
 }
 
+.about-text{
+max-width:520px;
+}
+
+.about-text{
+grid-column:2;
+grid-row:1;
+}
+
+.about-image{
+grid-column:1;
+grid-row:1 / 3;
+}
+
+.about-text-rest{
+grid-column:2;
+grid-row:2;
+}
+
 @media(max-width:768px){
 .about-container{
 grid-template-columns:1fr;
@@ -827,18 +847,22 @@ display:flex;
 flex-direction:column;
 }
 
-.about-image{
+.about-text{
 order:1;
-margin-bottom:30px;
 }
 
-.about-text{
+.about-image{
 order:2;
 }
+
+.about-text-rest{
+order:3;
 }
 
-.about-text{
-max-width:520px;
+.about-buttons{
+flex-direction:column;
+align-items:center;
+}
 }
 
 .about-text h2{
@@ -2864,31 +2888,28 @@ AJ LENS
 
 <section id="about" class="about-section fade-section">
 <div class="about-container">
-<div class="about-image reveal delay-1">
-<img src="pimages/about.png" alt="Photographer">
-</div>
 
 <div class="about-text">
 <h2 class="reveal delay-1">
 Meet The <span class="photographer-word">Photographer 📷</span>
 </h2>
 <div class="about-line reveal delay-3"></div>
+</div>
 
+<div class="about-image reveal delay-1">
+<img src="About.jpg" alt="Photographer">
+</div>
+
+<div class="about-text-rest">
 <h3 class="reveal delay-3">
-<span class="initial">A</span>sher 
+<span class="initial">A</span>sher
 <span class="initial">J</span>ohn Mathew
 </h3>
-
-<p class="reveal delay-3">
-Hey there and WELCOME to my portfolio! I'm Asher, the photographer behind all the photos you'll see below. I did my schooling in Bahrain and am currently in Ghaziabad pursuing my Bachelor's Degree in Computer Applications. I'm also a senior photographer at EWL, a cell in my college, and some of the photos displayed below were captured during the events that happened there. 
+<p class="reveal delay-3">Hey there and WELCOME to my portfolio! I'm Asher, the photographer behind all the photos you'll see below. I did my schooling in Bahrain and am currently in Ghaziabad pursuing my Bachelor's Degree in Computer Applications. I'm also a senior photographer at EWL, a cell in my college, and some of the photos displayed below were captured during the events that happened there. 
 </p>
-
-<p class="reveal delay-3">
-My dad first gave me his Canon 60D when I was in 7th grade, and since then I've been addicted to the sound of the shutter every time a photo is clicked. The only time a person smiles or poses without being asked is when a camera comes in front of them, and to be honest, when people just live in the moment, that gives me time to click the best shots. To sum up, I love clicking good moments and that I'll hopefully have time for this passion even after college. Anyway, you guys enjoy the gallery below. I'll take your leave and probably come back when I have a new photo to upload. Until then, BYEEEE!!
+<p class="reveal delay-3">My dad first gave me his Canon 60D when I was in 7th grade, and since then I've been addicted to the sound of the shutter every time a photo is clicked. The only time a person smiles or poses without being asked is when a camera comes in front of them, and to be honest, when people just live in the moment, that gives me time to click the best shots. To sum up, I love clicking good moments and that I'll hopefully have time for this passion even after college. Anyway, you guys enjoy the gallery below. I'll take your leave and probably come back when I have a new photo to upload. Until then, BYEEEE!!
 </p>
-  
-<p 
-class="signature">— AJ</p>  
+<p class="signature">— AJ</p>
 <div class="about-stats delay-3">
 
 <div class="stat">

@@ -1,34 +1,44 @@
 # 👋 Hey, I'm Asher John Mathew  
 
-![Typing SVG](https://readme-typing-svg.herokuapp.com/?color=FF2A2A&size=28&center=true&vCenter=true&width=600&lines=Photographer;Visual+Storyteller;AJ+Lens)
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com/?color=FF2A2A&size=28&center=true&vCenter=true&width=600&lines=Pursuing+BCA;Photographer;Web+Developer;Cybersecurity+Enthusiast">
+</p>
 
 ---
 
-## 📷 About Me  
+## 📷💻 About Me  
 Hey there and welcome to my space!  
-I'm Asher, the photographer behind **AJ Lens** — capturing real moments, raw emotions, and everything in between.  
+I'm Asher, a South Indian student pursuing BCA from an insitute in North India
 
-🎓 Pursuing **BCA** in Ghaziabad  
+🎓 Pursuing **BCA (Bachelor of Computer Applications)**  
+💻 Exploring **Web Development & UI Design**  
+🔐 Interested in **Cybersecurity & Ethical Hacking** 
 📸 Senior Photographer at **EWL**  
-🌍 Previously studied in Bahrain  
+🌍 Schooling completed in Bahrain  
 
-I don’t just take photos… I freeze time.
+
+---
+
+## 💻 Tech Stack  
+- 🌐 HTML, CSS, JavaScript  
+- 🎨 UI/UX Design   
+- ⚡ Responsive Web Design  
+- 🔐 Basics of AI, Cybersecurity & Ethical Hacking  
 
 ---
 
 ## 🎬 What I Do  
 - 📸 Event Photography  
 - 🎭 Portraits & Candid Shots  
-- 🎨 Cinematic Edits  
-- ⚡ Storytelling Through Visuals  
+- 💻 Portfolio & Website Development  
 
 ---
 
-## 🎒 Gear I’ve Used  
-- Canon EOS 60D  
-- Canon EOS 77D  
-- EF-S 18-55mm Lens  
-
+## 🔐 Currently Exploring  
+- Network Security Basics  
+- Web Vulnerabilities (XSS, SQLi)  
+- Ethical Hacking Fundamentals
+  
 ---
 
 ## 🌐 Portfolio  
@@ -41,12 +51,7 @@ I don’t just take photos… I freeze time.
 - 💼 LinkedIn: https://linkedin.com/in/yourprofile  
 - 💻 GitHub: https://github.com/aj1306  
 
----
-
-## ⚡ Fun Fact  
-The only time people smile naturally… is when a camera appears 📷  
 
 ---
 
 ![Profile Views](https://komarev.com/ghpvc/?username=aj1306&color=ff2a2a)
-
